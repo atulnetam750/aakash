@@ -5,15 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>आकाश सिंह ठाकुर | वरिष्ठ पत्रकार एवं प्रधान संपादक - नारायणपुर, बस्तर</title>
     <meta name="description" content="आकाश सिंह ठाकुर (Aakash Singh Thakur) - ETV Bharat, NDTV और आदर्श वाणी समाचार के माध्यम से नारायणपुर व अबूझमाड़ की ग्राउंड जीरो पत्रकारिता।">
-    
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="आकाश सिंह ठाकुर | वरिष्ठ पत्रकार एवं प्रधान संपादक - नारायणपुर, बस्तर">
+    <meta property="og:description" content="ETV Bharat, NDTV और आदर्श वाणी समाचार के माध्यम से नारायणपुर व अबूझमाड़ की ग्राउंड जीरो पत्रकारिता।">
+    <meta property="og:url" content="https://atulnetam750.github.io/aakash/">
+    <link rel="canonical" href="https://atulnetam750.github.io/aakash/">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Google Fonts: Noto Sans Devanagari & Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
@@ -27,11 +32,15 @@
             background: rgba(17, 24, 39, 0.75);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: border-color 0.25s ease, transform 0.25s ease;
+        }
+        .glass-card:hover {
+            border-color: rgba(255, 255, 255, 0.16);
         }
         .news-ticker {
             display: inline-block;
             white-space: nowrap;
-            animation: ticker 28s linear infinite;
+            animation: ticker 34s linear infinite;
         }
         .news-ticker:hover {
             animation-play-state: paused;
@@ -55,10 +64,11 @@
             </span>
             <div class="overflow-hidden w-full">
                 <div class="news-ticker font-medium">
-                    • अबूझमाड़ के कुतुल में 78 साल बाद फहरा तिरंगा — ग्राउंड जीरो कवरेज &nbsp;&nbsp;|&nbsp;&nbsp; 
-                    • स्वास्थ्य विभाग के ₹2.27 करोड़ के CSR फंड रिकॉर्ड में गड़बड़ी का खुलासा &nbsp;&nbsp;|&nbsp;&nbsp; 
-                    • मसपूर आश्रम की बदहाली पर खबर का बड़ा असर: कलेक्टर ने दिए तत्काल सुधार के निर्देश &nbsp;&nbsp;|&nbsp;&nbsp; 
-                    • बस्तर की अनूठी परंपरा 'भंगाराम बिदाई' और कच्चापाल जलप्रपात पर विशेष रिपोर्ट
+                    • ETV Bharat: लाल आतंक के सूर्यास्त और विकास के सूर्योदय का साक्षी बना नारायणपुर &nbsp;&nbsp;|&nbsp;&nbsp;
+                    • आदर्श वाणी समाचार: स्वास्थ्य विभाग के ₹2.27 करोड़ CSR फंड मामले में अधिकारी निलंबित व चेम्बर सील &nbsp;&nbsp;|&nbsp;&nbsp;
+                    • NDTV: माड़ बचाओ अभियान में अबूझमाड़ से हथियारों का डंप व नकदी बरामद &nbsp;&nbsp;|&nbsp;&nbsp;
+                    • ETV Bharat: बस्तर की अनूठी परंपरा 'भंगाराम बिदाई' और बस्तर पंडुम 2026 पर विशेष रिपोर्ट &nbsp;&nbsp;|&nbsp;&nbsp;
+                    • NDTV: कोड़नार पुलिस कैंप से बदलाव — 9 साल बाद घर लौटीं बेटियाँ
                 </div>
             </div>
         </div>
@@ -68,9 +78,7 @@
     <header class="sticky top-0 z-50 glass-card border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <a href="#" class="flex items-center gap-2.5">
-                <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-red-600 to-amber-600 flex items-center justify-center text-white font-bold text-lg shadow-lg">
-                    आ
-                </div>
+                <img src="./aakash-photo.jpg" alt="आकाश सिंह ठाकुर" class="w-9 h-9 rounded-lg object-cover object-top border border-amber-500/50 shadow-lg">
                 <div>
                     <span class="font-bold text-white text-base sm:text-lg block leading-none">आकाश सिंह ठाकुर</span>
                     <span class="text-[11px] text-amber-400 font-medium tracking-wide">पत्रकार • नारायणपुर, बस्तर</span>
@@ -80,11 +88,11 @@
             <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-300">
                 <a href="#about" class="hover:text-white transition">परिचय</a>
                 <a href="#experience" class="hover:text-white transition">मीडिया संस्थान</a>
-                <a href="#stories" class="hover:text-white transition">प्रमुख खबरें (Archive)</a>
+                <a href="#stories" class="hover:text-white transition">प्रमुख खबरें (20 रिपोर्ट्स)</a>
                 <a href="#contact" class="hover:text-white transition">संपर्क करें</a>
             </nav>
 
-            <a href="https://aadarshvanisamachar.com/" target="_blank" class="bg-red-600 hover:bg-red-700 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-lg transition shadow-md flex items-center gap-2">
+            <a href="https://aadarshvanisamachar.com/" target="_blank" rel="noopener noreferrer" class="bg-red-600 hover:bg-red-700 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-lg transition shadow-md flex items-center gap-2">
                 <i class="fa-solid fa-newspaper"></i> आदर्श वाणी न्यूज़
             </a>
         </div>
@@ -92,7 +100,6 @@
 
     <!-- Hero Section -->
     <section id="about" class="relative pt-12 pb-16 sm:pt-20 sm:pb-24 overflow-hidden">
-        <!-- Background Glow -->
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-red-600/15 blur-[120px] rounded-full pointer-events-none"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -111,29 +118,29 @@
                     </h1>
 
                     <p class="text-slate-300 text-base sm:text-lg leading-relaxed mb-7 max-w-2xl mx-auto lg:mx-0">
-                        बस्तर संभाग के दुर्गम अबूझमाड़ क्षेत्र से राष्ट्रीय और प्रादेशिक स्तर की पत्रकारिता। 
+                        बस्तर संभाग के दुर्गम अबूझमाड़ क्षेत्र से राष्ट्रीय और प्रादेशिक स्तर की पत्रकारिता।
                         <strong class="text-white">ETV Bharat</strong> एवं <strong class="text-white">NDTV</strong> के लिए संवेदनशील नक्सल ऑपरेशन कवरेज तथा <strong class="text-amber-400">आदर्श वाणी समाचार</strong> के प्रधान संपादक के रूप में जनसरोकार की बुलंद आवाज।
                     </p>
 
                     <!-- Media Tags -->
                     <div class="flex flex-wrap justify-center lg:justify-start gap-2.5 mb-8">
                         <span class="badge-etv text-white text-xs font-bold px-3.5 py-1.5 rounded-md shadow">ETV BHARAT संवाददाता</span>
-                        <span class="badge-ndtv text-white text-xs font-bold px-3.5 py-1.5 rounded-md shadow">NDTV बाईलाइन रिपोर्टर</span>
-                        <span class="badge-avs text-white text-xs font-bold px-3.5 py-1.5 rounded-md shadow">संपादक: आदर्श वाणी समाचार</span>
+                        <a href="https://mpcg.ndtv.in/authors/akash-singh-8692" target="_blank" rel="noopener noreferrer" class="badge-ndtv text-white text-xs font-bold px-3.5 py-1.5 rounded-md shadow hover:brightness-110 transition">NDTV बाईलाइन रिपोर्टर ↗</a>
+                        <a href="https://aadarshvanisamachar.com/" target="_blank" rel="noopener noreferrer" class="badge-avs text-white text-xs font-bold px-3.5 py-1.5 rounded-md shadow hover:brightness-110 transition">संपादक: आदर्श वाणी समाचार ↗</a>
                     </div>
 
                     <!-- CTA Buttons -->
                     <div class="flex flex-wrap justify-center lg:justify-start gap-4">
                         <a href="#stories" class="bg-white text-slate-900 hover:bg-slate-200 font-bold px-6 py-3 rounded-xl transition flex items-center gap-2 shadow-lg">
-                            <i class="fa-solid fa-layer-group text-red-600"></i> प्रमुख रिपोर्ट्स देखें
+                            <i class="fa-solid fa-layer-group text-red-600"></i> सभी प्रकाशित रिपोर्ट्स देखें
                         </a>
-                        <a href="https://wa.me/917587297572?text=नमस्ते%20आकाश%20जी,%20आपकी%20प्रोफ़ाइल%20देखी।" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6 py-3 rounded-xl transition flex items-center gap-2 shadow-lg">
+                        <a href="https://wa.me/917587297572?text=नमस्ते%20आकाश%20जी,%20आपकी%20प्रोफ़ाइल%20देखी।" target="_blank" rel="noopener noreferrer" class="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6 py-3 rounded-xl transition flex items-center gap-2 shadow-lg">
                             <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp पर जुड़ें
                         </a>
                     </div>
                 </div>
 
-                <!-- Right Press ID Card -->
+                <!-- Right Press ID Card with Real Photo -->
                 <div class="lg:col-span-5">
                     <div class="glass-card rounded-2xl p-6 sm:p-8 border border-slate-700/80 shadow-2xl relative overflow-hidden">
                         <div class="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg tracking-widest uppercase">
@@ -141,11 +148,8 @@
                         </div>
 
                         <div class="flex items-center gap-4 mb-6">
-                            <!-- Profile Avatar Placeholder (आप यहाँ अपनी असली फोटो का URL डाल सकते हैं) -->
-                            <div class="w-20 h-20 rounded-2xl bg-gradient-to-tr from-red-600 via-amber-500 to-slate-800 p-0.5 shrink-0">
-                                <div class="w-full h-full bg-slate-900 rounded-2xl flex items-center justify-center text-3xl font-extrabold text-white">
-                                    AST
-                                </div>
+                            <div class="w-24 h-24 rounded-2xl bg-gradient-to-tr from-red-600 via-amber-500 to-slate-800 p-0.5 shrink-0 overflow-hidden shadow-xl">
+                                <img src="./aakash-photo.jpg" alt="आकाश सिंह ठाकुर - वरिष्ठ पत्रकार एवं प्रधान संपादक" class="w-full h-full object-cover object-top rounded-[14px]">
                             </div>
                             <div>
                                 <h2 class="text-xl font-bold text-white">आकाश सिंह ठाकुर</h2>
@@ -155,25 +159,29 @@
                         </div>
 
                         <div class="space-y-3 text-sm border-t border-slate-800 pt-5">
-                            <div class="flex justify-between">
+                            <div class="flex justify-between gap-2">
                                 <span class="text-slate-400">कार्यक्षेत्र:</span>
-                                <span class="text-white font-medium">नारायणपुर एवं अबूझमाड़</span>
+                                <span class="text-white font-medium text-right">नारायणपुर एवं अबूझमाड़</span>
                             </div>
-                            <div class="flex justify-between">
+                            <div class="flex justify-between gap-2">
                                 <span class="text-slate-400">प्रमुख बीट:</span>
-                                <span class="text-white font-medium">नक्सल, क्राइम, प्रशासन, संस्कृति</span>
+                                <span class="text-white font-medium text-right">नक्सल, क्राइम, प्रशासन, संस्कृति</span>
                             </div>
-                            <div class="flex justify-between">
+                            <div class="flex justify-between gap-2">
                                 <span class="text-slate-400">न्यूज़ पोर्टल:</span>
-                                <a href="https://aadarshvanisamachar.com/" target="_blank" class="text-amber-400 hover:underline font-medium">aadarshvanisamachar.com</a>
+                                <a href="https://aadarshvanisamachar.com/" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:underline font-medium text-right">aadarshvanisamachar.com</a>
                             </div>
-                            <div class="flex justify-between">
+                            <div class="flex justify-between gap-2">
+                                <span class="text-slate-400">NDTV प्रोफ़ाइल:</span>
+                                <a href="https://mpcg.ndtv.in/authors/akash-singh-8692" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline font-medium text-right">NDTV Author Page ↗</a>
+                            </div>
+                            <div class="flex justify-between gap-2">
                                 <span class="text-slate-400">कॉलिंग नंबर:</span>
-                                <a href="tel:+917974861859" class="text-white hover:text-red-400 font-medium">+91 79748 61859</a>
+                                <a href="tel:+917974861859" class="text-white hover:text-red-400 font-medium text-right">+91 79748 61859</a>
                             </div>
-                            <div class="flex justify-between">
+                            <div class="flex justify-between gap-2">
                                 <span class="text-slate-400">ईमेल:</span>
-                                <a href="mailto:akashthakur929@gmail.com" class="text-white hover:text-red-400 font-medium">akashthakur929@gmail.com</a>
+                                <a href="mailto:akashthakur929@gmail.com" class="text-white hover:text-red-400 font-medium text-right break-all">akashthakur929@gmail.com</a>
                             </div>
                         </div>
 
@@ -195,187 +203,399 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Card 1: ETV Bharat -->
-                <div class="glass-card rounded-2xl p-6 hover:border-red-500/50 transition">
-                    <div class="w-12 h-12 rounded-xl badge-etv flex items-center justify-center text-white font-extrabold text-sm mb-4">
-                        ETV
+                <div class="glass-card rounded-2xl p-6 hover:border-red-500/50 transition flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl badge-etv flex items-center justify-center text-white font-extrabold text-sm mb-4">ETV</div>
+                        <h3 class="text-lg font-bold text-white">ETV Bharat (छत्तीसगढ़)</h3>
+                        <p class="text-xs text-red-400 font-semibold mb-3">संवाददाता / रिपोर्टर — नारायणपुर</p>
+                        <p class="text-sm text-slate-300 leading-relaxed mb-4">
+                            ईटीवी भारत के हिंदी और अंग्रेजी दोनों प्लेटफॉर्म्स के लिए अबूझमाड़ के दुर्गम गांवों से ग्राउंड रिपोर्टिंग, नक्सल मुठभेड़ों की कवरेज, बाढ़ आपदा, पुनर्वास और बस्तर की संस्कृति पर विशेष स्टोरीज।
+                        </p>
                     </div>
-                    <h3 class="text-lg font-bold text-white">ETV Bharat (छत्तीसगढ़)</h3>
-                    <p class="text-xs text-red-400 font-semibold mb-3">संवाददाता / रिपोर्टर — नारायणपुर</p>
-                    <p class="text-sm text-slate-300 leading-relaxed">
-                        ईटीवी भारत के हिंदी और अंग्रेजी दोनों प्लेटफॉर्म्स के लिए अबूझमाड़ के दुर्गम गांवों से ग्राउंड रिपोर्टिंग, नक्सल मुठभेड़ों की कवरेज, आदिवासी आश्रमों की समस्याएं और बस्तर की संस्कृति पर एक्सप्लेनर स्टोरीज।
-                    </p>
+                    <a href="https://www.etvbharat.com/en/state/naxal-free-bastar-completes-100-days-know-how-much-bloody-history-of-abujhmad-and-kohkameta-changed-enn26071103843" target="_blank" rel="noopener noreferrer" class="text-xs text-red-400 hover:underline font-semibold">प्रमुख ETV रिपोर्ट पढ़ें ↗</a>
                 </div>
 
-                <!-- Card 2: Aadarsh Vani Samachar -->
-                <div class="glass-card rounded-2xl p-6 hover:border-amber-500/50 transition">
-                    <div class="w-12 h-12 rounded-xl badge-avs flex items-center justify-center text-white font-extrabold text-sm mb-4">
-                        AVS
+                <div class="glass-card rounded-2xl p-6 hover:border-amber-500/50 transition flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl badge-avs flex items-center justify-center text-white font-extrabold text-sm mb-4">AVS</div>
+                        <h3 class="text-lg font-bold text-white">आदर्श वाणी समाचार</h3>
+                        <p class="text-xs text-amber-400 font-semibold mb-3">संस्थापक एवं प्रधान संपादक (Editor-in-Chief)</p>
+                        <p class="text-sm text-slate-300 leading-relaxed mb-4">
+                            बस्तर संभाग के ग्रामीण अंचलों की खबरों को प्रमुखता देने के लिए डिजिटल न्यूज़ नेटवर्क का नेतृत्व। स्वास्थ्य विभाग ₹2.27 करोड़ CSR खुलासा, प्रशासनिक अनियमितताओं व स्थानीय खबरों का प्रकाशन।
+                        </p>
                     </div>
-                    <h3 class="text-lg font-bold text-white">आदर्श वाणी समाचार</h3>
-                    <p class="text-xs text-amber-400 font-semibold mb-3">संस्थापक एवं प्रधान संपादक (Editor-in-Chief)</p>
-                    <p class="text-sm text-slate-300 leading-relaxed">
-                        बस्तर संभाग के ग्रामीण अंचलों की खबरों को प्रमुखता देने के लिए डिजिटल न्यूज़ नेटवर्क का नेतृत्व। प्रशासनिक अनियमितताओं, विकास कार्यों और स्थानीय प्रतिभाओं की खबरों का संपादन एवं प्रकाशन।
-                    </p>
+                    <a href="https://aadarshvanisamachar.com/" target="_blank" rel="noopener noreferrer" class="text-xs text-amber-400 hover:underline font-semibold">aadarshvanisamachar.com देखें ↗</a>
                 </div>
 
-                <!-- Card 3: NDTV -->
-                <div class="glass-card rounded-2xl p-6 hover:border-blue-500/50 transition">
-                    <div class="w-12 h-12 rounded-xl badge-ndtv flex items-center justify-center text-white font-extrabold text-sm mb-4">
-                        NDTV
+                <div class="glass-card rounded-2xl p-6 hover:border-blue-500/50 transition flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl badge-ndtv flex items-center justify-center text-white font-extrabold text-sm mb-4">NDTV</div>
+                        <h3 class="text-lg font-bold text-white">NDTV (मध्य प्रदेश / छत्तीसगढ़)</h3>
+                        <p class="text-xs text-blue-400 font-semibold mb-3">नारायणपुर संवाददाता (बाईलाइन रिपोर्ट्स)</p>
+                        <p class="text-sm text-slate-300 leading-relaxed mb-4">
+                            राष्ट्रीय न्यूज़ नेटवर्क NDTV (mpcg.ndtv.in) के लिए 'माड़ बचाओ अभियान', नए सुरक्षा कैंप, अंडरग्राउंड हथियार फैक्ट्री भंडाफोड़ और कानून-व्यवस्था की सटीक रिपोर्टिंग।
+                        </p>
                     </div>
-                    <h3 class="text-lg font-bold text-white">NDTV (मध्य प्रदेश / छत्तीसगढ़)</h3>
-                    <p class="text-xs text-blue-400 font-semibold mb-3">नारायणपुर संवाददाता (बाईलाइन रिपोर्ट्स)</p>
-                    <p class="text-sm text-slate-300 leading-relaxed">
-                        राष्ट्रीय न्यूज़ नेटवर्क NDTV (`ndtv.in`) के लिए 'माड़ बचाओ अभियान', सुरक्षाबलों की बड़ी बरामदगी और नारायणपुर जिले की प्रमुख कानून-व्यवस्था से जुड़ी खबरों की सटीक रिपोर्टिंग।
-                    </p>
+                    <a href="https://mpcg.ndtv.in/authors/akash-singh-8692" target="_blank" rel="noopener noreferrer" class="text-xs text-blue-400 hover:underline font-semibold">NDTV Author Profile देखें ↗</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Featured News Archive with Filter -->
+    <!-- Published News Archive with Beat Filter, Outlet Filter & Search -->
     <section id="stories" class="py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-6 gap-4">
                 <div>
-                    <h2 class="text-2xl sm:text-3xl font-bold text-white">प्रमुख एवं चर्चित रिपोर्ट्स (News Archive)</h2>
-                    <p class="text-slate-400 text-sm mt-1">ग्राउंड जीरो से की गई चुनिंदा और असरदार खबरें</p>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white">प्रकाशित एवं चर्चित खबरें (Published Archive)</h2>
+                    <p class="text-slate-400 text-sm mt-1">ETV Bharat, NDTV और आदर्श वाणी समाचार पर प्रकाशित 20 वास्तविक रिपोर्ट्स — सीधे पढ़ने के लिए लिंक पर क्लिक करें</p>
                 </div>
 
-                <!-- Filter Buttons -->
-                <div class="flex flex-wrap gap-2" id="filter-buttons">
-                    <button onclick="filterNews('all', this)" class="filter-btn active bg-red-600 text-white text-xs font-semibold px-4 py-2 rounded-lg transition">सभी खबरें</button>
-                    <button onclick="filterNews('naxal', this)" class="filter-btn bg-slate-800 text-slate-300 hover:bg-slate-700 text-xs font-semibold px-4 py-2 rounded-lg transition">अबूझमाड़ व सुरक्षा</button>
-                    <button onclick="filterNews('public', this)" class="filter-btn bg-slate-800 text-slate-300 hover:bg-slate-700 text-xs font-semibold px-4 py-2 rounded-lg transition">जनहित व प्रशासन</button>
-                    <button onclick="filterNews('culture', this)" class="filter-btn bg-slate-800 text-slate-300 hover:bg-slate-700 text-xs font-semibold px-4 py-2 rounded-lg transition">संस्कृति व पर्यटन</button>
+                <div class="relative">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+                    <input id="story-search" type="search" placeholder="खबर खोजें (जैसे: CSR, भंगाराम, कोड़नार)..." class="w-full sm:w-72 bg-slate-900 border border-slate-700 rounded-lg pl-8 pr-3 py-2 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-red-500">
                 </div>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap gap-2 mb-8" id="filter-buttons">
+                <button onclick="filterNews('all', this)" class="filter-btn active bg-red-600 text-white text-xs font-semibold px-4 py-2 rounded-lg transition">सभी खबरें (20)</button>
+                <button onclick="filterNews('naxal', this)" class="filter-btn bg-slate-800 text-slate-300 hover:bg-slate-700 text-xs font-semibold px-4 py-2 rounded-lg transition">अबूझमाड़ व सुरक्षा</button>
+                <button onclick="filterNews('public', this)" class="filter-btn bg-slate-800 text-slate-300 hover:bg-slate-700 text-xs font-semibold px-4 py-2 rounded-lg transition">जनहित व प्रशासन</button>
+                <button onclick="filterNews('culture', this)" class="filter-btn bg-slate-800 text-slate-300 hover:bg-slate-700 text-xs font-semibold px-4 py-2 rounded-lg transition">संस्कृति व बस्तर</button>
+                <button onclick="filterNews('outlet:ETV Bharat', this)" class="filter-btn bg-slate-800 text-red-300 hover:bg-slate-700 text-xs font-semibold px-4 py-2 rounded-lg transition border border-red-500/30">ETV Bharat</button>
+                <button onclick="filterNews('outlet:NDTV', this)" class="filter-btn bg-slate-800 text-blue-300 hover:bg-slate-700 text-xs font-semibold px-4 py-2 rounded-lg transition border border-blue-500/30">NDTV</button>
+                <button onclick="filterNews('outlet:आदर्श वाणी समाचार', this)" class="filter-btn bg-slate-800 text-amber-300 hover:bg-slate-700 text-xs font-semibold px-4 py-2 rounded-lg transition border border-amber-500/30">आदर्श वाणी समाचार</button>
             </div>
 
             <!-- News Cards Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="news-grid">
-                
-                <!-- Story 1 -->
-                <article class="news-item glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="naxal">
+
+                <!-- 1. ETV Bharat Explainer -->
+                <article class="news-item glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="naxal" data-outlet="ETV Bharat">
                     <div>
                         <div class="flex items-center justify-between mb-3">
                             <span class="badge-etv text-white text-[11px] font-bold px-2.5 py-0.5 rounded">ETV Bharat</span>
-                            <span class="text-xs text-slate-400">अबूझमाड़ • सुरक्षा</span>
+                            <span class="text-xs text-slate-400">एक्सप्लेनर • अबूझमाड़</span>
                         </div>
-                        <h3 class="text-lg font-bold text-white mb-2 leading-snug">
-                            78 साल बाद अबूझमाड़ के कुतुल में लहराया तिरंगा, नक्सल गढ़ में लोकतंत्र की नई सुबह
-                        </h3>
-                        <p class="text-sm text-slate-300 leading-relaxed mb-4">
-                            दशकों तक नक्सल प्रभाव में रहे दुर्गम कुतुल गांव में पहली बार ग्रामीणों और सुरक्षाबलों के बीच ऐतिहासिक ध्वजारोहण की ग्राउंड जीरो रिपोर्ट।
-                        </p>
+                        <h3 class="text-lg font-bold text-white mb-2 leading-snug">लाल आतंक के सूर्यास्त और विकास के सूर्योदय का साक्षी बना नारायणपुर</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed mb-4">माओवाद के खात्मे के लिए चलाए गए चरणबद्ध अभियान और अबूझमाड़ में सड़क, शिक्षा व विकास कार्यों के जमीनी असर पर ईटीवी भारत की विशेष रिपोर्ट।</p>
                     </div>
                     <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400">
-                        <span><i class="fa-solid fa-pen-nib mr-1"></i> बाईलाइन: आकाश सिंह ठाकुर</span>
-                        <span>ग्राउंड रिपोर्ट</span>
+                        <span><i class="fa-solid fa-pen-nib mr-1"></i> आकाश सिंह ठाकुर</span>
+                        <a href="https://www.etvbharat.com/hi/state/new-year-wishes-2026-narayanpur-witnessed-the-sunset-of-the-red-terror-and-the-sunrise-of-development-chhattisgarh-news-cts26010100878" target="_blank" rel="noopener noreferrer" class="hover:underline font-semibold">रिपोर्ट पढ़ें ↗</a>
                     </div>
                 </article>
 
-                <!-- Story 2 -->
-                <article class="news-item glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="public">
+                <!-- 2. Aadarsh Vani Samachar CSR 2.27 Cr -->
+                <article class="news-item glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="public" data-outlet="आदर्श वाणी समाचार">
                     <div>
                         <div class="flex items-center justify-between mb-3">
-                            <span class="badge-etv text-white text-[11px] font-bold px-2.5 py-0.5 rounded">ETV Bharat (Impact)</span>
-                            <span class="text-xs text-slate-400">जनहित • शिक्षा</span>
+                            <span class="badge-avs text-white text-[11px] font-bold px-2.5 py-0.5 rounded">आदर्श वाणी समाचार</span>
+                            <span class="text-xs text-slate-400">इन्वेस्टिगेटिव • स्वास्थ्य</span>
                         </div>
-                        <h3 class="text-lg font-bold text-white mb-2 leading-snug">
-                            मसपूर आश्रम की टपकती छत और बच्चों की बदहाली पर खबर का बड़ा असर, कलेक्टर ने दिए सुधार के आदेश
-                        </h3>
-                        <p class="text-sm text-slate-300 leading-relaxed mb-4">
-                            आदिवासी आश्रम की जर्जर स्थिति को प्रमुखता से दिखाने के बाद जिला प्रशासन हरकत में आया और तत्काल मरम्मत व व्यवस्था सुधार के निर्देश जारी किए।
-                        </p>
+                        <h3 class="text-lg font-bold text-white mb-2 leading-snug">नारायणपुर स्वास्थ्य विभाग में ₹2.27 करोड़ का हिसाब गायब: CSR राशि रिकॉर्ड में अंतर पर अधिकारी निलंबित</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed mb-4">सरकारी दस्तावेजों में ₹2.27 करोड़ के सीएसआर फंड रिकॉर्ड में बड़ी वित्तीय गड़बड़ी का खुलासा, जिसके बाद सहायक सांख्यिकी अधिकारी को निलंबित किया गया।</p>
                     </div>
-                    <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-emerald-400">
-                        <span><i class="fa-solid fa-bolt mr-1"></i> इम्पैक्ट स्टोरी</span>
-                        <span>नारायणपुर</span>
+                    <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400">
+                        <span><i class="fa-solid fa-magnifying-glass mr-1"></i> एक्सक्लूसिव खुलासा</span>
+                        <a href="https://aadarshvanisamachar.com/2026/11/17/narayanpur-health-department-2-27-crore-financial-discrepancy-officer-suspended/" target="_blank" rel="noopener noreferrer" class="hover:underline font-semibold">रिपोर्ट पढ़ें ↗</a>
                     </div>
                 </article>
 
-                <!-- Story 3 -->
-                <article class="news-item glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="naxal">
+                <!-- 3. NDTV Maad Bachao -->
+                <article class="news-item glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="naxal" data-outlet="NDTV">
                     <div>
                         <div class="flex items-center justify-between mb-3">
                             <span class="badge-ndtv text-white text-[11px] font-bold px-2.5 py-0.5 rounded">NDTV</span>
                             <span class="text-xs text-slate-400">माड़ बचाओ अभियान</span>
                         </div>
-                        <h3 class="text-lg font-bold text-white mb-2 leading-snug">
-                            अबूझमाड़ के जंगलों में सुरक्षाबलों का बड़ा ऑपरेशन, भारी मात्रा में हथियार, विस्फोटक और कैश बरामद
-                        </h3>
-                        <p class="text-sm text-slate-300 leading-relaxed mb-4">
-                            माड़ बचाओ अभियान के तहत नेलांगुर और कुरुषनार क्षेत्र में चलाए गए सर्च ऑपरेशन की सटीक और विस्तृत रिपोर्टिंग।
-                        </p>
+                        <h3 class="text-lg font-bold text-white mb-2 leading-snug">अबूझमाड़ के जंगलों में 'माड़ बचाओ अभियान': नक्सलियों का बड़ा हथियार डंप, विस्फोटक और कैश बरामद</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed mb-4">नारायणपुर पुलिस और सुरक्षाबलों द्वारा अबूझमाड़ के अंदरूनी जंगलों से भारी मात्रा में हथियार, BGL सेल व नकदी बरामदगी की ग्राउंड रिपोर्ट।</p>
                     </div>
                     <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-blue-400">
-                        <span><i class="fa-solid fa-pen-nib mr-1"></i> बाईलाइन: आकाश सिंह ठाकुर</span>
-                        <span>राष्ट्रीय कवरेज</span>
+                        <span><i class="fa-solid fa-pen-nib mr-1"></i> बाईलाइन: आकाश सिंह</span>
+                        <a href="https://ndtv.in/chhattisgarh-news/narayanpur-police-naxal-cash-arms-seizure-maad-bachao-abhiyan-chhattisgarh-news-11484569" target="_blank" rel="noopener noreferrer" class="hover:underline font-semibold">रिपोर्ट पढ़ें ↗</a>
                     </div>
                 </article>
 
-                <!-- Story 4 -->
-                <article class="news-item glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="public">
+                <!-- 4. ETV Bharat 100 Days Abujhmad -->
+                <article class="news-item glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="naxal" data-outlet="ETV Bharat">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="badge-etv text-white text-[11px] font-bold px-2.5 py-0.5 rounded">ETV Bharat</span>
+                            <span class="text-xs text-slate-400">अबूझमाड़ • विकास</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2 leading-snug">100 Days Of Naxal-Free Abujhmad: कोहकामेटा और अबूझमाड़ में विकास की नई उम्मीद</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed mb-4">नक्सल प्रभाव से मुक्त होते अबूझमाड़ और कोहकामेटा क्षेत्र के 100 दिनों के बदलाव और नई योजनाओं पर आकाश सिंह ठाकुर की रिपोर्ट।</p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400">
+                        <span><i class="fa-solid fa-pen-nib mr-1"></i> Akash Singh Thakur</span>
+                        <a href="https://www.etvbharat.com/en/state/naxal-free-bastar-completes-100-days-know-how-much-bloody-history-of-abujhmad-and-kohkameta-changed-enn26071103843" target="_blank" rel="noopener noreferrer" class="hover:underline font-semibold">रिपोर्ट पढ़ें ↗</a>
+                    </div>
+                </article>
+
+                <!-- 5. ETV Bharat Bhangaram Bidai -->
+                <article class="news-item glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="culture" data-outlet="ETV Bharat">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="badge-etv text-white text-[11px] font-bold px-2.5 py-0.5 rounded">ETV Bharat</span>
+                            <span class="text-xs text-slate-400">लोक संस्कृति • आस्था</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2 leading-snug">भंगाराम बिदाई: ढोल-नगाड़ों और प्रार्थनाओं के साथ न्याय के देवता को नारायणपुर की अनूठी विदाई</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed mb-4">बस्तर और नारायणपुर की सदियों पुरानी आदिवासी न्याय परंपरा भंगाराम जात्रा व बिदाई अनुष्ठान पर ईटीवी भारत के लिए विशेष रिपोर्ट।</p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400">
+                        <span><i class="fa-solid fa-landmark mr-1"></i> Aakash Singh Thakur</span>
+                        <a href="https://www.etvbharat.com/en/offbeat/chhattisgarh-bhangaram-bidai-with-drumbeats-and-prayers-narayanpur-bids-farewell-to-the-god-of-justice-enn26090800961" target="_blank" rel="noopener noreferrer" class="hover:underline font-semibold">रिपोर्ट पढ़ें ↗</a>
+                    </div>
+                </article>
+
+                <!-- 6. NDTV Kodnar Camp -->
+                <article class="news-item glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="naxal" data-outlet="NDTV">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="badge-ndtv text-white text-[11px] font-bold px-2.5 py-0.5 rounded">NDTV</span>
+                            <span class="text-xs text-slate-400">बदलता अबूझमाड़</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2 leading-snug">कोड़नार पुलिस कैंप से बदलाव की नई सुबह: 9 साल बाद घर लौटीं बेटियाँ, अबूझमाड़ में सुरक्षा व विकास</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed mb-4">अबूझमाड़ के कोड़नार इलाके में सुरक्षा कैंप खुलने के बाद लौटती शांति, सड़क-एंबुलेंस सुविधा और ग्रामीणों के बदलते जीवन पर NDTV की रिपोर्ट।</p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-blue-400">
+                        <span><i class="fa-solid fa-pen-nib mr-1"></i> आकाश सिंह • NDTV MPCG</span>
+                        <a href="https://mpcg.ndtv.in/chhattisgarh-news/a-new-dawn-of-change-success-story-of-the-kodnar-police-camp-in-narayanpur-naxal-affected-abujhmad-region-after-9-years-daughters-returned-9892329" target="_blank" rel="noopener noreferrer" class="hover:underline font-semibold">रिपोर्ट पढ़ें ↗</a>
+                    </div>
+                </article>
+
+                <!-- 7. AVS Chamber Sealed -->
+                <article class="news-item glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="public" data-outlet="आदर्श वाणी समाचार">
                     <div>
                         <div class="flex items-center justify-between mb-3">
                             <span class="badge-avs text-white text-[11px] font-bold px-2.5 py-0.5 rounded">आदर्श वाणी समाचार</span>
-                            <span class="text-xs text-slate-400">इन्वेस्टिगेटिव • प्रशासन</span>
+                            <span class="text-xs text-slate-400">इम्पैक्ट फॉलोअप • प्रशासन</span>
                         </div>
-                        <h3 class="text-lg font-bold text-white mb-2 leading-snug">
-                            स्वास्थ्य विभाग के ₹2.27 करोड़ के CSR फंड रिकॉर्ड में गड़बड़ी का खुलासा
-                        </h3>
-                        <p class="text-sm text-slate-300 leading-relaxed mb-4">
-                            सरकारी दस्तावेजों के आधार पर स्वास्थ्य विभाग में सीएसआर मद की राशि के रिकॉर्ड में अनियमितता को उजागर करती विशेष रिपोर्ट।
-                        </p>
+                        <h3 class="text-lg font-bold text-white mb-2 leading-snug">₹2.27 करोड़ के वित्तीय अंतर मामले में एक्शन तेज: निलंबित अधिकारी का चेम्बर सील</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed mb-4">स्वास्थ्य विभाग में करोड़ों के सीएसआर फंड गड़बड़ी खुलासे के बाद प्रशासनिक कार्रवाई तेज, जांच समिति की निगरानी में चेम्बर सील।</p>
                     </div>
-                    <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400">
-                        <span><i class="fa-solid fa-magnifying-glass mr-1"></i> एक्सक्लूसिव खुलासे</span>
-                        <span>नारायणपुर</span>
+                    <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-emerald-400">
+                        <span><i class="fa-solid fa-bolt mr-1"></i> इम्पैक्ट फॉलोअप</span>
+                        <a href="https://aadarshvanisamachar.com/2026/11/19/narayanpur-health-department-2-27-crore-financial-discrepancy-chamber-sealed/" target="_blank" rel="noopener noreferrer" class="hover:underline font-semibold">रिपोर्ट पढ़ें ↗</a>
                     </div>
                 </article>
 
-                <!-- Story 5 -->
-                <article class="news-item glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="culture">
+                <!-- 8. ETV Bharat Brehbeda Flood -->
+                <article class="news-item glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="public" data-outlet="ETV Bharat">
                     <div>
                         <div class="flex items-center justify-between mb-3">
                             <span class="badge-etv text-white text-[11px] font-bold px-2.5 py-0.5 rounded">ETV Bharat</span>
-                            <span class="text-xs text-slate-400">लोक संस्कृति</span>
+                            <span class="text-xs text-slate-400">आपदा • अबूझमाड़</span>
                         </div>
-                        <h3 class="text-lg font-bold text-white mb-2 leading-snug">
-                            बस्तर की अनूठी न्याय परंपरा 'भंगाराम बिदाई' और ऐतिहासिक मावली मेला की विशेष झलक
-                        </h3>
-                        <p class="text-sm text-slate-300 leading-relaxed mb-4">
-                            आदिवासी आस्था, देवी-देवताओं की अदालती परंपरा भंगाराम जात्रा और बस्तर के लोक पर्वों को देश-दुनिया के सामने लाती सांस्कृतिक रिपोर्ट।
-                        </p>
+                        <h3 class="text-lg font-bold text-white mb-2 leading-snug">अबूझमाड़ के ब्रेहबेड़ा गांव में पहाड़ी नाले की बाढ़ से तबाही, दो बच्चियाँ तेज बहाव में बहीं</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed mb-4">भारी बारिश के बाद पहाड़ों से आए तेज सैलाब से नारायणपुर जिले के ब्रेहबेड़ा गांव में मची तबाही और राहत कार्यों की ग्राउंड रिपोर्ट।</p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400">
+                        <span><i class="fa-solid fa-pen-nib mr-1"></i> Akash Singh Thakur</span>
+                        <a href="https://www.etvbharat.com/en/state/narayanpur-heavy-rain-flood-from-mountains-devastated-brehbeda-village-of-abujhmad-enn26080105746" target="_blank" rel="noopener noreferrer" class="hover:underline font-semibold">रिपोर्ट पढ़ें ↗</a>
+                    </div>
+                </article>
+
+                <!-- 9. NDTV Bharanda Dispute -->
+                <article class="news-item glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="public" data-outlet="NDTV">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="badge-ndtv text-white text-[11px] font-bold px-2.5 py-0.5 rounded">NDTV</span>
+                            <span class="text-xs text-slate-400">सामाजिक • कानून-व्यवस्था</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2 leading-snug">भरण्डा गांव धर्मांतरण विवाद: 26 परिवारों के पलायन व पुलिस सुरक्षा पर ग्राउंड रिपोर्ट</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed mb-4">नारायणपुर जिले के भरण्डा गांव में उपजे तनाव, प्रभावित परिवारों की स्थिति और प्रशासन द्वारा शांति बहाली के प्रयासों पर रिपोर्ट।</p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-blue-400">
+                        <span><i class="fa-solid fa-pen-nib mr-1"></i> आकाश सिंह • NDTV</span>
+                        <a href="https://ndtv.in/madhya-pradesh-chhattisgarh/chhattisgarh-narayanpur-violence-religious-conversion-dispute-26-families-exiled-bharanda-village-tension-11677467" target="_blank" rel="noopener noreferrer" class="hover:underline font-semibold">रिपोर्ट पढ़ें ↗</a>
+                    </div>
+                </article>
+
+                <!-- 10. AVS Vineet Dubey Suspended -->
+                <article class="news-item glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="public" data-outlet="आदर्श वाणी समाचार">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="badge-avs text-white text-[11px] font-bold px-2.5 py-0.5 rounded">आदर्श वाणी समाचार</span>
+                            <span class="text-xs text-slate-400">क्राइम • पुलिस कार्रवाई</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2 leading-snug">फरार शोएब ढेबर से कथित सांठगांठ: नारायणपुर में पदस्थ पुलिस निरीक्षक विनीत दुबे सस्पेंड</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed mb-4">राजधानी क्राइम के तार अबूझमाड़ के द्वार तक जुड़ने के मामले में बस्तर IG के बड़े एक्शन पर आदर्श वाणी समाचार की प्रमुख खबर।</p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400">
+                        <span><i class="fa-solid fa-magnifying-glass mr-1"></i> क्राइम डेस्क • नारायणपुर</span>
+                        <a href="https://aadarshvanisamachar.com/2026/11/18/inspector-vineet-dubey-suspended-shoaib-dhebar-case/" target="_blank" rel="noopener noreferrer" class="hover:underline font-semibold">रिपोर्ट पढ़ें ↗</a>
+                    </div>
+                </article>
+
+                <!-- 11. NDTV Underground Arms Factory -->
+                <article class="news-item glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="naxal" data-outlet="NDTV">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="badge-ndtv text-white text-[11px] font-bold px-2.5 py-0.5 rounded">NDTV</span>
+                            <span class="text-xs text-slate-400">सुरक्षा • ऑपरेशन</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2 leading-snug">नारायणपुर के जंगल में नक्सलियों की अंडरग्राउंड हथियार फैक्ट्री का भंडाफोड़</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed mb-4">माओवादियों द्वारा जंगल के भीतर छिपाकर चलाई जा रही अवैध हथियार निर्माण यूनिट और बरामद उपकरणों पर NDTV MPCG की रिपोर्ट।</p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-blue-400">
+                        <span><i class="fa-solid fa-pen-nib mr-1"></i> आकाश सिंह • NDTV MPCG</span>
+                        <a href="https://mpcg.ndtv.in/chhattisgarh-news/naxalite-weapons-narayanpur-bastar-underground-arms-factory-10953641" target="_blank" rel="noopener noreferrer" class="hover:underline font-semibold">रिपोर्ट पढ़ें ↗</a>
+                    </div>
+                </article>
+
+                <!-- 12. ETV Bharat Joint Naxal Recovery -->
+                <article class="news-item glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="naxal" data-outlet="ETV Bharat">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="badge-etv text-white text-[11px] font-bold px-2.5 py-0.5 rounded">ETV Bharat</span>
+                            <span class="text-xs text-slate-400">संयुक्त रिपोर्ट • सुरक्षा</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2 leading-snug">नारायणपुर व कांकेर में नक्सलियों के हथियार, विस्फोटक व IED बरामद — संयुक्त रिपोर्ट</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed mb-4">छत्तीसगढ़ के नारायणपुर-कांकेर और झारखंड में चलाए गए बड़े नक्सल विरोधी अभियानों और बरामदगी पर ईटीवी भारत की रिपोर्ट।</p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400">
+                        <span><i class="fa-solid fa-pen-nib mr-1"></i> Akash Singh Thakur</span>
+                        <a href="https://www.etvbharat.com/en/state/naxal-leader-arrested-in-jharkhand-arms-explosives-ied-recovered-from-chhattisgarh-enn26071705094" target="_blank" rel="noopener noreferrer" class="hover:underline font-semibold">रिपोर्ट पढ़ें ↗</a>
+                    </div>
+                </article>
+
+                <!-- 13. NDTV Divalur Camp -->
+                <article class="news-item glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="naxal" data-outlet="NDTV">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="badge-ndtv text-white text-[11px] font-bold px-2.5 py-0.5 rounded">NDTV</span>
+                            <span class="text-xs text-slate-400">अबूझमाड़ • सुरक्षा</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2 leading-snug">अबूझमाड़ के दिवालुर में नया पुलिस कैंप: नक्सल गढ़ में सुरक्षा, सड़क और मोबाइल नेटवर्क का विस्तार</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed mb-4">दुर्गम दिवालुर क्षेत्र में नए सुरक्षा कैंप की स्थापना और उससे स्थानीय ग्रामीणों तक पहुँच रही बुनियादी सुविधाओं पर ग्राउंड रिपोर्ट।</p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-blue-400">
+                        <span><i class="fa-solid fa-pen-nib mr-1"></i> आकाश सिंह • NDTV</span>
+                        <a href="https://ndtv.in/madhya-pradesh-chhattisgarh/narayanpur-naya-police-camp-divalur-abuujhmad-naxal-affected-area-bastar-chhattisgarh-internal-security-development-end-naxalwad-maowad-11226386" target="_blank" rel="noopener noreferrer" class="hover:underline font-semibold">रिपोर्ट पढ़ें ↗</a>
+                    </div>
+                </article>
+
+                <!-- 14. ETV Bharat Bastar Pandum 2026 -->
+                <article class="news-item glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="culture" data-outlet="ETV Bharat">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="badge-etv text-white text-[11px] font-bold px-2.5 py-0.5 rounded">ETV Bharat</span>
+                            <span class="text-xs text-slate-400">बस्तर संस्कृति</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2 leading-snug">बस्तर पंडुम 2026: आदिवासी कला, परंपरा और आत्मनिर्भरता का भव्य संगम</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed mb-4">नारायणपुर व बस्तर की समृद्ध जनजातीय संस्कृति, पारंपरिक नृत्य, कला और स्व-सहायता समूहों की प्रदर्शनी पर विशेष रिपोर्ट।</p>
                     </div>
                     <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400">
                         <span><i class="fa-solid fa-landmark mr-1"></i> बस्तर विरासत</span>
-                        <span>विशेष फीचर</span>
+                        <a href="https://www.etvbharat.com/en/offbeat/bastar-pandum-festival-cm-vishnu-deo-sai-highlights-richness-of-tribal-heritage-and-culture-enn26013104426" target="_blank" rel="noopener noreferrer" class="hover:underline font-semibold">रिपोर्ट पढ़ें ↗</a>
                     </div>
                 </article>
 
-                <!-- Story 6 -->
-                <article class="news-item glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="culture">
+                <!-- 15. ETV Bharat Surrendered Naxalite Marriage -->
+                <article class="news-item glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="public" data-outlet="ETV Bharat">
                     <div>
                         <div class="flex items-center justify-between mb-3">
                             <span class="badge-etv text-white text-[11px] font-bold px-2.5 py-0.5 rounded">ETV Bharat</span>
-                            <span class="text-xs text-slate-400">पर्यटन • प्रकृति</span>
+                            <span class="text-xs text-slate-400">पुनर्वास • समाज</span>
                         </div>
-                        <h3 class="text-lg font-bold text-white mb-2 leading-snug">
-                            कच्चापाल और फरसबेड़ा जलप्रपात: अबूझमाड़ की वादियों में छिपे खूबसूरत पर्यटन स्थल
-                        </h3>
-                        <p class="text-sm text-slate-300 leading-relaxed mb-4">
-                            नारायणपुर के अनछुए जलप्रपातों और प्राकृतिक सौंदर्य को पर्यटन मानचित्र पर स्थापित करने के लिए की गई विशेष वीडियो व डिजिटल स्टोरी।
-                        </p>
+                        <h3 class="text-lg font-bold text-white mb-2 leading-snug">नारायणपुर में आत्मसमर्पित नक्सली जोड़ों का मुख्यमंत्री कन्या विवाह योजना के तहत सामूहिक विवाह</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed mb-4">हिंसा का रास्ता छोड़कर मुख्यधारा में लौटे जोड़ों के नए जीवन की शुरुआत और सरकारी पुनर्वास योजना पर संवेदनशील ग्राउंड स्टोरी।</p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-emerald-400">
+                        <span><i class="fa-solid fa-newspaper mr-1"></i> ETV Bharat • नारायणपुर</span>
+                        <a href="https://www.etvbharat.com/en/state/marriage-of-surrendered-naxalite-couples-under-mukhyamantri-kanya-vivah-yojana-in-narayanpur-enn26021007360" target="_blank" rel="noopener noreferrer" class="hover:underline font-semibold">रिपोर्ट पढ़ें ↗</a>
+                    </div>
+                </article>
+
+                <!-- 16. AVS Boys Hostel Theft -->
+                <article class="news-item glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="public" data-outlet="आदर्श वाणी समाचार">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="badge-avs text-white text-[11px] font-bold px-2.5 py-0.5 rounded">आदर्श वाणी समाचार</span>
+                            <span class="text-xs text-slate-400">शिक्षा • प्रशासन</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2 leading-snug">नारायणपुर के पोस्ट मैट्रिक बालक छात्रावास में चोरी: 11 से ज्यादा ताले टूटे, सुरक्षा पर सवाल</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed mb-4">छुट्टी के दौरान छात्रावास में हुई चोरी की घटना और छात्रों की सुरक्षा व्यवस्था की लापरवाही को उजागर करती स्थानीय रिपोर्ट।</p>
                     </div>
                     <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400">
-                        <span><i class="fa-solid fa-mountain-sun mr-1"></i> पर्यटन विशेष</span>
-                        <span>अबूझमाड़</span>
+                        <span><i class="fa-solid fa-magnifying-glass mr-1"></i> जनहित रिपोर्ट</span>
+                        <a href="https://aadarshvanisamachar.com/2026/11/11/narayanpur-post-matric-boys-hostel-theft-11-locks-broken/" target="_blank" rel="noopener noreferrer" class="hover:underline font-semibold">रिपोर्ट पढ़ें ↗</a>
+                    </div>
+                </article>
+
+                <!-- 17. AVS 26 Years CG & Abujhmad -->
+                <article class="news-item glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="culture" data-outlet="आदर्श वाणी समाचार">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="badge-avs text-white text-[11px] font-bold px-2.5 py-0.5 rounded">आदर्श वाणी समाचार</span>
+                            <span class="text-xs text-slate-400">विशेष फीचर • बस्तर</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2 leading-snug">26 साल का छत्तीसगढ़: विकास की नई इबारत लिखता बस्तर, बदलती तस्वीर के बीच अबूझमाड़ की नई पहचान</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed mb-4">छत्तीसगढ़ राज्य स्थापना दिवस पर नारायणपुर और अबूझमाड़ के बदलते परिदृश्य, संस्कृति और विकास यात्रा पर विशेष आलेख।</p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400">
+                        <span><i class="fa-solid fa-landmark mr-1"></i> संपादकीय विशेष</span>
+                        <a href="https://aadarshvanisamachar.com/2026/11/02/chhattisgarh-foundation-day-2026-changing-bastar-narayanpur-abujhmad/" target="_blank" rel="noopener noreferrer" class="hover:underline font-semibold">रिपोर्ट पढ़ें ↗</a>
+                    </div>
+                </article>
+
+                <!-- 18. AVS Amdai Mines Dispute -->
+                <article class="news-item glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="public" data-outlet="आदर्श वाणी समाचार">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="badge-avs text-white text-[11px] font-bold px-2.5 py-0.5 rounded">आदर्श वाणी समाचार</span>
+                            <span class="text-xs text-slate-400">रोजगार • जनहित</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2 leading-snug">आमदाई माइंस में परिवहन को लेकर विवाद: मुख्य गेट के नीचे धरने पर बैठे स्थानीय ट्रक चालक</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed mb-4">नारायणपुर परिवहन संघ और स्थानीय ट्रक चालकों द्वारा भेदभाव के आरोपों व रोजगार से जुड़ी मांगों की ग्राउंड कवरेज।</p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400">
+                        <span><i class="fa-solid fa-newspaper mr-1"></i> नारायणपुर डेस्क</span>
+                        <a href="https://aadarshvanisamachar.com/2026/10/30/amdai-mines-loading-dispute-narayanpur-transport-union/" target="_blank" rel="noopener noreferrer" class="hover:underline font-semibold">रिपोर्ट पढ़ें ↗</a>
+                    </div>
+                </article>
+
+                <!-- 19. AVS Nawa Khai Mahimagawadi -->
+                <article class="news-item glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="culture" data-outlet="आदर्श वाणी समाचार">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="badge-avs text-white text-[11px] font-bold px-2.5 py-0.5 rounded">आदर्श वाणी समाचार</span>
+                            <span class="text-xs text-slate-400">लोक संस्कृति</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2 leading-snug">महिमागवाड़ी में नवा खाई सगा जोहार की धूम: अंदकुरी गांडा समाज की सांस्कृतिक विरासत</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed mb-4">नए अन्न की पूजा-अर्चना, पारंपरिक मोहरी वादन और सामाजिक एकता को प्रदर्शित करते जिला स्तरीय समारोह की रिपोर्ट।</p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400">
+                        <span><i class="fa-solid fa-landmark mr-1"></i> बस्तर संस्कृति</span>
+                        <a href="https://aadarshvanisamachar.com/2026/10/29/narayanpur-andakuri-ganda-samaj-nawa-khai-saga-johar-ceremony/" target="_blank" rel="noopener noreferrer" class="hover:underline font-semibold">रिपोर्ट पढ़ें ↗</a>
+                    </div>
+                </article>
+
+                <!-- 20. AVS ITBP Veterinary Camp -->
+                <article class="news-item glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="public" data-outlet="आदर्श वाणी समाचार">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="badge-avs text-white text-[11px] font-bold px-2.5 py-0.5 rounded">आदर्श वाणी समाचार</span>
+                            <span class="text-xs text-slate-400">जनसरोकार • सुरक्षाबल</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2 leading-snug">नारायणपुर में ITBP की अनूठी पहल: 38 पशुओं का निःशुल्क उपचार व नशामुक्ति का संदेश</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed mb-4">अंदरूनी गांवों में सुरक्षाबलों और ग्रामीणों के बीच विश्वास सेतु बनाती ITBP की जनकल्याणकारी पहल की रिपोर्ट।</p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-emerald-400">
+                        <span><i class="fa-solid fa-newspaper mr-1"></i> आदर्श वाणी समाचार</span>
+                        <a href="https://aadarshvanisamachar.com/2026/10/29/itbp-narayanpur-free-veterinary-camp-38-animals/" target="_blank" rel="noopener noreferrer" class="hover:underline font-semibold">रिपोर्ट पढ़ें ↗</a>
                     </div>
                 </article>
 
             </div>
+
+            <p id="stories-empty-state" class="text-center text-sm text-slate-400 mt-8" hidden>
+                इस श्रेणी या खोज शब्द के लिए कोई रिपोर्ट नहीं मिली।
+            </p>
         </div>
     </section>
 
@@ -402,7 +622,7 @@
                                 </div>
                             </a>
 
-                            <a href="https://wa.me/917587297572" target="_blank" class="flex items-center gap-3.5 text-slate-200 hover:text-white transition">
+                            <a href="https://wa.me/917587297572" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3.5 text-slate-200 hover:text-white transition">
                                 <div class="w-10 h-10 rounded-xl bg-emerald-600/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
                                     <i class="fa-brands fa-whatsapp text-lg"></i>
                                 </div>
@@ -429,11 +649,11 @@
                         <h3 class="text-lg font-bold text-white mb-4">सीधे WhatsApp पर संदेश भेजें</h3>
                         <form onsubmit="sendWhatsApp(event)" class="space-y-4">
                             <div>
-                                <label class="text-xs text-slate-400 block mb-1">आपका नाम</label>
+                                <label for="senderName" class="text-xs text-slate-400 block mb-1">आपका नाम</label>
                                 <input type="text" id="senderName" required placeholder="अपना नाम लिखें" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-red-500">
                             </div>
                             <div>
-                                <label class="text-xs text-slate-400 block mb-1">विषय / संदेश</label>
+                                <label for="senderMsg" class="text-xs text-slate-400 block mb-1">विषय / संदेश</label>
                                 <textarea id="senderMsg" rows="3" required placeholder="अपना संदेश या खबर का विवरण लिखें..." class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-red-500"></textarea>
                             </div>
                             <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2">
@@ -456,32 +676,52 @@
 
     <!-- Interactive Script -->
     <script>
-        function filterNews(category, btn) {
-            // Update active button styling
+        let activeFilter = 'all';
+        let searchQuery = '';
+
+        function applyFilters() {
+            const items = document.querySelectorAll('.news-item');
+            let visible = 0;
+            items.forEach(item => {
+                let filterMatch = false;
+                if (activeFilter === 'all') {
+                    filterMatch = true;
+                } else if (activeFilter.startsWith('outlet:')) {
+                    filterMatch = item.getAttribute('data-outlet') === activeFilter.slice(7);
+                } else {
+                    filterMatch = item.getAttribute('data-category') === activeFilter;
+                }
+                const searchMatch = !searchQuery || (item.textContent || '').toLowerCase().includes(searchQuery);
+                const show = filterMatch && searchMatch;
+                item.style.display = show ? 'flex' : 'none';
+                if (show) visible += 1;
+            });
+            const emptyState = document.getElementById('stories-empty-state');
+            if (emptyState) emptyState.hidden = visible > 0;
+        }
+
+        function filterNews(filter, btn) {
+            activeFilter = filter;
             document.querySelectorAll('.filter-btn').forEach(b => {
                 b.classList.remove('bg-red-600', 'text-white');
-                b.classList.add('bg-slate-800', 'text-slate-300');
+                b.classList.add('bg-slate-800');
             });
-            btn.classList.remove('bg-slate-800', 'text-slate-300');
+            btn.classList.remove('bg-slate-800');
             btn.classList.add('bg-red-600', 'text-white');
-
-            // Filter cards
-            const items = document.querySelectorAll('.news-item');
-            items.forEach(item => {
-                if (category === 'all' || item.getAttribute('data-category') === category) {
-                    item.style.display = 'flex';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
+            applyFilters();
         }
+
+        document.getElementById('story-search').addEventListener('input', event => {
+            searchQuery = String(event.target.value || '').trim().toLowerCase();
+            applyFilters();
+        });
 
         function sendWhatsApp(e) {
             e.preventDefault();
             const name = document.getElementById('senderName').value;
             const msg = document.getElementById('senderMsg').value;
             const text = `नमस्ते आकाश सिंह ठाकुर जी,%0Aनाम: ${encodeURIComponent(name)}%0Aसंदेश: ${encodeURIComponent(msg)}`;
-            window.open(`https://wa.me/917587297572?text=${text}`, '_blank');
+            window.open(`https://wa.me/917587297572?text=${text}`, '_blank', 'noopener,noreferrer');
         }
     </script>
 </body>
