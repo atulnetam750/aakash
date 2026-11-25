@@ -5,11 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>आकाश सिंह ठाकुर | वरिष्ठ पत्रकार एवं प्रधान संपादक - नारायणपुर, बस्तर</title>
     <meta name="description" content="आकाश सिंह ठाकुर (Aakash Singh Thakur) - ETV Bharat, NDTV और आदर्श वाणी समाचार के माध्यम से नारायणपुर व अबूझमाड़ की ग्राउंड जीरो पत्रकारिता।">
-    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#0b0f19">
+
+    <!-- Favicon & App Icon -->
+    <link rel="icon" type="image/jpeg" href="./aakash-photo.jpg">
+    <link rel="apple-touch-icon" href="./aakash-photo.jpg">
+
+    <!-- Open Graph / WhatsApp / Facebook Rich Preview -->
+    <meta property="og:type" content="profile">
+    <meta property="og:site_name" content="आकाश सिंह ठाकुर • पत्रकारिता पोर्टफोलियो">
     <meta property="og:title" content="आकाश सिंह ठाकुर | वरिष्ठ पत्रकार एवं प्रधान संपादक - नारायणपुर, बस्तर">
     <meta property="og:description" content="ETV Bharat, NDTV और आदर्श वाणी समाचार के माध्यम से नारायणपुर व अबूझमाड़ की ग्राउंड जीरो पत्रकारिता।">
     <meta property="og:url" content="https://atulnetam750.github.io/aakash/">
+    <meta property="og:image" content="https://atulnetam750.github.io/aakash/aakash-photo.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:alt" content="आकाश सिंह ठाकुर - वरिष्ठ पत्रकार एवं प्रधान संपादक">
+    <meta property="og:locale" content="hi_IN">
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="आकाश सिंह ठाकुर | वरिष्ठ पत्रकार एवं प्रधान संपादक - नारायणपुर, बस्तर">
+    <meta name="twitter:description" content="ETV Bharat, NDTV और आदर्श वाणी समाचार के माध्यम से नारायणपुर व अबूझमाड़ की ग्राउंड जीरो पत्रकारिता।">
+    <meta name="twitter:image" content="https://atulnetam750.github.io/aakash/aakash-photo.jpg">
     <link rel="canonical" href="https://atulnetam750.github.io/aakash/">
+
+    <!-- Google SEO Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Aakash Singh Thakur",
+      "alternateName": "आकाश सिंह ठाकुर",
+      "jobTitle": "Senior Journalist & Editor-in-Chief",
+      "description": "ETV Bharat एवं NDTV के लिए नारायणपुर व अबूझमाड़ की ग्राउंड जीरो पत्रकारिता तथा आदर्श वाणी समाचार के प्रधान संपादक।",
+      "image": "https://atulnetam750.github.io/aakash/aakash-photo.jpg",
+      "url": "https://atulnetam750.github.io/aakash/",
+      "email": "mailto:akashthakur929@gmail.com",
+      "telephone": "+917974861859",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Narayanpur",
+        "addressRegion": "Chhattisgarh",
+        "addressCountry": "IN"
+      },
+      "worksFor": [
+        { "@type": "NewsMediaOrganization", "name": "आदर्श वाणी समाचार", "url": "https://aadarshvanisamachar.com/" },
+        { "@type": "NewsMediaOrganization", "name": "ETV Bharat" },
+        { "@type": "NewsMediaOrganization", "name": "NDTV" }
+      ],
+      "sameAs": [
+        "https://aadarshvanisamachar.com/",
+        "https://mpcg.ndtv.in/authors/akash-singh-8692",
+        "https://www.youtube.com/@thakuraakashsingh"
+      ]
+    }
+    </script>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -31,6 +81,7 @@
         .glass-card {
             background: rgba(17, 24, 39, 0.75);
             backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.08);
             transition: border-color 0.25s ease, transform 0.25s ease;
         }
@@ -48,6 +99,12 @@
         @keyframes ticker {
             0% { transform: translateX(100%); }
             100% { transform: translateX(-100%); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .news-ticker {
+                animation: none;
+                white-space: normal;
+            }
         }
         .badge-etv { background: linear-gradient(135deg, #dc2626, #991b1b); }
         .badge-ndtv { background: linear-gradient(135deg, #1d4ed8, #1e3a8a); }
@@ -76,7 +133,7 @@
 
     <!-- Navigation Bar -->
     <header class="sticky top-0 z-50 glass-card border-b border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
             <a href="#" class="flex items-center gap-2.5">
                 <img src="./aakash-photo.jpg" alt="आकाश सिंह ठाकुर" class="w-9 h-9 rounded-lg object-cover object-top border border-amber-500/50 shadow-lg">
                 <div>
@@ -85,16 +142,42 @@
                 </div>
             </a>
 
-            <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-300">
+            <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300" aria-label="Primary Navigation">
                 <a href="#about" class="hover:text-white transition">परिचय</a>
                 <a href="#experience" class="hover:text-white transition">मीडिया संस्थान</a>
-                <a href="#stories" class="hover:text-white transition">A to Z खबरें (Archive)</a>
+                <a href="#achievements" class="hover:text-white transition">उपलब्धियाँ</a>
+                <a href="#stories" class="hover:text-white transition">A to Z खबरें</a>
                 <a href="#contact" class="hover:text-white transition">संपर्क करें</a>
             </nav>
 
-            <a href="https://aadarshvanisamachar.com/" target="_blank" rel="noopener noreferrer" class="bg-red-600 hover:bg-red-700 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-lg transition shadow-md flex items-center gap-2">
-                <i class="fa-solid fa-newspaper"></i> आदर्श वाणी न्यूज़
-            </a>
+            <div class="flex items-center gap-2">
+                <a href="https://www.youtube.com/@thakuraakashsingh" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-red-400 border border-slate-700 text-xs font-semibold px-3 py-2 rounded-lg transition" aria-label="YouTube चैनल">
+                    <i class="fa-brands fa-youtube text-sm"></i> YouTube
+                </a>
+                <a href="https://aadarshvanisamachar.com/" target="_blank" rel="noopener noreferrer" class="bg-red-600 hover:bg-red-700 text-white text-xs sm:text-sm font-semibold px-3.5 sm:px-4 py-2 rounded-lg transition shadow-md flex items-center gap-2">
+                    <i class="fa-solid fa-newspaper"></i> <span class="hidden sm:inline">आदर्श वाणी न्यूज़</span><span class="sm:hidden">न्यूज़</span>
+                </a>
+                <button id="mobile-menu-btn" type="button" class="md:hidden w-9 h-9 rounded-lg bg-slate-800/90 border border-slate-700 text-slate-200 flex items-center justify-center" aria-label="मेनू खोलें" aria-expanded="false" aria-controls="mobile-menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-800 bg-slate-950/95 px-4 py-3 space-y-2 text-sm">
+            <a href="#about" class="block py-1.5 text-slate-300 hover:text-white">परिचय</a>
+            <a href="#experience" class="block py-1.5 text-slate-300 hover:text-white">मीडिया संस्थान</a>
+            <a href="#achievements" class="block py-1.5 text-slate-300 hover:text-white">फील्ड रिपोर्टिंग एवं उपलब्धियाँ</a>
+            <a href="#stories" class="block py-1.5 text-slate-300 hover:text-white">A to Z खबरें (Archive)</a>
+            <a href="#contact" class="block py-1.5 text-slate-300 hover:text-white">संपर्क करें</a>
+            <div class="pt-2 border-t border-slate-800 flex flex-wrap gap-2">
+                <a href="https://www.youtube.com/@thakuraakashsingh" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs bg-slate-800 text-red-400 px-3 py-1.5 rounded-lg">
+                    <i class="fa-brands fa-youtube"></i> @thakuraakashsingh
+                </a>
+                <button type="button" onclick="downloadVCard()" class="inline-flex items-center gap-1.5 text-xs bg-amber-600 text-white font-semibold px-3 py-1.5 rounded-lg">
+                    <i class="fa-solid fa-address-card"></i> Save Contact
+                </button>
+            </div>
         </div>
     </header>
 
@@ -122,11 +205,14 @@
                         <strong class="text-white">ETV Bharat</strong> एवं <strong class="text-white">NDTV</strong> के लिए संवेदनशील नक्सल ऑपरेशन, सुरक्षा कैंप व जनहित की ग्राउंड रिपोर्टिंग तथा <strong class="text-amber-400">आदर्श वाणी समाचार</strong> के प्रधान संपादक के रूप में प्रशासनिक जवाबदेही की बुलंद आवाज।
                     </p>
 
-                    <!-- Media Tags -->
+                    <!-- Media Tags & Social Links -->
                     <div class="flex flex-wrap justify-center lg:justify-start gap-2.5 mb-8">
                         <span class="badge-etv text-white text-xs font-bold px-3.5 py-1.5 rounded-md shadow">ETV BHARAT संवाददाता</span>
                         <a href="https://mpcg.ndtv.in/authors/akash-singh-8692" target="_blank" rel="noopener noreferrer" class="badge-ndtv text-white text-xs font-bold px-3.5 py-1.5 rounded-md shadow hover:brightness-110 transition">NDTV बाईलाइन रिपोर्टर ↗</a>
                         <a href="https://aadarshvanisamachar.com/" target="_blank" rel="noopener noreferrer" class="badge-avs text-white text-xs font-bold px-3.5 py-1.5 rounded-md shadow hover:brightness-110 transition">संपादक: आदर्श वाणी समाचार ↗</a>
+                        <a href="https://www.youtube.com/@thakuraakashsingh" target="_blank" rel="noopener noreferrer" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-red-400 text-xs font-bold px-3.5 py-1.5 rounded-md shadow transition inline-flex items-center gap-1.5">
+                            <i class="fa-brands fa-youtube"></i> @thakuraakashsingh ↗
+                        </a>
                     </div>
 
                     <!-- Impact Highlight Counters -->
@@ -146,13 +232,16 @@
                     </div>
 
                     <!-- CTA Buttons -->
-                    <div class="flex flex-wrap justify-center lg:justify-start gap-4">
-                        <a href="#stories" class="bg-white text-slate-900 hover:bg-slate-200 font-bold px-6 py-3 rounded-xl transition flex items-center gap-2 shadow-lg">
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-3">
+                        <a href="#stories" class="bg-white text-slate-900 hover:bg-slate-200 font-bold px-5 py-3 rounded-xl transition flex items-center gap-2 shadow-lg text-sm">
                             <i class="fa-solid fa-layer-group text-red-600"></i> A to Z रिपोर्ट्स देखें
                         </a>
-                        <a href="https://wa.me/917587297572?text=नमस्ते%20आकाश%20जी,%20आपकी%20प्रोफ़ाइल%20देखी।" target="_blank" rel="noopener noreferrer" class="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6 py-3 rounded-xl transition flex items-center gap-2 shadow-lg">
+                        <a href="https://wa.me/917587297572?text=नमस्ते%20आकाश%20जी,%20आपकी%20प्रोफ़ाइल%20देखी।" target="_blank" rel="noopener noreferrer" class="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-5 py-3 rounded-xl transition flex items-center gap-2 shadow-lg text-sm">
                             <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp पर जुड़ें
                         </a>
+                        <button type="button" onclick="downloadVCard()" class="bg-amber-600 hover:bg-amber-700 text-white font-semibold px-5 py-3 rounded-xl transition flex items-center gap-2 shadow-lg text-sm cursor-pointer">
+                            <i class="fa-solid fa-address-card"></i> Save Contact
+                        </button>
                     </div>
                 </div>
 
@@ -188,6 +277,10 @@
                                 <a href="https://aadarshvanisamachar.com/" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:underline font-medium text-right">aadarshvanisamachar.com</a>
                             </div>
                             <div class="flex justify-between gap-2">
+                                <span class="text-slate-400">YouTube:</span>
+                                <a href="https://www.youtube.com/@thakuraakashsingh" target="_blank" rel="noopener noreferrer" class="text-red-400 hover:underline font-medium text-right">@thakuraakashsingh ↗</a>
+                            </div>
+                            <div class="flex justify-between gap-2">
                                 <span class="text-slate-400">NDTV प्रोफ़ाइल:</span>
                                 <a href="https://mpcg.ndtv.in/authors/akash-singh-8692" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline font-medium text-right">NDTV Author Page ↗</a>
                             </div>
@@ -201,8 +294,11 @@
                             </div>
                         </div>
 
-                        <div class="mt-6 pt-4 border-t border-slate-800 text-center">
-                            <p class="text-xs italic text-slate-400">"खबरों से आगे, सरोकारों के साथ — हर गांव की खबर, हर सवाल का जवाब"</p>
+                        <div class="mt-5 pt-4 border-t border-slate-800 flex items-center justify-between gap-2">
+                            <p class="text-[11px] italic text-slate-400">"खबरों से आगे, सरोकारों के साथ"</p>
+                            <button type="button" onclick="downloadVCard()" class="text-xs bg-slate-800 hover:bg-slate-700 text-amber-400 border border-amber-500/30 font-semibold px-3 py-1.5 rounded-lg transition shrink-0">
+                                <i class="fa-solid fa-download mr-1"></i> vCard सेव करें
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -258,6 +354,59 @@
         </div>
     </section>
 
+    <!-- Field Reporting & Achievements Section -->
+    <section id="achievements" class="py-16 border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">ग्राउंड जीरो प्रभाव</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-white mt-1">फील्ड रिपोर्टिंग एवं उपलब्धियाँ (Achievements)</h2>
+                <p class="text-slate-400 text-sm mt-2">अबूझमाड़ के दुर्गम अंचलों से प्रशासनिक कार्रवाई और जनसरोकार के प्रमुख पड़ाव</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="glass-card rounded-2xl p-6 border-t-2 border-t-red-500">
+                    <div class="w-11 h-11 rounded-xl bg-red-600/20 text-red-400 flex items-center justify-center text-lg mb-4">
+                        <i class="fa-solid fa-flag"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-white mb-2">ऐतिहासिक अबूझमाड़ कवरेज</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                        78 साल बाद कुतुल में तिरंगा फहराने की ग्राउंड जीरो रिपोर्ट तथा ओरछा, काकुर, कोड़नार व दिवालुर में नए सुरक्षा कैंपों की एक्सक्लूसिव कवरेज।
+                    </p>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 border-t-2 border-t-amber-500">
+                    <div class="w-11 h-11 rounded-xl bg-amber-600/20 text-amber-400 flex items-center justify-center text-lg mb-4">
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-white mb-2">₹2.27 Cr CSR फंड खुलासा</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                        स्वास्थ्य विभाग के 227.73 लाख Coal India CSR फंड रिकॉर्ड में वित्तीय गड़बड़ी का पर्दाफाश — सहायक सांख्यिकी अधिकारी निलंबित व चेम्बर सील।
+                    </p>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 border-t-2 border-t-emerald-500">
+                    <div class="w-11 h-11 rounded-xl bg-emerald-600/20 text-emerald-400 flex items-center justify-center text-lg mb-4">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-white mb-2">सीधा प्रशासनिक असर</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                        मसपूर आश्रम की टपकती छत पर रिपोर्ट के बाद कलेक्टर द्वारा सुधार आदेश, थाना प्रभारी निलंबन कवरेज और नारायणपुर-ओरछा मार्ग समस्या को प्रमुखता।
+                    </p>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 border-t-2 border-t-blue-500">
+                    <div class="w-11 h-11 rounded-xl bg-blue-600/20 text-blue-400 flex items-center justify-center text-lg mb-4">
+                        <i class="fa-solid fa-trophy"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-white mb-2">संस्कृति, पर्यटन व खेल मंच</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                        भंगाराम बिदाई, मावली मेला, कच्चापाल-फरसबेड़ा जलप्रपात, बस्तर ओलंपिक व अंडर-23 क्रिकेट प्रतिभाओं को राष्ट्रीय पहचान दिलाने वाली रिपोर्टिंग।
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Published News Archive with Categories, Outlet Filter & Search -->
     <section id="stories" class="py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -275,13 +424,13 @@
 
             <!-- Filter Buttons -->
             <div class="flex flex-wrap gap-2 mb-8" id="filter-buttons">
-                <button onclick="filterNews('all', this)" class="filter-btn active bg-red-600 text-white text-xs font-semibold px-4 py-2 rounded-lg transition">सभी खबरें (20)</button>
-                <button onclick="filterNews('naxal', this)" class="filter-btn bg-slate-800 text-slate-300 hover:bg-slate-700 text-xs font-semibold px-4 py-2 rounded-lg transition">1. अबूझमाड़ व सुरक्षा</button>
-                <button onclick="filterNews('public', this)" class="filter-btn bg-slate-800 text-slate-300 hover:bg-slate-700 text-xs font-semibold px-4 py-2 rounded-lg transition">2. प्रशासनिक खुलासे व जनहित</button>
-                <button onclick="filterNews('culture', this)" class="filter-btn bg-slate-800 text-slate-300 hover:bg-slate-700 text-xs font-semibold px-4 py-2 rounded-lg transition">3. संस्कृति, पर्यटन व खेल</button>
-                <button onclick="filterNews('outlet:ETV Bharat', this)" class="filter-btn bg-slate-800 text-red-300 hover:bg-slate-700 text-xs font-semibold px-4 py-2 rounded-lg transition border border-red-500/30">ETV Bharat</button>
-                <button onclick="filterNews('outlet:NDTV', this)" class="filter-btn bg-slate-800 text-blue-300 hover:bg-slate-700 text-xs font-semibold px-4 py-2 rounded-lg transition border border-blue-500/30">NDTV</button>
-                <button onclick="filterNews('outlet:आदर्श वाणी समाचार', this)" class="filter-btn bg-slate-800 text-amber-300 hover:bg-slate-700 text-xs font-semibold px-4 py-2 rounded-lg transition border border-amber-500/30">आदर्श वाणी समाचार</button>
+                <button type="button" onclick="filterNews('all', this)" data-inactive-text="text-slate-300" aria-pressed="true" class="filter-btn active bg-red-600 text-white text-xs font-semibold px-4 py-2 rounded-lg transition">सभी खबरें (20)</button>
+                <button type="button" onclick="filterNews('naxal', this)" data-inactive-text="text-slate-300" aria-pressed="false" class="filter-btn bg-slate-800 text-slate-300 hover:bg-slate-700 text-xs font-semibold px-4 py-2 rounded-lg transition">1. अबूझमाड़ व सुरक्षा</button>
+                <button type="button" onclick="filterNews('public', this)" data-inactive-text="text-slate-300" aria-pressed="false" class="filter-btn bg-slate-800 text-slate-300 hover:bg-slate-700 text-xs font-semibold px-4 py-2 rounded-lg transition">2. प्रशासनिक खुलासे व जनहित</button>
+                <button type="button" onclick="filterNews('culture', this)" data-inactive-text="text-slate-300" aria-pressed="false" class="filter-btn bg-slate-800 text-slate-300 hover:bg-slate-700 text-xs font-semibold px-4 py-2 rounded-lg transition">3. संस्कृति, पर्यटन व खेल</button>
+                <button type="button" onclick="filterNews('outlet:ETV Bharat', this)" data-inactive-text="text-red-300" aria-pressed="false" class="filter-btn bg-slate-800 text-red-300 hover:bg-slate-700 text-xs font-semibold px-4 py-2 rounded-lg transition border border-red-500/30">ETV Bharat</button>
+                <button type="button" onclick="filterNews('outlet:NDTV', this)" data-inactive-text="text-blue-300" aria-pressed="false" class="filter-btn bg-slate-800 text-blue-300 hover:bg-slate-700 text-xs font-semibold px-4 py-2 rounded-lg transition border border-blue-500/30">NDTV</button>
+                <button type="button" onclick="filterNews('outlet:आदर्श वाणी समाचार', this)" data-inactive-text="text-amber-300" aria-pressed="false" class="filter-btn bg-slate-800 text-amber-300 hover:bg-slate-700 text-xs font-semibold px-4 py-2 rounded-lg transition border border-amber-500/30">आदर्श वाणी समाचार</button>
             </div>
 
             <!-- News Cards Grid -->
@@ -362,7 +511,7 @@
                         <p class="text-sm text-slate-300 leading-relaxed mb-4">आदिवासी आश्रम की जर्जर स्थिति व बच्चों की परेशानी को प्रमुखता से दिखाने के बाद जिला प्रशासन हरकत में आया और कलेक्टर ने तत्काल मरम्मत व व्यवस्था सुधार के निर्देश जारी किए।</p>
                     </div>
                     <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-emerald-400">
-                        <span><i class="fa-solid fa-bolt mr-1"></i> इम्पैक्ट स्टोरी</span>
+                        <span><i class="fa-solid fa-bolt mr-1"></i> इम्पैक्ट रिपोर्ट • कलेक्टर एक्शन</span>
                         <span>नारायणपुर</span>
                     </div>
                 </article>
@@ -439,7 +588,7 @@
                             <span class="text-xs text-slate-400">पर्यटन • प्रकृति</span>
                         </div>
                         <h3 class="text-lg font-bold text-white mb-2 leading-snug">कच्चापाल और फरसबेड़ा जलप्रपात को पर्यटन मानचित्र पर लाने वाली विशेष स्टोरी</h3>
-                        <p class="text-sm text-slate-300 leading-relaxed mb-4">अबूझमाड़ की वादियों में छिपे खूबसूरत कच्चापाल व फरसबेड़ा झरनों के प्राकृतिक सौंदर्य और ईको-टूरिज्म संभावनाओं को उजागर करती विशेष वीडियो व डिजिटल स्टोरी।</p>
+                        <p class="text-sm text-slate-300 leading-relaxed mb-4">अबूझमाड़ की वादियों में छिपे खूबसूरत कच्चापाल व फरसबेड़ा झरनों के प्राकृतिक सौंदर्य और ईको-टूरिज्म संभावनाओं को उजागर करती विशेष डिजिटल व वीडियो स्टोरी।</p>
                     </div>
                     <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400">
                         <span><i class="fa-solid fa-mountain-sun mr-1"></i> पर्यटन विशेष</span>
@@ -459,7 +608,7 @@
                     </div>
                     <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-emerald-400">
                         <span><i class="fa-solid fa-trophy mr-1"></i> खेल एवं शिक्षा</span>
-                        <span>नारायणपुर-बस्तर</span>
+                        <a href="https://aadarshvanisamachar.com/2026/10/05/bastar-olympic-2026-registration-timeline/" target="_blank" rel="noopener noreferrer" class="hover:underline font-semibold">रिपोर्ट पढ़ें ↗</a>
                     </div>
                 </article>
 
@@ -575,23 +724,23 @@
                     </div>
                 </article>
 
-                <!-- 19. ETV Surrendered Naxal Marriage -->
-                <article class="news-item glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="public" data-outlet="ETV Bharat">
+                <!-- 19. AVS Orchha Abujhmad Students Talent -->
+                <article class="news-item glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="culture" data-outlet="आदर्श वाणी समाचार">
                     <div>
                         <div class="flex items-center justify-between mb-3">
-                            <span class="badge-etv text-white text-[11px] font-bold px-2.5 py-0.5 rounded">ETV Bharat</span>
-                            <span class="text-xs text-slate-400">पुनर्वास • समाज</span>
+                            <span class="badge-avs text-white text-[11px] font-bold px-2.5 py-0.5 rounded">आदर्श वाणी समाचार</span>
+                            <span class="text-xs text-slate-400">ओरछा • छात्र प्रतिभा</span>
                         </div>
-                        <h3 class="text-lg font-bold text-white mb-2 leading-snug">नारायणपुर में आत्मसमर्पित नक्सली जोड़ों का मुख्यमंत्री कन्या विवाह योजना के तहत सामूहिक विवाह</h3>
-                        <p class="text-sm text-slate-300 leading-relaxed mb-4">हिंसा का रास्ता छोड़कर मुख्यधारा में लौटे जोड़ों के नए जीवन की शुरुआत और सरकारी पुनर्वास योजना पर संवेदनशील ग्राउंड स्टोरी।</p>
+                        <h3 class="text-lg font-bold text-white mb-2 leading-snug">सेवा संकल्प अभियान में ओरछा-अबूझमाड़ के बच्चों की कलात्मक प्रतिभा और शिक्षा की नई तस्वीर</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed mb-4">ओरछा ब्लॉक के स्कूलों में आयोजित कार्यक्रम के दौरान अबूझमाड़ के विद्यार्थियों की सांस्कृतिक व शैक्षणिक प्रतिभा पर विशेष रिपोर्ट।</p>
                     </div>
-                    <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-emerald-400">
-                        <span><i class="fa-solid fa-newspaper mr-1"></i> ETV Bharat • नारायणपुर</span>
-                        <a href="https://www.etvbharat.com/en/state/marriage-of-surrendered-naxalite-couples-under-mukhyamantri-kanya-vivah-yojana-in-narayanpur-enn26021007360" target="_blank" rel="noopener noreferrer" class="hover:underline font-semibold">रिपोर्ट पढ़ें ↗</a>
+                    <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400">
+                        <span><i class="fa-solid fa-graduation-cap mr-1"></i> अबूझमाड़ शिक्षा</span>
+                        <a href="https://aadarshvanisamachar.com/2026/09/18/abujhmarh-children-talent-seva-sankalp-abhiyan-orchha-kedar-kashyap/" target="_blank" rel="noopener noreferrer" class="hover:underline font-semibold">रिपोर्ट पढ़ें ↗</a>
                     </div>
                 </article>
 
-                <!-- 20. AVS Boys Hostel Theft / Amdai Mines -->
+                <!-- 20. AVS Boys Hostel Theft -->
                 <article class="news-item glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="public" data-outlet="आदर्श वाणी समाचार">
                     <div>
                         <div class="flex items-center justify-between mb-3">
@@ -657,6 +806,25 @@
                                     <span class="font-semibold">akashthakur929@gmail.com</span>
                                 </div>
                             </a>
+
+                            <a href="https://www.youtube.com/@thakuraakashsingh" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3.5 text-slate-200 hover:text-white transition">
+                                <div class="w-10 h-10 rounded-xl bg-red-600/20 border border-red-500/30 flex items-center justify-center text-red-400">
+                                    <i class="fa-brands fa-youtube text-lg"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-slate-400 block">YouTube चैनल</span>
+                                    <span class="font-semibold">@thakuraakashsingh ↗</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="mt-6 flex flex-wrap gap-3">
+                            <button type="button" onclick="downloadVCard()" class="bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition inline-flex items-center gap-2 shadow">
+                                <i class="fa-solid fa-address-card"></i> Save Contact (vCard)
+                            </button>
+                            <a href="https://aadarshvanisamachar.com/" target="_blank" rel="noopener noreferrer" class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-semibold px-4 py-2.5 rounded-xl transition inline-flex items-center gap-2">
+                                <i class="fa-solid fa-globe text-amber-400"></i> आदर्श वाणी समाचार ↗
+                            </a>
                         </div>
                     </div>
 
@@ -684,9 +852,16 @@
 
     <!-- Footer -->
     <footer class="py-8 border-t border-slate-800/80 text-center text-xs text-slate-500">
-        <div class="max-w-7xl mx-auto px-4">
-            <p class="text-slate-300 font-semibold text-sm mb-1">आकाश सिंह ठाकुर — पत्रकार एवं प्रधान संपादक (आदर्श वाणी समाचार)</p>
+        <div class="max-w-7xl mx-auto px-4 space-y-2">
+            <p class="text-slate-300 font-semibold text-sm">आकाश सिंह ठाकुर — पत्रकार एवं प्रधान संपादक (आदर्श वाणी समाचार)</p>
             <p>नारायणपुर, बस्तर संभाग, छत्तीसगढ़ • © 2026 सर्वाधिकार सुरक्षित</p>
+            <div class="flex justify-center gap-4 pt-1 text-slate-400">
+                <a href="https://aadarshvanisamachar.com/" target="_blank" rel="noopener noreferrer" class="hover:text-amber-400 transition">आदर्श वाणी समाचार</a>
+                <span>•</span>
+                <a href="https://mpcg.ndtv.in/authors/akash-singh-8692" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400 transition">NDTV Author Profile</a>
+                <span>•</span>
+                <a href="https://www.youtube.com/@thakuraakashsingh" target="_blank" rel="noopener noreferrer" class="hover:text-red-400 transition">YouTube</a>
+            </div>
         </div>
     </footer>
 
@@ -719,11 +894,15 @@
         function filterNews(filter, btn) {
             activeFilter = filter;
             document.querySelectorAll('.filter-btn').forEach(b => {
-                b.classList.remove('bg-red-600', 'text-white');
-                b.classList.add('bg-slate-800');
+                const inactiveText = b.getAttribute('data-inactive-text') || 'text-slate-300';
+                b.classList.remove('bg-red-600', 'text-white', 'active');
+                b.classList.add('bg-slate-800', inactiveText);
+                b.setAttribute('aria-pressed', 'false');
             });
-            btn.classList.remove('bg-slate-800');
-            btn.classList.add('bg-red-600', 'text-white');
+            const btnInactiveText = btn.getAttribute('data-inactive-text') || 'text-slate-300';
+            btn.classList.remove('bg-slate-800', btnInactiveText);
+            btn.classList.add('bg-red-600', 'text-white', 'active');
+            btn.setAttribute('aria-pressed', 'true');
             applyFilters();
         }
 
@@ -731,6 +910,53 @@
             searchQuery = String(event.target.value || '').trim().toLowerCase();
             applyFilters();
         });
+
+        // Mobile Navigation Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                const expanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+                mobileMenuBtn.setAttribute('aria-expanded', String(!expanded));
+                mobileMenu.classList.toggle('hidden');
+            });
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        }
+
+        // One-Click Save Contact (vCard .vcf)
+        function downloadVCard() {
+            const vcard = [
+                'BEGIN:VCARD',
+                'VERSION:3.0',
+                'N:Thakur;Aakash Singh;;;',
+                'FN:Aakash Singh Thakur (आकाश सिंह ठाकुर)',
+                'ORG:आदर्श वाणी समाचार | ETV Bharat | NDTV',
+                'TITLE:वरिष्ठ पत्रकार एवं प्रधान संपादक',
+                'TEL;TYPE=CELL,VOICE:+917974861859',
+                'TEL;TYPE=CELL,MSG:+917587297572',
+                'EMAIL;TYPE=WORK:akashthakur929@gmail.com',
+                'URL:https://aadarshvanisamachar.com/',
+                'URL:https://atulnetam750.github.io/aakash/',
+                'ADR;TYPE=WORK:;;Narayanpur;Bastar;Chhattisgarh;;India',
+                'NOTE:Senior Journalist & Editor-in-Chief - Narayanpur & Abujhmad, Bastar',
+                'END:VCARD'
+            ].join('\r\n');
+
+            const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Aakash-Singh-Thakur.vcf';
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            setTimeout(() => URL.revokeObjectURL(url), 1000);
+        }
 
         function sendWhatsApp(e) {
             e.preventDefault();
