@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html lang="hi" class="scroll-smooth dark">
+<html lang="hi" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>आकाश सिंह ठाकुर | लाइव न्यूज़ पोर्टल एवं पत्रकार प्रोफ़ाइल — नारायणपुर, बस्तर</title>
+    <title>आकाश सिंह ठाकुर | डिजिटल ई-पेपर एवं पत्रकार पोर्टल — नारायणपुर, बस्तर</title>
     <meta name="description" content="आकाश सिंह ठाकुर (Aakash Singh Thakur) — आदर्श वाणी समाचार के प्रधान संपादक तथा ETV Bharat व NDTV संवाददाता। नारायणपुर और अबूझमाड़ की ताज़ा खबरें, व्यूज/लाइक्स और वीडियो रिपोर्ट्स।">
     <meta name="keywords" content="Aakash Singh Thakur, आकाश सिंह ठाकुर, Aadarsh Vani Samachar, Narayanpur News, Abujhmad News, ETV Bharat Narayanpur">
     <meta name="author" content="Aakash Singh Thakur">
-    <meta name="theme-color" content="#070b14">
+    <meta name="theme-color" content="#faf6ed">
 
     <!-- Open Graph / WhatsApp Preview -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="आकाश सिंह ठाकुर | लाइव न्यूज़ एवं वीडियो पोर्टल (नारायणपुर, बस्तर)">
+    <meta property="og:title" content="आकाश सिंह ठाकुर | डिजिटल ई-पेपर एवं लाइव न्यूज़ पोर्टल (नारायणपुर, बस्तर)">
     <meta property="og:description" content="आदर्श वाणी समाचार, ETV Bharat और NDTV की ताज़ा ग्राउंड रिपोर्ट्स, टॉप वीडियो समाचार और सीधा संपर्क सूत्र।">
     <meta property="og:url" content="https://atulnetam750.github.io/aakash/">
     <meta property="og:image" content="https://atulnetam750.github.io/aakash/aakash-photo.jpg">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:alt" content="आकाश सिंह ठाकुर - वरिष्ठ पत्रकार एवं प्रधान संपादक">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="आकाश सिंह ठाकुर | लाइव न्यूज़ एवं वीडियो पोर्टल (नारायणपुर, बस्तर)">
+    <meta name="twitter:title" content="आकाश सिंह ठाकुर | डिजिटल ई-पेपर एवं लाइव न्यूज़ पोर्टल (नारायणपुर, बस्तर)">
     <meta name="twitter:description" content="आदर्श वाणी समाचार, ETV Bharat और NDTV की ताज़ा ग्राउंड रिपोर्ट्स और वीडियो समाचार।">
     <meta name="twitter:image" content="https://atulnetam750.github.io/aakash/aakash-photo.jpg">
     <link rel="canonical" href="https://atulnetam750.github.io/aakash/">
@@ -62,6 +62,7 @@
                 extend: {
                     fontFamily: {
                         sans: ['Noto Sans Devanagari', 'Poppins', 'sans-serif'],
+                        editorial: ['Tiro Devanagari Hindi', 'Newsreader', 'Noto Sans Devanagari', 'serif'],
                     }
                 }
             }
@@ -71,14 +72,47 @@
     <!-- Google Fonts & Font Awesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,600;6..72,700&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Poppins:wght@500;600;700&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
-        .glass-panel {
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+        /* Classic E-Paper / Newsprint Background Pattern */
+        .paper-pattern {
+            background-color: #faf6ed;
+            background-image:
+                radial-gradient(rgba(28, 25, 23, 0.06) 0.75px, transparent 0.75px),
+                linear-gradient(to right, rgba(120, 113, 108, 0.04) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(120, 113, 108, 0.04) 1px, transparent 1px);
+            background-size: 16px 16px, 64px 64px, 64px 64px;
         }
+        html.dark .paper-pattern {
+            background-color: #141210;
+            background-image:
+                radial-gradient(rgba(245, 239, 230, 0.05) 0.75px, transparent 0.75px),
+                linear-gradient(to right, rgba(214, 211, 209, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(214, 211, 209, 0.03) 1px, transparent 1px);
+            background-size: 16px 16px, 64px 64px, 64px 64px;
+        }
+
+        /* Newspaper Double-Rule Masthead Borders */
+        .masthead-double-rule {
+            border-top: 3px solid #1c1917;
+            border-bottom: 1.5px solid #1c1917;
+        }
+        html.dark .masthead-double-rule {
+            border-top-color: #d6cbb5;
+            border-bottom-color: #78716c;
+        }
+
+        .editorial-divider {
+            border-top: 2px solid #1c1917;
+            box-shadow: 0 3px 0 0 #faf6ed, 0 4px 0 0 #1c1917;
+        }
+        html.dark .editorial-divider {
+            border-top-color: #d6cbb5;
+            box-shadow: 0 3px 0 0 #141210, 0 4px 0 0 #78716c;
+        }
+
         .news-ticker {
             display: inline-block;
             white-space: nowrap;
@@ -92,23 +126,25 @@
         @media (prefers-reduced-motion: reduce) {
             .news-ticker { animation: none; white-space: normal; }
         }
-        .badge-avs { background: linear-gradient(135deg, #d97706, #92400e); }
-        .badge-etv { background: linear-gradient(135deg, #dc2626, #991b1b); }
-        .badge-ndtv { background: linear-gradient(135deg, #1d4ed8, #1e3a8a); }
-        .badge-yt { background: linear-gradient(135deg, #e11d48, #881337); }
+
+        /* Print-Ink Source Badges */
+        .badge-avs { background: #92400e; }
+        .badge-etv { background: #b91c1c; }
+        .badge-ndtv { background: #1e3a8a; }
+        .badge-yt { background: #991b1b; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 dark:bg-[#070b14] dark:text-slate-200 transition-colors duration-300 antialiased pb-24">
+<body class="paper-pattern text-stone-900 dark:text-[#f3ede2] transition-colors duration-300 antialiased pb-24">
 
-    <!-- Top Breaking News Ticker -->
-    <div class="bg-red-700 text-white text-xs sm:text-sm py-1.5 overflow-hidden border-b border-red-500/40">
+    <!-- Top Newspaper Breaking Bulletin Strip -->
+    <div class="bg-[#181411] text-[#faf6ed] text-xs sm:text-sm py-1.5 overflow-hidden border-b-2 border-[#b91c1c]">
         <div class="max-w-7xl mx-auto px-4 flex items-center">
-            <span class="bg-black text-red-400 font-bold px-2 py-0.5 rounded text-[11px] uppercase tracking-wider mr-3 shrink-0 flex items-center gap-1.5">
-                <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span> लाइव अपडेट
+            <span class="bg-[#b91c1c] text-white font-extrabold px-2.5 py-0.5 text-[11px] uppercase tracking-wider mr-3 shrink-0 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-amber-300 animate-ping"></span> ताज़ा बुलेटिन
             </span>
             <div class="overflow-hidden w-full">
-                <div class="news-ticker font-medium" id="tickerText">
-                    • 🏆 #1 टॉप खबर: रावघाट पहुंची ‘परख’ ट्रेन (16,044 व्यूज • 197 लाइक्स) &nbsp;&nbsp;|&nbsp;&nbsp;
+                <div class="news-ticker font-medium text-amber-100" id="tickerText">
+                    • 🏆 #1 मुख्य खबर: रावघाट पहुंची ‘परख’ ट्रेन (16,044 व्यूज • 197 लाइक्स) &nbsp;&nbsp;|&nbsp;&nbsp;
                     • नारायणपुर स्वास्थ्य विभाग में ₹2.27 करोड़ के CSR फंड रिकॉर्ड में अनियमितता का बड़ा खुलासा &nbsp;&nbsp;|&nbsp;&nbsp;
                     • करलखा धर्मांतरण विवाद (3,294 व्यूज) व बच्चों की गोंडी प्रार्थना (1,712 व्यूज) टॉप रिपोर्ट्स में &nbsp;&nbsp;|&nbsp;&nbsp;
                     • अबूझमाड़ के कुतुल में 78 साल बाद फहरा तिरंगा — ग्राउंड जीरो कवरेज
@@ -117,47 +153,62 @@
         </div>
     </div>
 
-    <!-- Compact Sticky Header -->
-    <header class="sticky top-0 z-40 glass-panel bg-white/90 dark:bg-[#0c1220]/90 border-b border-slate-200 dark:border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-2">
-            <!-- Name & Title -->
-            <a href="#top" class="flex items-center gap-2.5 min-w-0">
-                <img src="./aakash-photo.jpg" alt="आकाश सिंह ठाकुर" onerror="handlePhotoError(this)" class="w-9 h-9 rounded-xl object-cover object-top border border-amber-500/60 shrink-0 shadow">
-                <div class="truncate">
-                    <span class="font-extrabold text-slate-900 dark:text-white text-sm sm:text-base block leading-tight truncate">आकाश सिंह ठाकुर</span>
-                    <span class="text-[11px] text-red-600 dark:text-amber-400 font-semibold block truncate">आदर्श वाणी समाचार • ETV Bharat • NDTV</span>
+    <!-- Classic Newspaper Masthead Header -->
+    <header class="sticky top-0 z-40 bg-[#faf6ed]/95 dark:bg-[#191614]/95 backdrop-blur-md border-b-2 border-stone-900 dark:border-stone-700 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Top Edition Strip -->
+            <div class="hidden sm:flex items-center justify-between text-[11px] font-semibold text-stone-600 dark:text-stone-400 py-1 border-b border-stone-300 dark:border-stone-800">
+                <span><i class="fa-solid fa-location-dot text-[#b91c1c] mr-1"></i> बस्तर-नारायणपुर ई-पेपर संस्करण</span>
+                <span class="uppercase tracking-widest font-bold text-stone-800 dark:text-amber-300">निष्पक्ष • निर्भीक • ग्राउंड जीरो पत्रकारिता</span>
+                <span>प्रधान संपादक डेस्क • 2026</span>
+            </div>
+
+            <!-- Main Masthead Bar -->
+            <div class="h-16 flex items-center justify-between gap-2">
+                <a href="#top" class="flex items-center gap-3 min-w-0">
+                    <img src="./aakash-photo.jpg" alt="आकाश सिंह ठाकुर" onerror="handlePhotoError(this)" class="w-10 h-10 object-cover object-top border-2 border-stone-900 dark:border-amber-500/80 shrink-0 shadow-sm">
+                    <div class="truncate">
+                        <span class="font-editorial font-bold text-stone-950 dark:text-[#faf6ed] text-base sm:text-xl block leading-tight truncate tracking-tight">आकाश सिंह ठाकुर</span>
+                        <span class="text-[11px] text-[#b91c1c] dark:text-amber-400 font-bold block truncate">आदर्श वाणी समाचार • ETV Bharat • NDTV</span>
+                    </div>
+                </a>
+
+                <div class="flex items-center gap-2 shrink-0">
+                    <span id="syncBadge" class="hidden md:inline-flex items-center gap-1.5 text-[11px] font-bold px-2.5 py-1 bg-[#f0e9d8] dark:bg-stone-800 text-stone-800 dark:text-emerald-300 border border-stone-400 dark:border-stone-600">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 dark:bg-emerald-400 animate-pulse"></span> लाइव सिंक सक्रिय
+                    </span>
+
+                    <button type="button" onclick="toggleTheme()" aria-label="पेपर/डार्क मोड बदलें" class="w-9 h-9 border border-stone-800 dark:border-stone-600 bg-[#f0e9d8] dark:bg-stone-800 text-stone-900 dark:text-amber-300 flex items-center justify-center hover:bg-stone-900 hover:text-white dark:hover:bg-stone-700 transition">
+                        <i id="themeIcon" class="fa-solid fa-moon"></i>
+                    </button>
+
+                    <a href="https://youtube.com/@aadarshvanismacharnarayanp4382" target="_blank" rel="noopener noreferrer" class="bg-stone-900 dark:bg-stone-800 hover:bg-[#b91c1c] text-[#faf6ed] text-xs font-bold px-3 py-2 border border-stone-900 dark:border-stone-600 transition flex items-center gap-1.5">
+                        <i class="fa-brands fa-youtube text-red-500"></i> <span class="hidden sm:inline">YouTube</span>
+                    </a>
+
+                    <a href="https://aadarshvanisamachar.com/" target="_blank" rel="noopener noreferrer" class="bg-[#b91c1c] hover:bg-[#991b1b] text-white text-xs font-bold px-3 py-2 border border-[#7f1d1d] transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-newspaper"></i> <span class="hidden sm:inline">आदर्श वाणी</span> न्यूज़
+                    </a>
                 </div>
-            </a>
-
-            <!-- Quick Links & Theme Toggle -->
-            <div class="flex items-center gap-2 shrink-0">
-                <span id="syncBadge" class="hidden md:inline-flex items-center gap-1.5 text-[11px] font-bold px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Auto-Sync Active
-                </span>
-
-                <button type="button" onclick="toggleTheme()" aria-label="थीम बदलें" class="w-9 h-9 rounded-lg bg-slate-200/80 dark:bg-slate-800 text-slate-700 dark:text-amber-400 flex items-center justify-center hover:scale-105 transition">
-                    <i id="themeIcon" class="fa-solid fa-sun"></i>
-                </button>
-
-                <a href="https://youtube.com/@aadarshvanismacharnarayanp4382" target="_blank" rel="noopener noreferrer" class="bg-slate-900 dark:bg-slate-800 hover:bg-red-600 text-white text-xs font-bold px-3 py-2 rounded-lg transition flex items-center gap-1.5">
-                    <i class="fa-brands fa-youtube text-red-500"></i> <span class="hidden sm:inline">YouTube</span>
-                </a>
-
-                <a href="https://aadarshvanisamachar.com/" target="_blank" rel="noopener noreferrer" class="bg-red-600 hover:bg-red-700 text-white text-xs font-bold px-3 py-2 rounded-lg transition flex items-center gap-1.5 shadow-sm">
-                    <i class="fa-solid fa-globe"></i> <span class="hidden sm:inline">आदर्श वाणी</span> न्यूज़
-                </a>
             </div>
         </div>
     </header>
 
-    <!-- SECTION 1 (TOP): #1 TOP REPORT PLAYER + ALL NEWS & VIDEOS -->
+    <!-- MAIN E-PAPER LAYOUT -->
     <main id="top" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8">
 
-        <!-- Featured #1 Most-Viewed Video Report Banner -->
-        <section id="video-hub" class="mb-7 bg-white dark:bg-slate-900/90 rounded-2xl border border-amber-500/40 overflow-hidden shadow-lg">
+        <!-- Front Page Dateline Rule -->
+        <div class="masthead-double-rule py-1.5 px-2 mb-6 flex flex-wrap items-center justify-between gap-2 text-[11px] sm:text-xs font-bold text-stone-700 dark:text-stone-300 bg-[#f3ecdc]/80 dark:bg-[#1e1b18]">
+            <span><i class="fa-regular fa-newspaper text-[#b91c1c] mr-1"></i> मुख्य पृष्ठ : आज की बड़ी वीडियो रिपोर्ट</span>
+            <span>नारायणपुर • अबूझमाड़ • बस्तर संभाग</span>
+            <span class="text-[#b91c1c] dark:text-amber-400">ऑफिशियल डिजिटल संस्करण</span>
+        </div>
+
+        <!-- SECTION 1: #1 TOP REPORT LEAD BOX -->
+        <section id="video-hub" class="mb-8 bg-[#fffdf8] dark:bg-[#1c1917] border-2 border-stone-900 dark:border-stone-700 shadow-[4px_4px_0_0_rgba(28,25,23,0.9)] dark:shadow-[4px_4px_0_0_rgba(185,28,28,0.45)] overflow-hidden">
             <div class="grid grid-cols-1 lg:grid-cols-12">
-                <!-- Embedded Responsive Video Player -->
-                <div class="lg:col-span-7 bg-black relative aspect-video">
+                <!-- Responsive Video Frame -->
+                <div class="lg:col-span-7 bg-black relative aspect-video border-b-2 lg:border-b-0 lg:border-r-2 border-stone-900 dark:border-stone-700">
                     <iframe id="mainVideoFrame"
                         class="w-full h-full"
                         src="https://www.youtube-nocookie.com/embed/ZDRgAV0sTkc?rel=0"
@@ -168,43 +219,43 @@
                     </iframe>
                 </div>
 
-                <!-- #1 Top Video Info, Views & Likes -->
+                <!-- Lead Editorial Column -->
                 <div class="lg:col-span-5 p-5 sm:p-6 flex flex-col justify-between">
                     <div>
-                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-                            <span class="bg-gradient-to-r from-amber-500 to-red-600 text-white text-[11px] font-extrabold px-3 py-1 rounded-full inline-flex items-center gap-1.5 shadow">
-                                <i class="fa-solid fa-trophy"></i> #1 टॉप खबर (सबसे ज़्यादा देखी गई)
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3 pb-2 border-b border-stone-300 dark:border-stone-700">
+                            <span class="bg-[#b91c1c] text-white text-[11px] font-extrabold px-2.5 py-1 inline-flex items-center gap-1.5 tracking-wide uppercase">
+                                <i class="fa-solid fa-trophy text-amber-300"></i> #1 प्रमुख खबर (सबसे ज़्यादा देखी गई)
                             </span>
-                            <span id="videoDateBadge" class="text-xs text-slate-500 dark:text-slate-400 font-medium">23 सितम्बर 2026</span>
+                            <span id="videoDateBadge" class="text-xs text-stone-600 dark:text-stone-400 font-semibold">23 सितम्बर 2026</span>
                         </div>
 
-                        <h1 id="mainVideoTitle" class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white leading-snug mb-3">
+                        <h1 id="mainVideoTitle" class="font-editorial text-xl sm:text-2xl font-bold text-stone-950 dark:text-[#faf6ed] leading-snug mb-4">
                             रावघाट पहुंची ‘परख’ ट्रेन | दशकों का इंतजार खत्म होने की दहलीज पर | Narayanpur Bastar
                         </h1>
 
-                        <!-- Real Views & Likes Metrics for #1 Top Report -->
-                        <div class="grid grid-cols-2 gap-2.5 mb-4">
-                            <div class="p-3 rounded-xl bg-amber-500/10 border border-amber-500/25">
-                                <span class="text-[11px] text-slate-500 dark:text-slate-400 block">कुल व्यूज (Views)</span>
-                                <span id="mainVideoViews" class="text-lg sm:text-xl font-extrabold text-amber-600 dark:text-amber-400">👁️ 16,044</span>
+                        <!-- Newspaper Print Stat Boxes -->
+                        <div class="grid grid-cols-2 gap-3 mb-4">
+                            <div class="p-3 bg-[#f6efe0] dark:bg-[#26221e] border border-stone-400 dark:border-stone-600">
+                                <span class="text-[11px] text-stone-600 dark:text-stone-400 font-semibold block">कुल व्यूज (Views)</span>
+                                <span id="mainVideoViews" class="text-lg sm:text-xl font-extrabold text-[#92400e] dark:text-amber-400">👁️ 16,044</span>
                             </div>
-                            <div class="p-3 rounded-xl bg-rose-500/10 border border-rose-500/25">
-                                <span class="text-[11px] text-slate-500 dark:text-slate-400 block">कुल लाइक्स (Likes)</span>
-                                <span id="mainVideoLikes" class="text-lg sm:text-xl font-extrabold text-rose-600 dark:text-rose-400">👍 197</span>
+                            <div class="p-3 bg-[#f6efe0] dark:bg-[#26221e] border border-stone-400 dark:border-stone-600">
+                                <span class="text-[11px] text-stone-600 dark:text-stone-400 font-semibold block">कुल लाइक्स (Likes)</span>
+                                <span id="mainVideoLikes" class="text-lg sm:text-xl font-extrabold text-[#b91c1c] dark:text-rose-400">👍 197</span>
                             </div>
                         </div>
 
-                        <p id="mainVideoDesc" class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                        <p id="mainVideoDesc" class="text-xs sm:text-sm text-stone-700 dark:text-stone-300 leading-relaxed mb-4 border-l-4 border-[#b91c1c] pl-3 italic">
                             आदर्श वाणी समाचार नारायणपुर के आधिकारिक YouTube चैनल (@aadarshvanismacharnarayanp4382) की अब तक की सबसे चर्चित एवं सर्वाधिक देखी गई ग्राउंड रिपोर्ट।
                         </p>
                     </div>
 
-                    <div class="space-y-2.5 pt-3 border-t border-slate-200 dark:border-slate-800">
+                    <div class="pt-3 border-t-2 border-stone-300 dark:border-stone-700">
                         <div class="flex flex-wrap gap-2">
-                            <a href="https://youtube.com/@aadarshvanismacharnarayanp4382?sub_confirmation=1" target="_blank" rel="noopener noreferrer" class="flex-1 bg-red-600 hover:bg-red-700 text-white text-xs font-bold py-2.5 px-3 rounded-xl text-center transition flex items-center justify-center gap-1.5 shadow">
+                            <a href="https://youtube.com/@aadarshvanismacharnarayanp4382?sub_confirmation=1" target="_blank" rel="noopener noreferrer" class="flex-1 bg-[#b91c1c] hover:bg-[#991b1b] text-white text-xs font-bold py-2.5 px-3 text-center transition flex items-center justify-center gap-1.5 border border-[#7f1d1d]">
                                 <i class="fa-brands fa-youtube text-sm"></i> चैनल Subscribe करें
                             </a>
-                            <a id="mainVideoExternalLink" href="https://www.youtube.com/watch?v=ZDRgAV0sTkc" target="_blank" rel="noopener noreferrer" class="bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-white text-xs font-bold py-2.5 px-3.5 rounded-xl transition flex items-center justify-center gap-1.5">
+                            <a id="mainVideoExternalLink" href="https://www.youtube.com/watch?v=ZDRgAV0sTkc" target="_blank" rel="noopener noreferrer" class="bg-[#f0e9d8] dark:bg-stone-800 hover:bg-stone-900 hover:text-white dark:hover:bg-stone-700 text-stone-900 dark:text-[#faf6ed] border border-stone-800 dark:border-stone-600 text-xs font-bold py-2.5 px-3.5 transition flex items-center justify-center gap-1.5">
                                 YouTube पर खोलें <i class="fa-solid fa-arrow-up-right-from-square"></i>
                             </a>
                         </div>
@@ -213,83 +264,83 @@
             </div>
         </section>
 
-        <!-- Top 3 Most-Viewed News Leaderboard Strip -->
-        <section id="top-ranking" class="mb-8">
-            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-                <h2 class="text-sm sm:text-base font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
-                    <i class="fa-solid fa-fire text-amber-500"></i> टॉप 3 सर्वाधिक देखी गई खबरें (Top Reports Leaderboard)
+        <!-- SECTION 2: TOP 3 EDITORIAL INDEX STRIP -->
+        <section id="top-ranking" class="mb-10 pt-4 editorial-divider">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-4 pt-2">
+                <h2 class="font-editorial text-lg sm:text-xl font-bold text-stone-950 dark:text-[#faf6ed] flex items-center gap-2">
+                    <i class="fa-solid fa-fire text-[#b91c1c]"></i> टॉप 3 सर्वाधिक देखी गई खबरें (Front Page Index)
                 </h2>
-                <span id="channelTotalsSummary" class="text-xs font-bold text-slate-500 dark:text-slate-400">
+                <span id="channelTotalsSummary" class="text-xs font-bold px-2.5 py-1 bg-[#f0e9d8] dark:bg-stone-800 border border-stone-400 dark:border-stone-600 text-stone-800 dark:text-stone-300">
                     कुल 15 वीडियो रिपोर्ट्स • 👁️ 29,038 Views • 👍 353 Likes
                 </span>
             </div>
-            <div id="topLeaderboard" class="grid grid-cols-1 md:grid-cols-3 gap-3.5"></div>
+            <div id="topLeaderboard" class="grid grid-cols-1 md:grid-cols-3 gap-4"></div>
         </section>
 
-        <!-- Unified News & Videos Archive (Search + Sort + Filters + Auto-Synced Cards) -->
-        <section id="news-hub" class="mb-14">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-5">
+        <!-- SECTION 3: ALL NEWS & VIDEO ARCHIVE -->
+        <section id="news-hub" class="mb-14 pt-4 editorial-divider">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-5 pt-2">
                 <div>
-                    <div class="flex items-center gap-2">
-                        <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white">सारी खबरें एवं वीडियो रिपोर्ट्स</h2>
-                        <span id="totalCountBadge" class="bg-red-600/15 text-red-600 dark:text-amber-400 text-xs font-extrabold px-2.5 py-0.5 rounded-full">0</span>
+                    <div class="flex items-center gap-2.5">
+                        <h2 class="font-editorial text-2xl sm:text-3xl font-bold text-stone-950 dark:text-[#faf6ed]">सम्पूर्ण समाचार एवं वीडियो संकलन</h2>
+                        <span id="totalCountBadge" class="bg-[#b91c1c] text-white text-xs font-extrabold px-2.5 py-0.5">0</span>
                     </div>
-                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">आदर्श वाणी समाचार (aadarshvanisamachar.com), ETV Bharat, NDTV और YouTube से व्यूज व लाइक्स सहित संकलित</p>
+                    <p class="text-xs text-stone-600 dark:text-stone-400 mt-1">आदर्श वाणी समाचार (aadarshvanisamachar.com), ETV Bharat, NDTV और YouTube से व्यूज व लाइक्स सहित संकलित</p>
                 </div>
 
                 <!-- Search & Sort Controls -->
                 <div class="flex flex-col sm:flex-row gap-2 w-full md:w-auto">
-                    <select id="sortSelect" onchange="applyFilters()" aria-label="क्रम बदलें" class="bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-2 text-xs font-bold text-slate-800 dark:text-white focus:outline-none focus:border-red-500">
+                    <select id="sortSelect" onchange="applyFilters()" aria-label="क्रम बदलें" class="bg-[#fffdf8] dark:bg-[#1c1917] border border-stone-800 dark:border-stone-600 px-3 py-2 text-xs font-bold text-stone-900 dark:text-[#faf6ed] focus:outline-none focus:border-[#b91c1c]">
                         <option value="top_views">🔥 टॉप व्यूज (सबसे ज़्यादा देखे गए)</option>
                         <option value="top_likes">👍 सबसे ज़्यादा लाइक्स</option>
                         <option value="latest">🕒 नवीनतम खबरें (Latest)</option>
                     </select>
                     <div class="relative w-full sm:w-64">
-                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
-                        <input type="search" id="searchInput" oninput="applyFilters()" placeholder="खबर खोजें (जैसे: परख ट्रेन, CSR)..." class="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl pl-9 pr-3.5 py-2 text-xs sm:text-sm text-slate-900 dark:text-white focus:outline-none focus:border-red-500">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-stone-500 text-xs"></i>
+                        <input type="search" id="searchInput" oninput="applyFilters()" placeholder="खबर खोजें (जैसे: परख ट्रेन, CSR)..." class="w-full bg-[#fffdf8] dark:bg-[#1c1917] border border-stone-800 dark:border-stone-600 pl-8 pr-3.5 py-2 text-xs sm:text-sm text-stone-900 dark:text-[#faf6ed] focus:outline-none focus:border-[#b91c1c]">
                     </div>
                 </div>
             </div>
 
-            <!-- Category & Source Filter Pills -->
-            <div class="flex flex-wrap gap-2 mb-6" id="filterBar">
-                <button type="button" onclick="setCategory('all', this)" class="filter-pill bg-red-600 text-white text-xs font-bold px-3.5 py-1.5 rounded-lg shadow-sm transition">सभी (All)</button>
-                <button type="button" onclick="setCategory('video', this)" class="filter-pill bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-bold px-3.5 py-1.5 rounded-lg transition">YouTube वीडियो (Views/Likes)</button>
-                <button type="button" onclick="setCategory('avs', this)" class="filter-pill bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-bold px-3.5 py-1.5 rounded-lg transition">आदर्श वाणी समाचार</button>
-                <button type="button" onclick="setCategory('etv', this)" class="filter-pill bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-bold px-3.5 py-1.5 rounded-lg transition">ETV Bharat</button>
-                <button type="button" onclick="setCategory('ndtv', this)" class="filter-pill bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-bold px-3.5 py-1.5 rounded-lg transition">NDTV</button>
-                <button type="button" onclick="setCategory('naxal', this)" class="filter-pill bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-bold px-3.5 py-1.5 rounded-lg transition">अबूझमाड़ व सुरक्षा</button>
+            <!-- Newspaper Section Filter Tabs -->
+            <div class="flex flex-wrap gap-2 mb-6 pb-3 border-b border-stone-300 dark:border-stone-700" id="filterBar">
+                <button type="button" onclick="setCategory('all', this)" class="filter-pill bg-[#1c1917] text-[#faf6ed] dark:bg-[#b91c1c] border border-stone-900 text-xs font-bold px-3.5 py-1.5 transition">सभी (All)</button>
+                <button type="button" onclick="setCategory('video', this)" class="filter-pill bg-[#f3ecdc] dark:bg-stone-800 text-stone-800 dark:text-stone-300 border border-stone-400 dark:border-stone-600 text-xs font-bold px-3.5 py-1.5 hover:border-stone-900 transition">YouTube वीडियो (Views/Likes)</button>
+                <button type="button" onclick="setCategory('avs', this)" class="filter-pill bg-[#f3ecdc] dark:bg-stone-800 text-stone-800 dark:text-stone-300 border border-stone-400 dark:border-stone-600 text-xs font-bold px-3.5 py-1.5 hover:border-stone-900 transition">आदर्श वाणी समाचार</button>
+                <button type="button" onclick="setCategory('etv', this)" class="filter-pill bg-[#f3ecdc] dark:bg-stone-800 text-stone-800 dark:text-stone-300 border border-stone-400 dark:border-stone-600 text-xs font-bold px-3.5 py-1.5 hover:border-stone-900 transition">ETV Bharat</button>
+                <button type="button" onclick="setCategory('ndtv', this)" class="filter-pill bg-[#f3ecdc] dark:bg-stone-800 text-stone-800 dark:text-stone-300 border border-stone-400 dark:border-stone-600 text-xs font-bold px-3.5 py-1.5 hover:border-stone-900 transition">NDTV</button>
+                <button type="button" onclick="setCategory('naxal', this)" class="filter-pill bg-[#f3ecdc] dark:bg-stone-800 text-stone-800 dark:text-stone-300 border border-stone-400 dark:border-stone-600 text-xs font-bold px-3.5 py-1.5 hover:border-stone-900 transition">अबूझमाड़ व सुरक्षा</button>
             </div>
 
-            <!-- Dynamic News Grid -->
+            <!-- Editorial Columns Grid -->
             <div id="newsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
         </section>
 
-        <!-- SECTION 2 (BOTTOM): PERSONAL DETAILS, MEDIA PROFILE & CONTACT -->
-        <section id="personal-profile" class="pt-8 border-t border-slate-200 dark:border-slate-800">
-            <div class="bg-white dark:bg-slate-900/95 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-lg">
+        <!-- SECTION 4: EDITOR COLOPHON / PRESS DESK PROFILE -->
+        <section id="personal-profile" class="pt-4 editorial-divider">
+            <div class="mt-2 bg-[#fffdf8] dark:bg-[#1c1917] p-6 sm:p-8 border-2 border-stone-900 dark:border-stone-700 shadow-[4px_4px_0_0_rgba(28,25,23,0.9)] dark:shadow-[4px_4px_0_0_rgba(120,113,108,0.4)]">
 
                 <!-- Top Bio Row -->
-                <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-slate-200 dark:border-slate-800">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b-2 border-stone-300 dark:border-stone-700">
                     <div class="flex items-center gap-4">
-                        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-tr from-red-600 to-amber-500 p-0.5 shrink-0 shadow overflow-hidden">
-                            <img src="./aakash-photo.jpg" alt="आकाश सिंह ठाकुर" onerror="handlePhotoError(this)" class="w-full h-full object-cover object-top rounded-[14px] bg-slate-900">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 border-2 border-stone-900 dark:border-amber-500 p-0.5 shrink-0 bg-white dark:bg-stone-900 shadow-sm overflow-hidden">
+                            <img src="./aakash-photo.jpg" alt="आकाश सिंह ठाकुर" onerror="handlePhotoError(this)" class="w-full h-full object-cover object-top">
                         </div>
                         <div>
-                            <span class="text-[11px] font-bold uppercase tracking-wider text-red-600 dark:text-amber-400">व्यक्तिगत एवं मीडिया परिचय</span>
-                            <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white">आकाश सिंह ठाकुर (Aakash Singh Thakur)</h2>
-                            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-0.5">
+                            <span class="text-[11px] font-extrabold uppercase tracking-widest text-[#b91c1c] dark:text-amber-400">संपादकीय परिचय एवं प्रेस डेस्क</span>
+                            <h2 class="font-editorial text-2xl sm:text-3xl font-bold text-stone-950 dark:text-[#faf6ed]">आकाश सिंह ठाकुर (Aakash Singh Thakur)</h2>
+                            <p class="text-xs sm:text-sm text-stone-700 dark:text-stone-300 mt-0.5">
                                 संस्थापक एवं प्रधान संपादक — <strong>आदर्श वाणी समाचार</strong> | संवाददाता — <strong>ETV Bharat</strong> एवं <strong>NDTV</strong>
                             </p>
-                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                                <i class="fa-solid fa-location-dot text-red-500 mr-1"></i> नारायणपुर एवं अबूझमाड़, बस्तर संभाग, छत्तीसगढ़
+                            <p class="text-xs text-stone-600 dark:text-stone-400 mt-1">
+                                <i class="fa-solid fa-location-dot text-[#b91c1c] mr-1"></i> नारायणपुर एवं अबूझमाड़, बस्तर संभाग, छत्तीसगढ़
                             </p>
                         </div>
                     </div>
 
                     <div class="flex flex-wrap gap-2.5 shrink-0">
-                        <button type="button" onclick="downloadVCard()" class="bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:opacity-90 text-xs font-bold px-4 py-3 rounded-xl transition flex items-center gap-2 shadow">
-                            <i class="fa-solid fa-address-card text-amber-500 dark:text-red-600"></i> फोन में नंबर सेव करें (.vcf)
+                        <button type="button" onclick="downloadVCard()" class="bg-stone-900 dark:bg-[#faf6ed] text-[#faf6ed] dark:text-stone-950 hover:bg-[#b91c1c] dark:hover:bg-amber-300 text-xs font-bold px-4 py-3 border border-stone-900 transition flex items-center gap-2 shadow-sm">
+                            <i class="fa-solid fa-address-card text-amber-400 dark:text-[#b91c1c]"></i> फोन में नंबर सेव करें (.vcf)
                         </button>
                     </div>
                 </div>
@@ -297,94 +348,94 @@
                 <!-- Media Roles & Direct Contact Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6">
                     <div>
-                        <h3 class="text-sm font-extrabold text-slate-900 dark:text-white uppercase tracking-wider mb-3">संपादकीय एवं पत्रकारिता जिम्मेदारियाँ</h3>
-                        <ul class="space-y-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                        <h3 class="font-editorial text-base font-bold text-stone-950 dark:text-[#faf6ed] uppercase tracking-wider mb-3 border-b border-stone-300 dark:border-stone-700 pb-1">संपादकीय एवं पत्रकारिता जिम्मेदारियाँ</h3>
+                        <ul class="space-y-2.5 text-xs sm:text-sm text-stone-700 dark:text-stone-300">
                             <li class="flex items-start gap-2.5">
-                                <span class="badge-avs text-white text-[10px] font-bold px-2 py-0.5 rounded mt-0.5 shrink-0">AVS</span>
-                                <span><strong>आदर्श वाणी समाचार:</strong> संस्थापक एवं प्रधान संपादक (<a href="https://aadarshvanisamachar.com/" target="_blank" rel="noopener noreferrer" class="text-amber-600 dark:text-amber-400 hover:underline">aadarshvanisamachar.com</a>)</span>
+                                <span class="badge-avs text-white text-[10px] font-bold px-2 py-0.5 mt-0.5 shrink-0">AVS</span>
+                                <span><strong>आदर्श वाणी समाचार:</strong> संस्थापक एवं प्रधान संपादक (<a href="https://aadarshvanisamachar.com/" target="_blank" rel="noopener noreferrer" class="text-[#92400e] dark:text-amber-400 font-semibold hover:underline">aadarshvanisamachar.com</a>)</span>
                             </li>
                             <li class="flex items-start gap-2.5">
-                                <span class="badge-etv text-white text-[10px] font-bold px-2 py-0.5 rounded mt-0.5 shrink-0">ETV</span>
+                                <span class="badge-etv text-white text-[10px] font-bold px-2 py-0.5 mt-0.5 shrink-0">ETV</span>
                                 <span><strong>ETV Bharat (छत्तीसगढ़):</strong> नारायणपुर व अबूझमाड़ संवाददाता (हिंदी एवं अंग्रेजी बाईलाइन रिपोर्टिंग)</span>
                             </li>
                             <li class="flex items-start gap-2.5">
-                                <span class="badge-ndtv text-white text-[10px] font-bold px-2 py-0.5 rounded mt-0.5 shrink-0">NDTV</span>
-                                <span><strong>NDTV (मध्य प्रदेश / छत्तीसगढ़):</strong> नारायणपुर संवाददाता (<a href="https://mpcg.ndtv.in/authors/akash-singh-8692" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline">Author Page ↗</a>)</span>
+                                <span class="badge-ndtv text-white text-[10px] font-bold px-2 py-0.5 mt-0.5 shrink-0">NDTV</span>
+                                <span><strong>NDTV (मध्य प्रदेश / छत्तीसगढ़):</strong> नारायणपुर संवाददाता (<a href="https://mpcg.ndtv.in/authors/akash-singh-8692" target="_blank" rel="noopener noreferrer" class="text-blue-800 dark:text-blue-400 font-semibold hover:underline">Author Page ↗</a>)</span>
                             </li>
                             <li class="flex items-start gap-2.5">
-                                <span class="badge-yt text-white text-[10px] font-bold px-2 py-0.5 rounded mt-0.5 shrink-0">YT</span>
-                                <span><strong>आदर्श वाणी समाचार नारायणपुर:</strong> आधिकारिक वीडियो न्यूज़ चैनल (<a href="https://youtube.com/@aadarshvanismacharnarayanp4382" target="_blank" rel="noopener noreferrer" class="text-red-600 dark:text-red-400 hover:underline">@aadarshvanismacharnarayanp4382</a>)</span>
+                                <span class="badge-yt text-white text-[10px] font-bold px-2 py-0.5 mt-0.5 shrink-0">YT</span>
+                                <span><strong>आदर्श वाणी समाचार नारायणपुर:</strong> आधिकारिक वीडियो न्यूज़ चैनल (<a href="https://youtube.com/@aadarshvanismacharnarayanp4382" target="_blank" rel="noopener noreferrer" class="text-[#b91c1c] dark:text-rose-400 font-semibold hover:underline">@aadarshvanismacharnarayanp4382</a>)</span>
                             </li>
                         </ul>
                     </div>
 
                     <div>
-                        <h3 class="text-sm font-extrabold text-slate-900 dark:text-white uppercase tracking-wider mb-3">सीधा संपर्क सूत्र (Direct Contact)</h3>
+                        <h3 class="font-editorial text-base font-bold text-stone-950 dark:text-[#faf6ed] uppercase tracking-wider mb-3 border-b border-stone-300 dark:border-stone-700 pb-1">सीधा संपर्क सूत्र (Direct Contact)</h3>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
-                            <a href="tel:+917974861859" class="p-3 rounded-xl bg-slate-100 dark:bg-slate-800/80 hover:border-red-500 border border-transparent transition flex items-center gap-3">
-                                <i class="fa-solid fa-phone text-red-600"></i>
+                            <a href="tel:+917974861859" class="p-3 bg-[#f6efe0] dark:bg-[#26221e] border border-stone-400 dark:border-stone-600 hover:border-[#b91c1c] transition flex items-center gap-3">
+                                <i class="fa-solid fa-phone text-[#b91c1c]"></i>
                                 <div>
-                                    <span class="text-[11px] text-slate-500 block">कॉलिंग नंबर</span>
-                                    <span class="font-bold text-slate-900 dark:text-white">+91 79748 61859</span>
+                                    <span class="text-[11px] text-stone-500 dark:text-stone-400 block">कॉलिंग नंबर</span>
+                                    <span class="font-bold text-stone-950 dark:text-[#faf6ed]">+91 79748 61859</span>
                                 </div>
                             </a>
 
-                            <a href="https://wa.me/917587297572?text=नमस्ते%20आकाश%20सिंह%20ठाकुर%20जी" target="_blank" rel="noopener noreferrer" class="p-3 rounded-xl bg-slate-100 dark:bg-slate-800/80 hover:border-emerald-500 border border-transparent transition flex items-center gap-3">
-                                <i class="fa-brands fa-whatsapp text-emerald-600 text-base"></i>
+                            <a href="https://wa.me/917587297572?text=नमस्ते%20आकाश%20सिंह%20ठाकुर%20जी" target="_blank" rel="noopener noreferrer" class="p-3 bg-[#f6efe0] dark:bg-[#26221e] border border-stone-400 dark:border-stone-600 hover:border-emerald-700 transition flex items-center gap-3">
+                                <i class="fa-brands fa-whatsapp text-emerald-700 dark:text-emerald-400 text-base"></i>
                                 <div>
-                                    <span class="text-[11px] text-slate-500 block">व्हाट्सएप डेस्क</span>
-                                    <span class="font-bold text-slate-900 dark:text-white">+91 75872 97572</span>
+                                    <span class="text-[11px] text-stone-500 dark:text-stone-400 block">व्हाट्सएप डेस्क</span>
+                                    <span class="font-bold text-stone-950 dark:text-[#faf6ed]">+91 75872 97572</span>
                                 </div>
                             </a>
 
-                            <a href="mailto:akashthakur929@gmail.com" class="p-3 rounded-xl bg-slate-100 dark:bg-slate-800/80 hover:border-amber-500 border border-transparent transition flex items-center gap-3 sm:col-span-2">
-                                <i class="fa-solid fa-envelope text-amber-600"></i>
+                            <a href="mailto:akashthakur929@gmail.com" class="p-3 bg-[#f6efe0] dark:bg-[#26221e] border border-stone-400 dark:border-stone-600 hover:border-[#92400e] transition flex items-center gap-3 sm:col-span-2">
+                                <i class="fa-solid fa-envelope text-[#92400e] dark:text-amber-400"></i>
                                 <div class="truncate">
-                                    <span class="text-[11px] text-slate-500 block">ऑफिशियल ईमेल</span>
-                                    <span class="font-bold text-slate-900 dark:text-white">akashthakur929@gmail.com</span>
+                                    <span class="text-[11px] text-stone-500 dark:text-stone-400 block">ऑफिशियल ईमेल</span>
+                                    <span class="font-bold text-stone-950 dark:text-[#faf6ed]">akashthakur929@gmail.com</span>
                                 </div>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <div class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-800 text-center text-xs text-slate-500">
-                    © 2026 आकाश सिंह ठाकुर (Aakash Singh Thakur) • नारायणपुर, बस्तर संभाग, छत्तीसगढ़
+                <div class="mt-6 pt-4 border-t-2 border-stone-900 dark:border-stone-700 text-center text-xs font-semibold text-stone-600 dark:text-stone-400">
+                    © 2026 आकाश सिंह ठाकुर (Aakash Singh Thakur) • ई-पेपर पोर्टल • नारायणपुर, बस्तर संभाग, छत्तीसगढ़
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Floating Glass Bottom Dock -->
-    <nav aria-label="Floating Quick Navigation" class="fixed bottom-3 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-md glass-panel bg-white/90 dark:bg-slate-900/90 border border-slate-300/80 dark:border-slate-700/80 rounded-2xl shadow-2xl px-2 py-2 flex items-center justify-around">
-        <a href="#news-hub" class="flex flex-col items-center text-[10px] font-bold text-slate-700 dark:text-slate-300 hover:text-red-600 px-2 py-1">
-            <i class="fa-solid fa-newspaper text-sm mb-0.5 text-red-500"></i> खबरें
+    <!-- Floating Newspaper Press Dock -->
+    <nav aria-label="Floating Quick Navigation" class="fixed bottom-3 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-md bg-[#faf6ed]/95 dark:bg-[#191614]/95 backdrop-blur-md border-2 border-stone-900 dark:border-stone-600 shadow-2xl px-2 py-2 flex items-center justify-around">
+        <a href="#news-hub" class="flex flex-col items-center text-[10px] font-bold text-stone-800 dark:text-stone-300 hover:text-[#b91c1c] px-2 py-1">
+            <i class="fa-solid fa-newspaper text-sm mb-0.5 text-[#b91c1c]"></i> खबरें
         </a>
-        <a href="#video-hub" class="flex flex-col items-center text-[10px] font-bold text-slate-700 dark:text-slate-300 hover:text-red-600 px-2 py-1">
-            <i class="fa-brands fa-youtube text-sm mb-0.5 text-rose-500"></i> वीडियो
+        <a href="#video-hub" class="flex flex-col items-center text-[10px] font-bold text-stone-800 dark:text-stone-300 hover:text-[#b91c1c] px-2 py-1">
+            <i class="fa-brands fa-youtube text-sm mb-0.5 text-red-700 dark:text-rose-400"></i> वीडियो
         </a>
-        <a href="#personal-profile" class="flex flex-col items-center text-[10px] font-bold text-slate-700 dark:text-slate-300 hover:text-red-600 px-2 py-1">
-            <i class="fa-solid fa-user-tie text-sm mb-0.5 text-amber-500"></i> प्रोफ़ाइल
+        <a href="#personal-profile" class="flex flex-col items-center text-[10px] font-bold text-stone-800 dark:text-stone-300 hover:text-[#b91c1c] px-2 py-1">
+            <i class="fa-solid fa-user-tie text-sm mb-0.5 text-[#92400e] dark:text-amber-400"></i> प्रोफ़ाइल
         </a>
-        <a href="tel:+917974861859" class="flex flex-col items-center text-[10px] font-bold text-slate-700 dark:text-slate-300 hover:text-red-600 px-2 py-1">
-            <i class="fa-solid fa-phone text-sm mb-0.5 text-blue-500"></i> कॉल
+        <a href="tel:+917974861859" class="flex flex-col items-center text-[10px] font-bold text-stone-800 dark:text-stone-300 hover:text-[#b91c1c] px-2 py-1">
+            <i class="fa-solid fa-phone text-sm mb-0.5 text-blue-800 dark:text-blue-400"></i> कॉल
         </a>
-        <a href="https://wa.me/917587297572" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center text-[10px] font-bold text-slate-700 dark:text-slate-300 hover:text-emerald-500 px-2 py-1">
-            <i class="fa-brands fa-whatsapp text-sm mb-0.5 text-emerald-500"></i> WhatsApp
+        <a href="https://wa.me/917587297572" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center text-[10px] font-bold text-stone-800 dark:text-stone-300 hover:text-emerald-700 px-2 py-1">
+            <i class="fa-brands fa-whatsapp text-sm mb-0.5 text-emerald-700 dark:text-emerald-400"></i> WhatsApp
         </a>
-        <button type="button" onclick="downloadVCard()" class="flex flex-col items-center text-[10px] font-bold text-slate-700 dark:text-slate-300 hover:text-amber-500 px-2 py-1">
-            <i class="fa-solid fa-address-card text-sm mb-0.5 text-purple-500"></i> Save
+        <button type="button" onclick="downloadVCard()" class="flex flex-col items-center text-[10px] font-bold text-stone-800 dark:text-stone-300 hover:text-[#b91c1c] px-2 py-1">
+            <i class="fa-solid fa-address-card text-sm mb-0.5 text-stone-800 dark:text-stone-300"></i> Save
         </button>
     </nav>
 
     <!-- Video Modal Lightbox -->
     <div id="videoModal" class="hidden fixed inset-0 z-50 bg-black/85 backdrop-blur-sm items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="modalVideoTitle">
-        <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-3xl w-full overflow-hidden shadow-2xl">
-            <div class="flex items-center justify-between px-4 py-3 border-b border-slate-800 gap-3">
-                <h3 id="modalVideoTitle" class="text-sm font-bold text-white truncate pr-4">वीडियो रिपोर्ट</h3>
+        <div class="bg-[#faf6ed] dark:bg-[#1c1917] border-2 border-stone-900 dark:border-stone-600 max-w-3xl w-full overflow-hidden shadow-2xl">
+            <div class="flex items-center justify-between px-4 py-3 border-b-2 border-stone-900 dark:border-stone-700 gap-3">
+                <h3 id="modalVideoTitle" class="font-editorial text-sm sm:text-base font-bold text-stone-950 dark:text-[#faf6ed] truncate pr-4">वीडियो रिपोर्ट</h3>
                 <div class="flex items-center gap-2 shrink-0">
-                    <a id="modalExternalLink" href="https://youtube.com/@aadarshvanismacharnarayanp4382" target="_blank" rel="noopener noreferrer" class="bg-red-600 hover:bg-red-700 text-white text-xs font-bold px-2.5 py-1.5 rounded-lg">YouTube ↗</a>
-                    <button type="button" onclick="closeVideoModal()" aria-label="बंद करें" class="w-8 h-8 rounded-lg bg-slate-800 text-slate-300 hover:text-white flex items-center justify-center">
+                    <a id="modalExternalLink" href="https://youtube.com/@aadarshvanismacharnarayanp4382" target="_blank" rel="noopener noreferrer" class="bg-[#b91c1c] hover:bg-[#991b1b] text-white text-xs font-bold px-2.5 py-1.5">YouTube ↗</a>
+                    <button type="button" onclick="closeVideoModal()" aria-label="बंद करें" class="w-8 h-8 border border-stone-800 dark:border-stone-600 bg-[#f0e9d8] dark:bg-stone-800 text-stone-900 dark:text-white flex items-center justify-center">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                 </div>
@@ -787,7 +838,7 @@
         function handlePhotoError(img) {
             if (img.dataset.fallbackApplied) return;
             img.dataset.fallbackApplied = "1";
-            img.src = "https://ui-avatars.com/api/?name=Aakash+Singh+Thakur&size=512&background=dc2626&color=ffffff&bold=true";
+            img.src = "https://ui-avatars.com/api/?name=Aakash+Singh+Thakur&size=512&background=b91c1c&color=ffffff&bold=true";
         }
 
         function sanitizeHttpsUrl(raw) {
@@ -866,38 +917,38 @@
                 if (extEl) extEl.href = sanitizeHttpsUrl(topOne.url) || OFFICIAL_YT_URL;
             }
 
-            const medals = ["🥇 #1 टॉप", "🥈 #2", "🥉 #3"];
+            const medals = ["🥇 #1 टॉप खबर", "🥈 #2 स्थान", "🥉 #3 स्थान"];
             box.replaceChildren();
             ranked.slice(0, 3).forEach((item, idx) => {
                 const btn = document.createElement("button");
                 btn.type = "button";
-                btn.className = `text-left p-4 rounded-2xl bg-white dark:bg-slate-900/90 border ${idx === 0 ? "border-amber-500/60" : "border-slate-200 dark:border-slate-800"} hover:border-red-500 transition shadow-sm flex flex-col justify-between gap-2`;
+                btn.className = `text-left p-4 bg-[#fffdf8] dark:bg-[#1c1917] border-2 ${idx === 0 ? "border-[#b91c1c]" : "border-stone-800 dark:border-stone-700"} hover:border-[#b91c1c] transition shadow-[2px_2px_0_0_rgba(28,25,23,0.85)] flex flex-col justify-between gap-2.5`;
                 btn.addEventListener("click", () => openVideoModal(item.videoId, item.title, item.url));
 
                 const topRow = document.createElement("div");
                 topRow.className = "flex items-center justify-between gap-2";
                 const rankBadge = document.createElement("span");
                 rankBadge.className = idx === 0
-                    ? "text-[11px] font-extrabold px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-600 dark:text-amber-400"
-                    : "text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300";
+                    ? "text-[11px] font-extrabold px-2 py-0.5 bg-[#b91c1c] text-white"
+                    : "text-[11px] font-bold px-2 py-0.5 bg-[#f0e9d8] dark:bg-stone-800 border border-stone-400 dark:border-stone-600 text-stone-900 dark:text-stone-200";
                 rankBadge.textContent = medals[idx];
 
                 const dateSpan = document.createElement("span");
-                dateSpan.className = "text-[11px] text-slate-500 dark:text-slate-400";
+                dateSpan.className = "text-[11px] text-stone-600 dark:text-stone-400 font-medium";
                 dateSpan.textContent = item.dateLabel || formatPubDate(item.date);
                 topRow.append(rankBadge, dateSpan);
 
                 const h3 = document.createElement("h3");
-                h3.className = "text-xs sm:text-sm font-bold text-slate-900 dark:text-white line-clamp-2 leading-snug";
+                h3.className = "font-editorial text-sm sm:text-base font-bold text-stone-950 dark:text-[#faf6ed] line-clamp-2 leading-snug";
                 h3.textContent = item.title;
 
                 const statsRow = document.createElement("div");
-                statsRow.className = "flex items-center justify-between text-xs font-extrabold pt-2 border-t border-slate-100 dark:border-slate-800";
+                statsRow.className = "flex items-center justify-between text-xs font-extrabold pt-2 border-t border-stone-300 dark:border-stone-700";
                 const vw = document.createElement("span");
-                vw.className = "text-amber-600 dark:text-amber-400";
+                vw.className = "text-[#92400e] dark:text-amber-400";
                 vw.textContent = `👁️ ${formatNum(item.views)} Views`;
                 const lk = document.createElement("span");
-                lk.className = "text-rose-600 dark:text-rose-400";
+                lk.className = "text-[#b91c1c] dark:text-rose-400";
                 lk.textContent = `👍 ${item.likes !== null ? formatNum(item.likes) : (item.likesDisplay || "—")} Likes`;
                 statsRow.append(vw, lk);
 
@@ -1016,8 +1067,8 @@
                 if (badge) {
                     badge.replaceChildren();
                     const dot = document.createElement("span");
-                    dot.className = "w-1.5 h-1.5 rounded-full bg-emerald-500";
-                    badge.append(dot, document.createTextNode(` Live Synced (${syncedItems.length} अपडेट्स)`));
+                    dot.className = "w-1.5 h-1.5 rounded-full bg-emerald-600 dark:bg-emerald-400";
+                    badge.append(dot, document.createTextNode(` लाइव सिंक (${syncedItems.length} अपडेट्स)`));
                 }
             }
 
@@ -1041,7 +1092,7 @@
             container.replaceChildren();
             if (stories.length === 0) {
                 const empty = document.createElement("div");
-                empty.className = "col-span-full text-center py-10 text-slate-500 text-sm";
+                empty.className = "col-span-full text-center py-10 text-stone-600 dark:text-stone-400 text-sm font-semibold";
                 empty.textContent = "कोई संबंधित खबर नहीं मिली। कृपया दूसरा शब्द खोजें।";
                 container.append(empty);
                 return;
@@ -1055,28 +1106,28 @@
             for (const story of stories) {
                 const isTopOne = Boolean(topVideoId && story.videoId === topVideoId);
                 const article = document.createElement("article");
-                article.className = `bg-white dark:bg-slate-900/90 rounded-2xl p-5 border ${isTopOne ? "border-amber-500/70 ring-1 ring-amber-500/30" : "border-slate-200 dark:border-slate-800"} flex flex-col justify-between shadow-sm hover:shadow-md transition`;
+                article.className = `bg-[#fffdf8] dark:bg-[#1c1917] p-5 border ${isTopOne ? "border-2 border-[#b91c1c] shadow-[3px_3px_0_0_rgba(185,28,28,0.85)]" : "border-stone-400 dark:border-stone-700 border-t-[3px] border-t-stone-900 dark:border-t-stone-500 shadow-[2px_2px_0_0_rgba(28,25,23,0.12)]"} flex flex-col justify-between hover:border-stone-900 dark:hover:border-amber-500/70 transition`;
 
                 const top = document.createElement("div");
 
                 const meta = document.createElement("div");
-                meta.className = "flex items-center justify-between gap-2 mb-3";
+                meta.className = "flex items-center justify-between gap-2 mb-3 pb-2 border-b border-stone-300 dark:border-stone-700";
                 const leftMeta = document.createElement("div");
                 leftMeta.className = "flex items-center gap-1.5 flex-wrap";
                 const badge = document.createElement("span");
-                badge.className = `${getBadgeClass(story.sourceKey)} text-white text-[10px] font-bold px-2.5 py-0.5 rounded`;
+                badge.className = `${getBadgeClass(story.sourceKey)} text-white text-[10px] font-bold px-2 py-0.5`;
                 badge.textContent = story.source;
                 leftMeta.append(badge);
 
                 if (isTopOne) {
                     const topPill = document.createElement("span");
-                    topPill.className = "bg-amber-500 text-slate-950 text-[10px] font-extrabold px-2 py-0.5 rounded";
+                    topPill.className = "bg-amber-400 text-stone-950 text-[10px] font-extrabold px-2 py-0.5 border border-stone-900";
                     topPill.textContent = "🏆 #1 टॉप";
                     leftMeta.append(topPill);
                 }
 
                 const dateEl = document.createElement("span");
-                dateEl.className = "text-[11px] text-slate-500 dark:text-slate-400 shrink-0";
+                dateEl.className = "text-[11px] text-stone-600 dark:text-stone-400 font-medium shrink-0";
                 dateEl.textContent = story.dateLabel || formatPubDate(story.date);
                 meta.append(leftMeta, dateEl);
                 top.append(meta);
@@ -1088,60 +1139,60 @@
                     img.alt = story.title;
                     img.loading = "lazy";
                     img.referrerPolicy = "no-referrer";
-                    img.className = "w-full h-40 object-cover rounded-xl mb-3 border border-slate-200 dark:border-slate-800";
+                    img.className = "w-full h-40 object-cover mb-3 border border-stone-400 dark:border-stone-700";
                     img.addEventListener("error", () => img.remove(), { once: true });
                     top.append(img);
                 }
 
                 const h3 = document.createElement("h3");
-                h3.className = "text-sm sm:text-base font-bold text-slate-900 dark:text-white leading-snug mb-2";
+                h3.className = "font-editorial text-base sm:text-lg font-bold text-stone-950 dark:text-[#faf6ed] leading-snug mb-2";
                 const safeHref = sanitizeHttpsUrl(story.url) || "https://aadarshvanisamachar.com/";
                 const titleLink = document.createElement("a");
                 titleLink.href = safeHref;
                 titleLink.target = "_blank";
                 titleLink.rel = "noopener noreferrer";
-                titleLink.className = "hover:text-red-600 dark:hover:text-amber-400 transition";
+                titleLink.className = "hover:text-[#b91c1c] dark:hover:text-amber-400 transition";
                 titleLink.textContent = story.title;
                 h3.append(titleLink);
 
                 const p = document.createElement("p");
-                p.className = "text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-3";
+                p.className = "text-xs text-stone-700 dark:text-stone-300 leading-relaxed mb-3";
                 p.textContent = story.summary || "";
 
                 top.append(h3, p);
 
-                // Views & Likes Strip
+                // Print Box Views & Likes Strip
                 const metricsBar = document.createElement("div");
-                metricsBar.className = "flex items-center justify-between gap-2 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800/70 text-[11px] font-bold mb-3";
+                metricsBar.className = "flex items-center justify-between gap-2 px-3 py-1.5 bg-[#f4ede0] dark:bg-[#26221e] border border-stone-300 dark:border-stone-700 text-[11px] font-bold mb-3";
                 if (typeof story.views === "number") {
                     const vSpan = document.createElement("span");
-                    vSpan.className = "text-amber-600 dark:text-amber-400";
+                    vSpan.className = "text-[#92400e] dark:text-amber-400";
                     vSpan.textContent = `👁️ ${formatNum(story.views)} Views`;
 
                     const lSpan = document.createElement("span");
-                    lSpan.className = "text-rose-600 dark:text-rose-400";
+                    lSpan.className = "text-[#b91c1c] dark:text-rose-400";
                     lSpan.textContent = `👍 ${story.likes !== null ? formatNum(story.likes) : (story.likesDisplay || "—")} Likes`;
                     metricsBar.append(vSpan, lSpan);
                 } else {
                     const webSpan = document.createElement("span");
-                    webSpan.className = "text-slate-500 dark:text-slate-400 font-semibold";
+                    webSpan.className = "text-stone-600 dark:text-stone-400 font-semibold";
                     webSpan.textContent = "📰 वेब पोर्टल रिपोर्ट (Views/Likes: पोर्टल पर)";
                     metricsBar.append(webSpan);
                 }
                 top.append(metricsBar);
 
                 const footer = document.createElement("div");
-                footer.className = "pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs";
+                footer.className = "pt-2.5 border-t border-stone-300 dark:border-stone-700 flex items-center justify-between text-xs";
                 const author = document.createElement("span");
-                author.className = "text-slate-400 text-[11px]";
-                author.textContent = "आकाश सिंह ठाकुर";
+                author.className = "text-stone-600 dark:text-stone-400 text-[11px] font-semibold";
+                author.textContent = "रिपोर्टर: आकाश सिंह ठाकुर";
                 footer.append(author);
 
                 if (story.videoId) {
                     const btn = document.createElement("button");
                     btn.type = "button";
-                    btn.className = "text-rose-600 dark:text-rose-400 font-bold hover:underline inline-flex items-center gap-1";
-                    btn.innerHTML = '<i class="fa-solid fa-play"></i> वीडियो चलाएं';
+                    btn.className = "text-[#b91c1c] dark:text-rose-400 font-extrabold hover:underline inline-flex items-center gap-1";
+                    btn.innerHTML = '<i class="fa-solid fa-play"></i> वीडियो देखें';
                     btn.addEventListener("click", () => openVideoModal(story.videoId, story.title, safeHref));
                     footer.append(btn);
                 } else {
@@ -1149,7 +1200,7 @@
                     link.href = safeHref;
                     link.target = "_blank";
                     link.rel = "noopener noreferrer";
-                    link.className = "text-red-600 dark:text-amber-400 font-bold hover:underline inline-flex items-center gap-1";
+                    link.className = "text-[#92400e] dark:text-amber-400 font-extrabold hover:underline inline-flex items-center gap-1";
                     link.innerHTML = 'पूरी खबर पढ़ें <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>';
                     footer.append(link);
                 }
@@ -1163,9 +1214,9 @@
         function setCategory(cat, btn) {
             currentCategory = cat;
             document.querySelectorAll(".filter-pill").forEach(p => {
-                p.className = "filter-pill bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-bold px-3.5 py-1.5 rounded-lg transition";
+                p.className = "filter-pill bg-[#f3ecdc] dark:bg-stone-800 text-stone-800 dark:text-stone-300 border border-stone-400 dark:border-stone-600 text-xs font-bold px-3.5 py-1.5 hover:border-stone-900 transition";
             });
-            btn.className = "filter-pill bg-red-600 text-white text-xs font-bold px-3.5 py-1.5 rounded-lg shadow-sm transition";
+            btn.className = "filter-pill bg-[#1c1917] text-[#faf6ed] dark:bg-[#b91c1c] border border-stone-900 text-xs font-bold px-3.5 py-1.5 transition";
             applyFilters();
         }
 
@@ -1228,10 +1279,10 @@
         }
 
         (function initTheme() {
-            if (localStorage.getItem("aakash_theme") === "light") {
-                document.documentElement.classList.remove("dark");
+            if (localStorage.getItem("aakash_theme") === "dark") {
+                document.documentElement.classList.add("dark");
                 const icon = document.getElementById("themeIcon");
-                if (icon) icon.classList.replace("fa-sun", "fa-moon");
+                if (icon) icon.classList.replace("fa-moon", "fa-sun");
             }
         })();
 
