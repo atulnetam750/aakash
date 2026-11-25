@@ -10,20 +10,44 @@
         url: "https://m.youtube.com/watch?v=YXgMVZpseHE"
       },
       {
-        id: "gxTJFnn7IqE",
-        title: "बड़े छपारा में सड़क हादसा — ग्राउंड रिपोर्ट",
-        channel: "Aakash Singh Thakur (@thakuraakashsingh)",
-        date: "2025-09-12",
-        thumbnail: "https://i.ytimg.com/vi/gxTJFnn7IqE/hqdefault.jpg",
-        url: "https://www.youtube.com/watch?v=gxTJFnn7IqE"
+        id: "1pBJ0x55yIA",
+        title: "बस्तर दशहरा के बाद नारायणपुर बिंजली दशहरा की धूम: कबाड़ के जुगाड़ की चर्चा",
+        channel: "आदर्श वाणी समाचार नारायणपुर",
+        date: "2026-10-22",
+        thumbnail: "https://i.ytimg.com/vi/1pBJ0x55yIA/hqdefault.jpg",
+        url: "https://www.youtube.com/watch?v=1pBJ0x55yIA"
       },
       {
-        id: "duECNILUbPg",
-        title: "नारायणपुर गणेश विसर्जन विशेष झलकियां",
-        channel: "Aakash Singh Thakur (@thakuraakashsingh)",
-        date: "2025-09-07",
-        thumbnail: "https://i.ytimg.com/vi/duECNILUbPg/hqdefault.jpg",
-        url: "https://www.youtube.com/watch?v=duECNILUbPg"
+        id: "XMNka5Mz4cg",
+        title: "रावघाट पैसेंजर ट्रेन शुरू: रेल से मिली राहत, रोजगार और BSP के CSR पर भड़के ग्रामीण",
+        channel: "आदर्श वाणी समाचार नारायणपुर",
+        date: "2026-10-21",
+        thumbnail: "https://i.ytimg.com/vi/XMNka5Mz4cg/hqdefault.jpg",
+        url: "https://www.youtube.com/watch?v=XMNka5Mz4cg"
+      },
+      {
+        id: "-7OR0uAQ8NM",
+        title: "BSP प्रबंधन के खिलाफ लामबंद हुए रावघाट माइंस प्रभावित युवा, नारायणपुर में चक्काजाम",
+        channel: "आदर्श वाणी समाचार नारायणपुर",
+        date: "2026-10-15",
+        thumbnail: "https://i.ytimg.com/vi/-7OR0uAQ8NM/hqdefault.jpg",
+        url: "https://www.youtube.com/watch?v=-7OR0uAQ8NM"
+      },
+      {
+        id: "ZDRgAV0sTkc",
+        title: "रावघाट पहुंची ‘परख’ ट्रेन | दशकों का इंतजार खत्म होने की दहलीज पर | Narayanpur Bastar",
+        channel: "आदर्श वाणी समाचार नारायणपुर",
+        date: "2026-09-23",
+        thumbnail: "https://i.ytimg.com/vi/ZDRgAV0sTkc/hqdefault.jpg",
+        url: "https://www.youtube.com/watch?v=ZDRgAV0sTkc"
+      },
+      {
+        id: "Dryn-2Ddw4Y",
+        title: "अबूझमाड़ में अवैध हथियार निर्माण पर पुलिस की दबिश, कीहकाड़ से दो आरोपी गिरफ्तार",
+        channel: "आदर्श वाणी समाचार नारायणपुर",
+        date: "2026-09-22",
+        thumbnail: "https://i.ytimg.com/vi/Dryn-2Ddw4Y/hqdefault.jpg",
+        url: "https://www.youtube.com/watch?v=Dryn-2Ddw4Y"
       }
     ],
     stories: [
@@ -266,6 +290,10 @@
 
   const AVS_FEED_URL = "https://aadarshvanisamachar.com/feed/";
   const YT_CHANNELS = [
+    {
+      id: "UCHplyeGVrLsVLnoaLn8w0dg",
+      label: "आदर्श वाणी समाचार नारायणपुर"
+    },
     {
       id: "UCYkP1d0G4bXD5zKvQbkOS5A",
       label: "Aakash Singh Thakur (@thakuraakashsingh)"
@@ -522,7 +550,7 @@
     if (!gallery) return;
 
     const fragment = document.createDocumentFragment();
-    for (const vid of allVideos.slice(0, 9)) {
+    for (const vid of allVideos.slice(0, 12)) {
       const btn = document.createElement("button");
       btn.type = "button";
       btn.className = "yt-thumb-card text-left bg-white dark:bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 hover:border-red-500/60 transition shadow-sm flex flex-col";
