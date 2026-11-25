@@ -1,0 +1,766 @@
+(function () {
+  const FALLBACK_DATA = {
+    videos: [
+      {
+        id: "YXgMVZpseHE",
+        title: "79 साल का इंतजार खत्म! रावघाट पहुंची ट्रेन | Bastar Railway News",
+        channel: "Public Talkies",
+        date: "2026-10-23",
+        thumbnail: "https://i.ytimg.com/vi/YXgMVZpseHE/hqdefault.jpg",
+        url: "https://m.youtube.com/watch?v=YXgMVZpseHE"
+      },
+      {
+        id: "gxTJFnn7IqE",
+        title: "बड़े छपारा में सड़क हादसा — ग्राउंड रिपोर्ट",
+        channel: "Aakash Singh Thakur (@thakuraakashsingh)",
+        date: "2025-09-12",
+        thumbnail: "https://i.ytimg.com/vi/gxTJFnn7IqE/hqdefault.jpg",
+        url: "https://www.youtube.com/watch?v=gxTJFnn7IqE"
+      },
+      {
+        id: "duECNILUbPg",
+        title: "नारायणपुर गणेश विसर्जन विशेष झलकियां",
+        channel: "Aakash Singh Thakur (@thakuraakashsingh)",
+        date: "2025-09-07",
+        thumbnail: "https://i.ytimg.com/vi/duECNILUbPg/hqdefault.jpg",
+        url: "https://www.youtube.com/watch?v=duECNILUbPg"
+      }
+    ],
+    stories: [
+      {
+        id: "avs-vineet-dubey-suspended",
+        date: "2026-11-18",
+        source: "आदर्श वाणी समाचार",
+        outlet_key: "AVS",
+        category: "public",
+        category_label: "क्राइम व प्रशासन",
+        title: "फरार शोएब ढेबर से कथित सांठगांठ मामले में नारायणपुर में पदस्थ पुलिस निरीक्षक विनीत दुबे सस्पेंड, बस्तर IG का बड़ा एक्शन",
+        summary: "राजधानी क्राइम के तार अबूझमाड़ के द्वार तक जुड़ने के मामले में पुलिस निरीक्षक विनीत दुबे के निलंबन व बस्तर IG की कार्रवाई की विस्तृत रिपोर्ट।",
+        impact: true,
+        image: "",
+        url: "https://aadarshvanisamachar.com/2026/11/18/inspector-vineet-dubey-suspended-shoaib-dhebar-case/"
+      },
+      {
+        id: "avs-csr-227-crore",
+        date: "2026-11-17",
+        source: "आदर्श वाणी समाचार",
+        outlet_key: "AVS",
+        category: "public",
+        category_label: "इन्वेस्टिगेटिव",
+        title: "नारायणपुर स्वास्थ्य विभाग में ₹2.27 करोड़ का हिसाब गायब! सहायक सांख्यिकी अधिकारी निलंबित, CSR राशि के रिकॉर्ड में मिला बड़ा अंतर",
+        summary: "सरकारी दस्तावेजों में ₹2.27 करोड़ (227.73 लाख) Coal India CSR फंड रिकॉर्ड में वित्तीय गड़बड़ी का पर्दाफाश व अधिकारी निलंबन।",
+        impact: true,
+        image: "",
+        url: "https://aadarshvanisamachar.com/2026/11/17/narayanpur-health-department-2-27-crore-financial-discrepancy-officer-suspended/"
+      },
+      {
+        id: "avs-boys-hostel-theft",
+        date: "2026-11-11",
+        source: "आदर्श वाणी समाचार",
+        outlet_key: "AVS",
+        category: "public",
+        category_label: "शिक्षा व सुरक्षा",
+        title: "नारायणपुर के पोस्ट मैट्रिक बालक छात्रावास में चोरी, चोरों ने तोड़े 11 से ज्यादा ताले; छुट्टी के दौरान सुरक्षा व्यवस्था पर उठे सवाल",
+        summary: "छुट्टी के दौरान छात्रावास में हुई चोरी की घटना और विद्यार्थियों की सुरक्षा व्यवस्था की लापरवाही को उजागर करती स्थानीय रिपोर्ट।",
+        impact: false,
+        image: "",
+        url: "https://aadarshvanisamachar.com/2026/11/11/narayanpur-post-matric-boys-hostel-theft-11-locks-broken/"
+      },
+      {
+        id: "avs-ratan-dubey-special",
+        date: "2026-11-04",
+        source: "आदर्श वाणी समाचार",
+        outlet_key: "AVS",
+        category: "public",
+        category_label: "विशेषांक",
+        title: "रतन दुबे की तृतीय पुण्यतिथि पर विशेषांक — जनसेवा और राजनीतिक सफर पर विशेष आलेख",
+        summary: "नारायणपुर के लोकप्रिय जननेता रतन दुबे के जनसेवा सफर, संगठन धर्म और बस्तर क्षेत्र में उनके योगदान पर विशेष स्मृति आलेख।",
+        impact: false,
+        image: "",
+        url: "https://aadarshvanisamachar.com/2026/11/04/ratan-dubey-narayanpur-bjp-leader-naxal-attack-kaushalnar/"
+      },
+      {
+        id: "avs-cg-26-years-abujhmad",
+        date: "2026-11-02",
+        source: "आदर्श वाणी समाचार",
+        outlet_key: "AVS",
+        category: "culture",
+        category_label: "विकास व अबूझमाड़",
+        title: "26 साल का छत्तीसगढ़: विकास की नई इबारत लिखता बस्तर, बदलती तस्वीर के बीच अबूझमाड़ की नई पहचान",
+        summary: "छत्तीसगढ़ राज्य स्थापना दिवस पर नारायणपुर और अबूझमाड़ के बदलते परिदृश्य, सड़क-शिक्षा व विकास यात्रा पर विशेष आलेख।",
+        impact: false,
+        image: "",
+        url: "https://aadarshvanisamachar.com/2026/11/02/chhattisgarh-foundation-day-2026-changing-bastar-narayanpur-abujhmad/"
+      },
+      {
+        id: "avs-dak-seva-jan-seva",
+        date: "2026-11-01",
+        source: "आदर्श वाणी समाचार",
+        outlet_key: "AVS",
+        category: "public",
+        category_label: "ग्रामीण व जनसेवा",
+        title: "डाक सेवा जन सेवा: चलित वीडियो वाहन और डाक चौपाल से नारायणपुर में गूंजी डाक विभाग की पहल",
+        summary: "बरगद की छांव में आयोजित डाक चौपाल के माध्यम से बुजुर्गों और युवाओं तक पहुँची जनकल्याणकारी योजनाओं की जमीनी कवरेज।",
+        impact: false,
+        image: "",
+        url: "https://aadarshvanisamachar.com/2026/11/01/dak-chaupal-narayanpur-india-post-public-services-awareness/"
+      },
+      {
+        id: "avs-amdai-mines-dispute",
+        date: "2026-10-30",
+        source: "आदर्श वाणी समाचार",
+        outlet_key: "AVS",
+        category: "public",
+        category_label: "माइनिंग व परिवहन",
+        title: "लोडिंग पर्ची और गेट पास नहीं मिलने से नाराज नारायणपुर मालक परिवहन संघ के वाहन चालक (आमदाई लौह अयस्क माइंस)",
+        summary: "आमदाई लौह अयस्क माइंस के मुख्य गेट पर स्थानीय वाहन चालकों के धरने और परिवहन विवाद की ग्राउंड कवरेज।",
+        impact: false,
+        image: "",
+        url: "https://aadarshvanisamachar.com/2026/10/30/amdai-mines-loading-dispute-narayanpur-transport-union/"
+      },
+      {
+        id: "avs-mahimagawadi-mandai",
+        date: "2026-10-29",
+        source: "आदर्श वाणी समाचार",
+        outlet_key: "AVS",
+        category: "culture",
+        category_label: "लोक संस्कृति",
+        title: "नए अन्न के स्वागत की खुशी और सगा जोहार से सराबोर महिमागवाड़ी मंडई",
+        summary: "महिमागवाड़ी में नवा खाई सगा जोहार समारोह, मोहरी की गूंज और अंदकुरी गांडा समाज की सांस्कृतिक विरासत पर रिपोर्ट।",
+        impact: false,
+        image: "",
+        url: "https://aadarshvanisamachar.com/2026/10/29/narayanpur-andakuri-ganda-samaj-nawa-khai-saga-johar-ceremony/"
+      },
+      {
+        id: "yt-rowghat-train",
+        date: "2026-10-23",
+        source: "YouTube (Public Talkies)",
+        outlet_key: "YT",
+        category: "culture",
+        category_label: "रेलवे व विकास",
+        title: "79 साल का इंतजार खत्म! रावघाट पहुंची ट्रेन | Bastar Railway News",
+        summary: "बस्तर और रावघाट क्षेत्र में रेलवे विस्तार के ऐतिहासिक पड़ाव पर Public Talkies के लिए विशेष वीडियो ग्राउंड रिपोर्ट।",
+        impact: false,
+        image: "https://i.ytimg.com/vi/YXgMVZpseHE/hqdefault.jpg",
+        url: "https://m.youtube.com/watch?v=YXgMVZpseHE"
+      },
+      {
+        id: "etv-bhangaram-bidai",
+        date: "2026-09-08",
+        source: "ETV Bharat (English)",
+        outlet_key: "ETV",
+        category: "culture",
+        category_label: "बस्तर विरासत",
+        title: "Bhangaram Bidai: With Drumbeats And Prayers, Narayanpur Bids Farewell To The God Of Justice",
+        summary: "नारायणपुर की सदियों पुरानी न्याय परंपरा 'भंगाराम बिदाई' और आदिवासी आस्था को राष्ट्रीय मंच पर लाती विशेष रिपोर्ट।",
+        impact: false,
+        image: "",
+        url: "https://www.etvbharat.com/en/offbeat/chhattisgarh-bhangaram-bidai-with-drumbeats-and-prayers-narayanpur-bids-farewell-to-the-god-of-justice-enn26090800961"
+      },
+      {
+        id: "etv-25-lakh-bounty-naxal",
+        date: "2026-07-17",
+        source: "ETV Bharat (English)",
+        outlet_key: "ETV",
+        category: "naxal",
+        category_label: "नक्सल व सुरक्षा",
+        title: "Naxal Leader With Rs 25 Lakh Bounty Arrested In Jharkhand; Arms, Explosives, IED Recovered From Chhattisgarh",
+        summary: "नारायणपुर, कांकेर और झारखंड में चलाए गए संयुक्त नक्सल विरोधी अभियानों व IED बरामदगी पर बाईलाइन रिपोर्ट।",
+        impact: false,
+        image: "",
+        url: "https://www.etvbharat.com/en/state/naxal-leader-arrested-in-jharkhand-arms-explosives-ied-recovered-from-chhattisgarh-enn26071705094"
+      },
+      {
+        id: "etv-maspur-ashram-impact",
+        date: "2026",
+        source: "ETV Bharat (Impact)",
+        outlet_key: "ETV",
+        category: "public",
+        category_label: "जनहित व शिक्षा",
+        title: "मसपूर आश्रम की टपकती छत और बच्चों की बदहाली पर खबर का बड़ा असर, कलेक्टर ने दिए सुधार के आदेश",
+        summary: "आदिवासी आश्रम की जर्जर स्थिति को प्रमुखता से दिखाने के बाद जिला कलेक्टर द्वारा तत्काल मरम्मत व व्यवस्था सुधार के निर्देश।",
+        impact: true,
+        image: "",
+        url: "https://www.etvbharat.com/"
+      },
+      {
+        id: "etv-kutul-tiranga",
+        date: "2026",
+        source: "ETV Bharat",
+        outlet_key: "ETV",
+        category: "naxal",
+        category_label: "अबूझमाड़ व सुरक्षा",
+        title: "78 साल बाद अबूझमाड़ के कुतुल में लहराया तिरंगा, नक्सल गढ़ में लोकतंत्र की नई सुबह",
+        summary: "दशकों तक नक्सल प्रभाव में रहे दुर्गम कुतुल गांव में 78 साल बाद ऐतिहासिक ध्वजारोहण और बदलते नारायणपुर की ग्राउंड जीरो रिपोर्ट।",
+        impact: true,
+        image: "",
+        url: "https://www.etvbharat.com/hi/state/new-year-wishes-2026-narayanpur-witnessed-the-sunset-of-the-red-terror-and-the-sunrise-of-development-chhattisgarh-news-cts26010100878"
+      },
+      {
+        id: "ndtv-maad-bachao",
+        date: "2026",
+        source: "NDTV",
+        outlet_key: "NDTV",
+        category: "naxal",
+        category_label: "माड़ बचाओ अभियान",
+        title: "नेलांगुर और कुरुषनार के जंगलों में बड़ा ऑपरेशन, भारी मात्रा में हथियार, विस्फोटक और कैश बरामद",
+        summary: "'माड़ बचाओ अभियान' के तहत अबूझमाड़ में नक्सलियों के हथियार डंप व नकदी बरामदगी की राष्ट्रीय कवरेज।",
+        impact: false,
+        image: "",
+        url: "https://ndtv.in/chhattisgarh-news/narayanpur-police-naxal-cash-arms-seizure-maad-bachao-abhiyan-chhattisgarh-news-11484569"
+      },
+      {
+        id: "etv-orchha-kakur-camps",
+        date: "2026",
+        source: "ETV Bharat",
+        outlet_key: "ETV",
+        category: "naxal",
+        category_label: "ओरछा व काकुर",
+        title: "ओरछा व काकुर क्षेत्र में नक्सल ऑपरेशन और नए सुरक्षा कैंपों से बदलती अबूझमाड़ की तस्वीर",
+        summary: "अंदरूनी अबूझमाड़ में सुरक्षा कैंप खुलने के बाद ग्रामीणों तक पहुँचती सड़क, बिजली और स्वास्थ्य सुविधाओं पर विशेष रिपोर्ट।",
+        impact: false,
+        image: "",
+        url: "https://www.etvbharat.com/en/state/naxal-free-bastar-completes-100-days-know-how-much-bloody-history-of-abujhmad-and-kohkameta-changed-enn26071103843"
+      },
+      {
+        id: "etv-narayanpur-orchha-road",
+        date: "2026",
+        source: "ETV Bharat",
+        outlet_key: "ETV",
+        category: "public",
+        category_label: "सड़क व परिवहन",
+        title: "नारायणपुर-ओरछा जर्जर मार्ग और यात्री बस सेवा ठप होने से हजारों ग्रामीणों की परेशानी पर रिपोर्ट",
+        summary: "अबूझमाड़ को जिला मुख्यालय से जोड़ने वाली मुख्य सड़क की बदहाली व यात्री परिवहन संकट पर ग्राउंड जीरो रिपोर्ट।",
+        impact: false,
+        image: "",
+        url: "https://www.etvbharat.com/"
+      },
+      {
+        id: "etv-kachhapal-waterfalls",
+        date: "2026",
+        source: "ETV Bharat",
+        outlet_key: "ETV",
+        category: "culture",
+        category_label: "पर्यटन विशेष",
+        title: "कच्चापाल और फरसबेड़ा जलप्रपात को पर्यटन मानचित्र पर लाने वाली विशेष स्टोरी",
+        summary: "अबूझमाड़ की वादियों में छिपे खूबसूरत कच्चापाल व फरसबेड़ा झरनों के प्राकृतिक सौंदर्य पर विशेष डिजिटल व वीडियो स्टोरी।",
+        impact: false,
+        image: "",
+        url: "https://www.etvbharat.com/"
+      },
+      {
+        id: "avs-bastar-olympics-cricket",
+        date: "2026-10-05",
+        source: "आदर्श वाणी समाचार",
+        outlet_key: "AVS",
+        category: "culture",
+        category_label: "खेल व छात्र प्रतिभा",
+        title: "बस्तर ओलंपिक, अंडर-23 क्रिकेट चयन और अबूझमाड़ के होनहार छात्रों की उपलब्धियां",
+        summary: "बस्तर ओलंपिक में आदिवासी युवाओं का दमखम, अंडर-23 क्रिकेट चयन व अबूझमाड़ के मेधावी छात्रों की सफलता की कहानियाँ।",
+        impact: false,
+        image: "",
+        url: "https://aadarshvanisamachar.com/2026/10/05/bastar-olympic-2026-registration-timeline/"
+      }
+    ]
+  };
+
+  const AVS_FEED_URL = "https://aadarshvanisamachar.com/feed/";
+  const YT_CHANNELS = [
+    {
+      id: "UCYkP1d0G4bXD5zKvQbkOS5A",
+      label: "Aakash Singh Thakur (@thakuraakashsingh)"
+    },
+    {
+      id: "UC06EiWGo-1pmqFsX40WiTww",
+      label: "Aakash Singh (@akashSingh-tz7nk)"
+    }
+  ];
+
+  let allStories = [...FALLBACK_DATA.stories];
+  let allVideos = [...FALLBACK_DATA.videos];
+  let activeFilter = "all";
+  let searchQuery = "";
+
+  function sanitizeHttpUrl(raw) {
+    if (!raw || typeof raw !== "string") return "";
+    try {
+      const parsed = new URL(raw);
+      return parsed.protocol === "https:" ? parsed.href : "";
+    } catch (_) {
+      return "";
+    }
+  }
+
+  function stripHtml(raw) {
+    if (!raw) return "";
+    const doc = new DOMParser().parseFromString(String(raw), "text/html");
+    return (doc.body.textContent || "").replace(/\s+/g, " ").trim();
+  }
+
+  function extractFirstImage(rawHtml) {
+    if (!rawHtml) return "";
+    const match = String(rawHtml).match(/<img[^>]+src=["'](https:\/\/[^"']+)["']/i);
+    return match ? sanitizeHttpUrl(match[1]) : "";
+  }
+
+  function inferCategory(text) {
+    const t = String(text || "").toLowerCase();
+    if (/नक्सल|अबूझमाड़|कुतुल|कैंप|माड़|bounty|ied|naxal|abujhmad|आत्मसमर्पण/.test(t)) return "naxal";
+    if (/संस्कृति|मेला|मंडई|भंगाराम|ओलंपिक|क्रिकेट|जलप्रपात|रेलवे|ट्रेन|छत्तीसगढ़|bhangaram|railway/.test(t)) return "culture";
+    return "public";
+  }
+
+  function extractYouTubeId(rawUrl) {
+    if (!rawUrl) return "";
+    try {
+      const u = new URL(rawUrl);
+      if (u.searchParams.get("v")) return u.searchParams.get("v");
+      const parts = u.pathname.split("/").filter(Boolean);
+      return parts[parts.length - 1] || "";
+    } catch (_) {
+      return "";
+    }
+  }
+
+  function formatDateLabel(dateStr) {
+    if (!dateStr) return "ताज़ा रिपोर्ट";
+    if (/^\d{4}$/.test(dateStr)) return dateStr;
+    const d = new Date(dateStr);
+    if (Number.isNaN(d.getTime())) return String(dateStr).slice(0, 10);
+    return d.toLocaleDateString("hi-IN", { day: "2-digit", month: "short", year: "numeric" });
+  }
+
+  function getOutletBadgeClass(outletKey) {
+    if (outletKey === "AVS") return "badge-avs";
+    if (outletKey === "NDTV") return "badge-ndtv";
+    if (outletKey === "YT") return "badge-yt";
+    return "badge-etv";
+  }
+
+  function createFallbackBanner(outletKey, sourceName) {
+    const wrap = document.createElement("div");
+    let grad = "from-red-900/80 via-slate-900 to-slate-950";
+    let iconClass = "fa-solid fa-newspaper";
+    if (outletKey === "AVS") {
+      grad = "from-amber-900/75 via-slate-900 to-slate-950";
+      iconClass = "fa-solid fa-pen-nib";
+    } else if (outletKey === "NDTV") {
+      grad = "from-blue-900/80 via-slate-900 to-slate-950";
+      iconClass = "fa-solid fa-tower-broadcast";
+    } else if (outletKey === "YT") {
+      grad = "from-rose-900/80 via-slate-900 to-slate-950";
+      iconClass = "fa-brands fa-youtube";
+    }
+    wrap.className = `h-32 w-full rounded-xl bg-gradient-to-br ${grad} border border-white/10 mb-4 p-4 flex flex-col justify-between relative overflow-hidden`;
+
+    const badge = document.createElement("span");
+    badge.className = "self-start text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded bg-black/45 text-white border border-white/15";
+    badge.textContent = sourceName || "ग्राउंड रिपोर्ट";
+
+    const bottom = document.createElement("div");
+    bottom.className = "flex items-center justify-between text-white/80";
+    const label = document.createElement("span");
+    label.className = "text-[11px] font-semibold";
+    label.textContent = "आकाश सिंह ठाकुर • बस्तर कवरेज";
+    const icon = document.createElement("i");
+    icon.className = `${iconClass} text-2xl opacity-60`;
+    bottom.append(label, icon);
+
+    wrap.append(badge, bottom);
+    return wrap;
+  }
+
+  function renderStats() {
+    const totalEl = document.getElementById("stat-total-reports");
+    const impactEl = document.getElementById("stat-impact-count");
+    const videoCountEl = document.getElementById("stat-video-count");
+    const allCountBtn = document.getElementById("filter-all-count");
+
+    const impactCount = allStories.filter(s =>
+      s.impact || /निलंबित|सस्पेंड|₹2\.27|CSR|कलेक्टर|असर|चेम्बर सील/.test(s.title || "")
+    ).length;
+
+    if (totalEl) totalEl.textContent = `${allStories.length}+`;
+    if (impactEl) impactEl.textContent = `${impactCount}+`;
+    if (videoCountEl) videoCountEl.textContent = `${allVideos.length}`;
+    if (allCountBtn) allCountBtn.textContent = `सभी खबरें (${allStories.length})`;
+  }
+
+  function renderTicker() {
+    const ticker = document.getElementById("news-ticker");
+    if (!ticker || !allStories.length) return;
+    const topTitles = allStories.slice(0, 6).map(s => `• [${s.source}] ${s.title}`);
+    ticker.textContent = topTitles.join("    |    ");
+  }
+
+  function renderStories() {
+    const grid = document.getElementById("news-grid");
+    const emptyState = document.getElementById("stories-empty-state");
+    if (!grid) return;
+
+    const filtered = allStories.filter(story => {
+      let matchCat = true;
+      if (activeFilter !== "all") {
+        if (activeFilter.startsWith("outlet:")) {
+          matchCat = story.outlet_key === activeFilter.slice(7);
+        } else {
+          matchCat = story.category === activeFilter;
+        }
+      }
+      const haystack = `${story.title} ${story.summary || ""} ${story.source} ${story.category_label || ""}`.toLowerCase();
+      const matchSearch = !searchQuery || haystack.includes(searchQuery);
+      return matchCat && matchSearch;
+    });
+
+    const fragment = document.createDocumentFragment();
+    for (const story of filtered) {
+      const card = document.createElement("article");
+      card.className = "news-item bg-white dark:bg-slate-900/90 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 flex flex-col justify-between shadow-sm hover:shadow-md transition";
+
+      const top = document.createElement("div");
+
+      // Media visual header: Featured Image with graceful fallback banner
+      const imgUrl = sanitizeHttpUrl(story.image);
+      if (imgUrl) {
+        const imgWrap = document.createElement("div");
+        imgWrap.className = "mb-4 rounded-xl overflow-hidden bg-slate-800 h-40 relative";
+        const img = document.createElement("img");
+        img.src = imgUrl;
+        img.alt = story.title;
+        img.loading = "lazy";
+        img.referrerPolicy = "no-referrer";
+        img.className = "w-full h-full object-cover";
+        img.addEventListener("error", () => {
+          const fallback = createFallbackBanner(story.outlet_key, story.source);
+          imgWrap.replaceWith(fallback);
+        }, { once: true });
+        imgWrap.append(img);
+        top.append(imgWrap);
+      } else {
+        top.append(createFallbackBanner(story.outlet_key, story.source));
+      }
+
+      const metaRow = document.createElement("div");
+      metaRow.className = "flex items-center justify-between mb-2.5 gap-2";
+
+      const badge = document.createElement("span");
+      badge.className = `${getOutletBadgeClass(story.outlet_key)} text-white text-[11px] font-bold px-2.5 py-0.5 rounded`;
+      badge.textContent = story.source;
+
+      const dateCat = document.createElement("span");
+      dateCat.className = "text-[11px] text-slate-500 dark:text-slate-400 text-right";
+      dateCat.textContent = `${formatDateLabel(story.date)} • ${story.category_label || "समाचार"}`;
+      metaRow.append(badge, dateCat);
+
+      const h3 = document.createElement("h3");
+      h3.className = "text-base font-bold text-slate-900 dark:text-white mb-2 leading-snug";
+      h3.textContent = story.title;
+
+      top.append(metaRow, h3);
+
+      if (story.summary) {
+        const p = document.createElement("p");
+        p.className = "text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4";
+        p.textContent = story.summary;
+        top.append(p);
+      }
+
+      const footer = document.createElement("div");
+      footer.className = "pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-semibold";
+
+      const left = document.createElement("span");
+      left.className = story.impact ? "text-emerald-600 dark:text-emerald-400" : "text-slate-500 dark:text-slate-400";
+      left.textContent = story.impact ? "⚡ इम्पैक्ट रिपोर्ट" : "आकाश सिंह ठाकुर";
+      footer.append(left);
+
+      const safeHref = sanitizeHttpUrl(story.url);
+      if (safeHref) {
+        const link = document.createElement("a");
+        link.href = safeHref;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.className = "text-red-600 dark:text-amber-400 hover:underline";
+        link.textContent = story.outlet_key === "YT" ? "वीडियो देखें ↗" : "रिपोर्ट पढ़ें ↗";
+        footer.append(link);
+      }
+
+      card.append(top, footer);
+      fragment.append(card);
+    }
+
+    grid.replaceChildren(fragment);
+    if (emptyState) emptyState.hidden = filtered.length > 0;
+  }
+
+  function playVideo(video) {
+    if (!video || !video.id) return;
+    const iframe = document.getElementById("yt-embed-player");
+    const titleEl = document.getElementById("active-video-title");
+    const metaEl = document.getElementById("active-video-meta");
+    const linkEl = document.getElementById("active-video-link");
+
+    if (iframe) {
+      iframe.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(video.id)}?rel=0`;
+      iframe.title = video.title || "YouTube Video Report";
+    }
+    if (titleEl) titleEl.textContent = video.title || "";
+    if (metaEl) metaEl.textContent = `${video.channel || "YouTube"} • ${formatDateLabel(video.date)}`;
+    if (linkEl) {
+      const safe = sanitizeHttpUrl(video.url) || `https://www.youtube.com/watch?v=${encodeURIComponent(video.id)}`;
+      linkEl.href = safe;
+    }
+
+    document.querySelectorAll(".yt-thumb-card").forEach(card => {
+      const isActive = card.getAttribute("data-video-id") === video.id;
+      card.classList.toggle("ring-2", isActive);
+      card.classList.toggle("ring-red-500", isActive);
+    });
+  }
+
+  function renderVideos() {
+    const gallery = document.getElementById("video-gallery");
+    if (!gallery) return;
+
+    const fragment = document.createDocumentFragment();
+    for (const vid of allVideos.slice(0, 9)) {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "yt-thumb-card text-left bg-white dark:bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 hover:border-red-500/60 transition shadow-sm flex flex-col";
+      btn.setAttribute("data-video-id", vid.id);
+      btn.addEventListener("click", () => {
+        playVideo(vid);
+        document.getElementById("video-spotlight")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+
+      const thumbWrap = document.createElement("div");
+      thumbWrap.className = "relative w-full aspect-video bg-slate-900 overflow-hidden";
+
+      const img = document.createElement("img");
+      img.src = sanitizeHttpUrl(vid.thumbnail) || `https://i.ytimg.com/vi/${encodeURIComponent(vid.id)}/hqdefault.jpg`;
+      img.alt = vid.title;
+      img.loading = "lazy";
+      img.referrerPolicy = "no-referrer";
+      img.className = "w-full h-full object-cover";
+      img.addEventListener("error", () => {
+        img.src = `https://i.ytimg.com/vi/${encodeURIComponent(vid.id)}/mqdefault.jpg`;
+      }, { once: true });
+
+      const playBadge = document.createElement("span");
+      playBadge.className = "absolute inset-0 flex items-center justify-center bg-black/25 hover:bg-black/10 transition";
+      playBadge.innerHTML = '<span class="w-11 h-11 rounded-full bg-red-600/95 text-white flex items-center justify-center shadow-lg"><i class="fa-solid fa-play ml-0.5"></i></span>';
+
+      thumbWrap.append(img, playBadge);
+
+      const info = document.createElement("div");
+      info.className = "p-3.5 flex-1 flex flex-col justify-between gap-2";
+      const t = document.createElement("h3");
+      t.className = "text-xs sm:text-sm font-bold text-slate-900 dark:text-white line-clamp-2 leading-snug";
+      t.textContent = vid.title;
+      const meta = document.createElement("div");
+      meta.className = "text-[11px] text-slate-500 dark:text-slate-400 flex items-center justify-between gap-2";
+      meta.textContent = `${vid.channel || "YouTube"} • ${formatDateLabel(vid.date)}`;
+
+      info.append(t, meta);
+      btn.append(thumbWrap, info);
+      fragment.append(btn);
+    }
+
+    gallery.replaceChildren(fragment);
+  }
+
+  function mergeStories(incoming) {
+    const map = new Map();
+    const keyFor = s => {
+      const cleanTitle = String(s.title || "").replace(/[^\p{L}\p{N}]+/gu, "").toLowerCase().slice(0, 48);
+      return cleanTitle || s.url || s.id;
+    };
+
+    for (const item of [...incoming, ...allStories]) {
+      const key = keyFor(item);
+      if (!key) continue;
+      if (!map.has(key)) {
+        map.set(key, item);
+      } else {
+        const existing = map.get(key);
+        if (!existing.image && item.image) existing.image = item.image;
+        if ((!existing.url || existing.url === "https://aadarshvanisamachar.com/author/aadarshsamachar/") && item.url) {
+          existing.url = item.url;
+        }
+      }
+    }
+
+    allStories = Array.from(map.values()).sort((a, b) => {
+      const da = Date.parse(a.date) || 0;
+      const db = Date.parse(b.date) || 0;
+      return db - da;
+    });
+  }
+
+  function mergeVideos(incoming) {
+    const seen = new Set();
+    const merged = [];
+    for (const v of [...allVideos, ...incoming]) {
+      if (!v || !v.id || seen.has(v.id)) continue;
+      seen.add(v.id);
+      merged.push(v);
+    }
+    allVideos = merged;
+  }
+
+  async function fetchAvsRss() {
+    const rssUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(AVS_FEED_URL)}`;
+    const res = await fetch(rssUrl, { cache: "no-cache" });
+    if (!res.ok) throw new Error("AVS rss2json failed");
+    const json = await res.json();
+    if (json.status !== "ok" || !Array.isArray(json.items)) return [];
+
+    return json.items.map(item => {
+      const title = stripHtml(item.title);
+      const summary = stripHtml(item.description || item.content).slice(0, 155);
+      const img =
+        sanitizeHttpUrl(item.thumbnail) ||
+        sanitizeHttpUrl(item.enclosure?.link) ||
+        extractFirstImage(item.content || item.description);
+
+      return {
+        id: `avs-live-${item.guid || item.link || title.slice(0, 20)}`,
+        date: String(item.pubDate || "").slice(0, 10) || "2026",
+        source: "आदर्श वाणी समाचार (Live)",
+        outlet_key: "AVS",
+        category: inferCategory(title),
+        category_label: (Array.isArray(item.categories) && item.categories[0]) ? String(item.categories[0]) : "ताज़ा समाचार",
+        title,
+        summary: summary ? `${summary}...` : "",
+        impact: /निलंबित|सस्पेंड|₹2\.27|CSR|कलेक्टर|सीलबंद|सील/.test(title),
+        image: img,
+        url: sanitizeHttpUrl(item.link) || "https://aadarshvanisamachar.com/"
+      };
+    });
+  }
+
+  async function fetchWpFeaturedMediaMap() {
+    try {
+      const res = await fetch("https://aadarshvanisamachar.com/wp-json/wp/v2/posts?_embed&per_page=10", { cache: "no-cache" });
+      if (!res.ok) return [];
+      const posts = await res.json();
+      if (!Array.isArray(posts)) return [];
+      return posts.map(p => {
+        const media = p?._embedded?.["wp:featuredmedia"]?.[0];
+        const img = sanitizeHttpUrl(media?.source_url || "");
+        const title = stripHtml(p?.title?.rendered || "");
+        const summary = stripHtml(p?.excerpt?.rendered || "").slice(0, 155);
+        return {
+          id: `avs-wp-${p.id}`,
+          date: String(p.date || "").slice(0, 10),
+          source: "आदर्श वाणी समाचार",
+          outlet_key: "AVS",
+          category: inferCategory(title),
+          category_label: "ताज़ा समाचार",
+          title,
+          summary: summary ? `${summary}...` : "",
+          impact: /निलंबित|सस्पेंड|₹2\.27|CSR|कलेक्टर|सील/.test(title),
+          image: img,
+          url: sanitizeHttpUrl(p.link)
+        };
+      });
+    } catch (_) {
+      return [];
+    }
+  }
+
+  async function fetchYouTubeChannelVideos(channel) {
+    const feedUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${encodeURIComponent(channel.id)}`;
+    const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feedUrl)}`;
+    const res = await fetch(apiUrl, { cache: "no-cache" });
+    if (!res.ok) return [];
+    const json = await res.json();
+    if (json.status !== "ok" || !Array.isArray(json.items)) return [];
+
+    return json.items.map(item => {
+      const id = extractYouTubeId(item.link);
+      return {
+        id,
+        title: stripHtml(item.title),
+        channel: channel.label,
+        date: String(item.pubDate || "").slice(0, 10),
+        thumbnail: id ? `https://i.ytimg.com/vi/${id}/hqdefault.jpg` : sanitizeHttpUrl(item.thumbnail),
+        url: sanitizeHttpUrl(item.link)
+      };
+    }).filter(v => v.id);
+  }
+
+  window.syncLiveUpdates = async function syncLiveUpdates(manual = false) {
+    const statusEl = document.getElementById("sync-status-text");
+    if (statusEl) {
+      statusEl.textContent = manual ? "लाइव डेटा रिफ्रेश हो रहा है..." : "लाइव सिंक सक्रिय हो रहा है...";
+    }
+
+    try {
+      const localRes = await fetch("./data/stories.json", { cache: "no-cache" });
+      if (localRes.ok) {
+        const localJson = await localRes.json();
+        if (Array.isArray(localJson.stories)) mergeStories(localJson.stories);
+        if (Array.isArray(localJson.videos)) mergeVideos(localJson.videos);
+      }
+    } catch (_) {}
+
+    renderStats();
+    renderStories();
+    renderVideos();
+    renderTicker();
+
+    const results = await Promise.allSettled([
+      fetchWpFeaturedMediaMap(),
+      fetchAvsRss(),
+      ...YT_CHANNELS.map(ch => fetchYouTubeChannelVideos(ch))
+    ]);
+
+    let liveSynced = false;
+    results.forEach((res, idx) => {
+      if (res.status !== "fulfilled" || !Array.isArray(res.value) || !res.value.length) return;
+      liveSynced = true;
+      if (idx <= 1) mergeStories(res.value);
+      else mergeVideos(res.value);
+    });
+
+    renderStats();
+    renderStories();
+    renderVideos();
+    renderTicker();
+
+    if (statusEl) {
+      const timeLabel = new Date().toLocaleTimeString("hi-IN", { hour: "2-digit", minute: "2-digit" });
+      statusEl.textContent = liveSynced
+        ? `लाइव सिंक सफल (${timeLabel})`
+        : `बैकअप आर्काइव सक्रिय (${timeLabel})`;
+    }
+  };
+
+  window.filterNews = function filterNews(filter, btn) {
+    activeFilter = filter;
+    document.querySelectorAll(".filter-btn").forEach(b => {
+      b.className = "filter-btn bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700 text-xs font-bold px-3.5 py-2 rounded-lg transition";
+    });
+    if (btn) {
+      btn.className = "filter-btn bg-red-600 text-white text-xs font-bold px-3.5 py-2 rounded-lg shadow-sm transition";
+    }
+    renderStories();
+  };
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const searchInput = document.getElementById("story-search");
+    if (searchInput) {
+      searchInput.addEventListener("input", event => {
+        searchQuery = String(event.target.value || "").trim().toLowerCase();
+        renderStories();
+      });
+    }
+
+    // Initialize with fallback immediately, then run live RSS/YT sync
+    renderStats();
+    renderStories();
+    renderVideos();
+    playVideo(allVideos[0]);
+    window.syncLiveUpdates(false);
+  });
+})();
