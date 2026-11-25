@@ -874,7 +874,10 @@
 
         function parseStoryTimestamp(raw) {
             if (!raw) return 0;
-            const normalized = String(raw).trim().replace(" ", "T");
+            let normalized = String(raw).trim().replace(" ", "T");
+            if (/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}$/.test(normalized)) {
+                normalized += "Z";
+            }
             const t = Date.parse(normalized);
             if (!Number.isNaN(t)) return t;
             const t2 = Date.parse(String(raw));
@@ -1109,19 +1112,49 @@
                 renderTopLeaderboard();
                 applyFilters();
 
-                // 2. Pull real-time AVS RSS + YouTube Channel RSS via rss2json
+                // 2. Pull REAL-TIME posts directly from aadarshvanisamachar.com WordPress REST API (zero proxy lag!) + rss2json fallback + YouTube RSS
+                const wpApiUrl = `https://aadarshvanisamachar.com/wp-json/wp/v2/posts?per_page=15&_embed&_t=${Date.now()}`;
                 const avsFeed = encodeURIComponent("https://aadarshvanisamachar.com/feed/");
                 const ytFeed = encodeURIComponent(`https://www.youtube.com/feeds/videos.xml?channel_id=${OFFICIAL_YT_CHANNEL_ID}`);
                 const bust = forceRefresh ? `&_t=${Date.now()}` : "";
 
-                const [avsRes, ytRes] = await Promise.allSettled([
+                const [wpRes, avsRes, ytRes] = await Promise.allSettled([
+                    fetch(wpApiUrl, { cache: "no-store" }).then(r => {
+                        if (!r.ok) throw new Error(`WP ${r.status}`);
+                        return r.json();
+                    }),
                     fetch(`https://api.rss2json.com/v1/api.json?rss_url=${avsFeed}${bust}`, { cache: "no-store" }).then(r => r.json()),
                     fetch(`https://api.rss2json.com/v1/api.json?rss_url=${ytFeed}${bust}`, { cache: "no-store" }).then(r => r.json())
                 ]);
 
                 let syncedItems = [];
 
-                if (avsRes.status === "fulfilled" && avsRes.value?.status === "ok" && Array.isArray(avsRes.value.items)) {
+                if (wpRes.status === "fulfilled" && Array.isArray(wpRes.value)) {
+                    const wpPosts = wpRes.value.map(post => {
+                        const title = stripHtml(post.title?.rendered || "");
+                        const rawSummary = stripHtml(post.excerpt?.rendered || post.content?.rendered || "");
+                        const cleanSummary = rawSummary.length > 155 ? `${rawSummary.slice(0, 152)}...` : rawSummary;
+                        const media = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "";
+                        const img = sanitizeHttpsUrl(media) || extractFirstImg(post.content?.rendered || "");
+                        const pubRaw = post.date_gmt ? `${post.date_gmt}Z` : (post.date || "");
+                        return {
+                            title,
+                            source: "आदर्श वाणी समाचार (Live)",
+                            sourceKey: "avs",
+                            tags: /नक्सल|अबूझमाड़|कुतुल|हथियार|माड़/.test(title) ? ["avs", "naxal"] : ["avs"],
+                            date: String(pubRaw).slice(0, 10) || "2026-11-25",
+                            timestamp: parseStoryTimestamp(pubRaw),
+                            dateLabel: formatPubDate(pubRaw),
+                            views: null,
+                            likes: null,
+                            likesDisplay: "—",
+                            summary: cleanSummary,
+                            url: sanitizeHttpsUrl(post.link) || "https://aadarshvanisamachar.com/",
+                            image: img
+                        };
+                    }).filter(p => p.title);
+                    syncedItems.push(...wpPosts);
+                } else if (avsRes.status === "fulfilled" && avsRes.value?.status === "ok" && Array.isArray(avsRes.value.items)) {
                     const liveAvs = avsRes.value.items.map(item => {
                         const title = stripHtml(item.title);
                         const rawSummary = stripHtml(item.description || item.content);
@@ -1439,6 +1472,7 @@
             renderTopLeaderboard();
             applyFilters();
             syncLiveNews();
+            setInterval(() => syncLiveNews(false), 300000);
         });
     </script>
 </body>

@@ -1,25 +1,27 @@
 #!/usr/bin/env python3
 """Auto-sync script for Aakash Singh Thakur portal:
-1. Syncs latest posts & thumbnails from https://aadarshvanisamachar.com/feed/ into data/stories.json ("articles").
+1. Syncs latest posts & thumbnails directly from https://aadarshvanisamachar.com/wp-json/wp/v2/posts (plus /feed/ XML & rss2json fallback) into data/stories.json ("articles").
 2. Syncs latest videos & live views/likes from YouTube channel UCHplyeGVrLsVLnoaLn8w0dg into data/stories.json ("videos").
 """
 
 import concurrent.futures
+import email.utils
 import html as html_lib
 import json
 import re
 import urllib.parse
 import urllib.request
+import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 
 CHANNEL_ID = "UCHplyeGVrLsVLnoaLn8w0dg"
-AVS_FEEDS = [
-    "https://api.rss2json.com/v1/api.json?rss_url=" + urllib.parse.quote("https://aadarshvanisamachar.com/feed/", safe=""),
-    "https://api.rss2json.com/v1/api.json?rss_url=" + urllib.parse.quote("https://aadarshvanisamachar.com/author/aadarshsamachar/feed/", safe=""),
-]
+WP_API_URL = "https://aadarshvanisamachar.com/wp-json/wp/v2/posts?per_page=15&_embed"
+AVS_RSS_DIRECT = "https://aadarshvanisamachar.com/feed/"
+AVS_RSS2JSON = "https://api.rss2json.com/v1/api.json?rss_url=" + urllib.parse.quote(AVS_RSS_DIRECT, safe="")
 HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/124.0.0.0 Safari/537.36",
-    "Accept-Language": "en-US,en;q=0.9,hi;q=0.8",
+    "User-Agent": "Mozilla/5.0 (Linux; Android 13) AppleWebKit/537.36 Chrome/125.0.0.0 Mobile Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,application/xml,application/json;q=0.9,*/*;q=0.8",
+    "Accept-Language": "hi-IN,hi;q=0.9,en-US;q=0.8,en;q=0.7",
 }
 
 
@@ -109,57 +111,116 @@ def article_key(item):
     return "title:" + item.get("title", "").strip()[:60]
 
 
-def sync_avs_articles(existing_articles):
-    by_key = {}
-    for art in existing_articles:
-        by_key[article_key(art)] = dict(art)
+def make_article_entry(title, url, pub_dt, summary_raw, img_raw, author="आकाश सिंह ठाकुर"):
+    summary_full = strip_html(summary_raw)
+    summary = (summary_full[:157] + "...") if len(summary_full) > 160 else summary_full
+    date_only = pub_dt[:10] if len(pub_dt) >= 10 else datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    tags = ["avs"]
+    if any(k in title for k in ("नक्सल", "अबूझमाड़", "कुतुल", "माड़", "हथियार")):
+        tags.append("naxal")
+    return {
+        "title": title,
+        "source": "आदर्श वाणी समाचार",
+        "sourceKey": "avs",
+        "tags": tags,
+        "date": date_only,
+        "pub_datetime": pub_dt or date_only,
+        "author": author or "आकाश सिंह ठाकुर",
+        "summary": summary,
+        "url": url,
+        "image": img_raw,
+    }
 
-    fetched_items = []
-    for feed_url in AVS_FEEDS:
-        try:
-            raw = fetch_url(feed_url, timeout=15)
-            data = json.loads(raw)
-            if data.get("status") == "ok" and isinstance(data.get("items"), list):
-                fetched_items.extend(data["items"])
-                if len(data["items"]) >= 5:
-                    break
-        except Exception:
+
+def fetch_avs_from_wp_api():
+    raw = fetch_url(WP_API_URL, timeout=15)
+    posts = json.loads(raw)
+    out = []
+    for p in posts:
+        title = strip_html((p.get("title") or {}).get("rendered", ""))
+        url = upgrade_avs_https(p.get("link", ""))
+        if not title or not url:
             continue
+        pub_dt = (p.get("date_gmt") or p.get("date") or "").strip()
+        if pub_dt and not pub_dt.endswith("Z"):
+            pub_dt += "Z"
+        emb = p.get("_embedded") or {}
+        media = emb.get("wp:featuredmedia") or []
+        img = upgrade_avs_https(media[0].get("source_url", "")) if media and isinstance(media[0], dict) else ""
+        if not img:
+            img = extract_first_img((p.get("content") or {}).get("rendered", ""))
+        authors = emb.get("author") or []
+        author = strip_html(authors[0].get("name", "")) if authors and isinstance(authors[0], dict) else "आकाश सिंह ठाकुर"
+        summary_raw = (p.get("excerpt") or {}).get("rendered", "") or (p.get("content") or {}).get("rendered", "")
+        out.append(make_article_entry(title, url, pub_dt, summary_raw, img, author))
+    return out
 
-    for it in fetched_items:
+
+def fetch_avs_from_xml():
+    xml_raw = fetch_url(AVS_RSS_DIRECT, timeout=15)
+    root = ET.fromstring(xml_raw)
+    ns = {"content": "http://purl.org/rss/1.0/modules/content/", "dc": "http://purl.org/dc/elements/1.1/"}
+    out = []
+    for item in root.findall("./channel/item"):
+        title = strip_html(item.findtext("title", ""))
+        url = upgrade_avs_https(item.findtext("link", ""))
+        if not title or not url:
+            continue
+        pub_raw = item.findtext("pubDate", "")
+        try:
+            dt = email.utils.parsedate_to_datetime(pub_raw)
+            pub_dt = dt.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+        except Exception:
+            pub_dt = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+        content_html = item.findtext("content:encoded", "", ns) or item.findtext("description", "")
+        img = extract_first_img(content_html)
+        author = strip_html(item.findtext("dc:creator", "", ns)) or "आकाश सिंह ठाकुर"
+        out.append(make_article_entry(title, url, pub_dt, item.findtext("description", "") or content_html, img, author))
+    return out
+
+
+def fetch_avs_from_rss2json():
+    raw = fetch_url(AVS_RSS2JSON, timeout=15)
+    data = json.loads(raw)
+    if data.get("status") != "ok":
+        return []
+    out = []
+    for it in data.get("items", []):
         title = strip_html(it.get("title", ""))
         url = upgrade_avs_https(it.get("link", ""))
         if not title or not url:
             continue
-
-        pub_raw = str(it.get("pubDate", "")).strip()
-        date_only = pub_raw[:10] if len(pub_raw) >= 10 else datetime.now(timezone.utc).strftime("%Y-%m-%d")
-        summary_full = strip_html(it.get("description") or it.get("content") or "")
-        summary = (summary_full[:157] + "...") if len(summary_full) > 160 else summary_full
-
+        pub_dt = str(it.get("pubDate", "")).strip().replace(" ", "T")
+        if pub_dt and not pub_dt.endswith("Z"):
+            pub_dt += "Z"
         enc = it.get("enclosure") if isinstance(it.get("enclosure"), dict) else {}
         img = (
             upgrade_avs_https(it.get("thumbnail", ""))
             or upgrade_avs_https(enc.get("link", ""))
             or extract_first_img(it.get("content") or it.get("description") or "")
         )
+        out.append(make_article_entry(
+            title, url, pub_dt,
+            it.get("description") or it.get("content") or "",
+            img, strip_html(it.get("author", "")) or "आकाश सिंह ठाकुर"
+        ))
+    return out
 
-        tags = ["avs"]
-        if any(k in title for k in ("नक्सल", "अबूझमाड़", "कुतुल", "माड़", "हथियार")):
-            tags.append("naxal")
 
-        entry = {
-            "title": title,
-            "source": "आदर्श वाणी समाचार",
-            "sourceKey": "avs",
-            "tags": tags,
-            "date": date_only,
-            "pub_datetime": pub_raw or date_only,
-            "author": strip_html(it.get("author", "")) or "आकाश सिंह ठाकुर",
-            "summary": summary,
-            "url": url,
-            "image": img,
-        }
+def sync_avs_articles(existing_articles):
+    by_key = {article_key(art): dict(art) for art in existing_articles}
+    fetched_entries = []
+
+    for fetcher in (fetch_avs_from_wp_api, fetch_avs_from_xml, fetch_avs_from_rss2json):
+        try:
+            items = fetcher()
+            if items:
+                fetched_entries = items
+                break
+        except Exception:
+            continue
+
+    for entry in fetched_entries:
         k = article_key(entry)
         prev = by_key.get(k)
         if prev:
@@ -168,7 +229,7 @@ def sync_avs_articles(existing_articles):
             if not entry["summary"] and prev.get("summary"):
                 entry["summary"] = prev["summary"]
         if not entry["image"]:
-            entry["image"] = fetch_og_image(url)
+            entry["image"] = fetch_og_image(entry["url"])
         by_key[k] = entry
 
     articles = list(by_key.values())
@@ -259,7 +320,7 @@ def main():
     }
     with open("data/stories.json", "w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False, indent=2)
-    print(f"Synced {len(updated_articles)} AVS articles + {len(updated_videos)} videos: {total_views} views, {total_likes} likes, top={top_id}")
+    print(f"Synced {len(updated_articles)} AVS articles (latest={latest_art_date}) + {len(updated_videos)} videos: {total_views} views, {total_likes} likes, top={top_id}")
 
 
 if __name__ == "__main__":
