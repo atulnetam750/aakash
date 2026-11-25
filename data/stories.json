@@ -1,11 +1,12 @@
 {
-  "updated_at": "2026-11-25T12:25:00Z",
+  "updated_at": "2026-11-25T12:30:00Z",
   "videos": [
     {
       "id": "1pBJ0x55yIA",
       "title": "बस्तर दशहरा के बाद नारायणपुर बिंजली दशहरा की धूम: कबाड़ के जुगाड़ की क्यों हो रही चर्चा",
       "channel": "आदर्श वाणी समाचार नारायणपुर",
       "date": "2026-10-22",
+      "category": "culture",
       "thumbnail": "https://i.ytimg.com/vi/1pBJ0x55yIA/hqdefault.jpg",
       "url": "https://www.youtube.com/watch?v=1pBJ0x55yIA"
     },
@@ -14,6 +15,7 @@
       "title": "रावघाट पैसेंजर ट्रेन शुरू: रेल से मिली राहत, रोजगार और BSP के CSR पर भड़के ग्रामीण",
       "channel": "आदर्श वाणी समाचार नारायणपुर",
       "date": "2026-10-21",
+      "category": "public",
       "thumbnail": "https://i.ytimg.com/vi/XMNka5Mz4cg/hqdefault.jpg",
       "url": "https://www.youtube.com/watch?v=XMNka5Mz4cg"
     },
@@ -22,6 +24,7 @@
       "title": "BSP प्रबंधन के खिलाफ लामबंद हुए रावघाट माइंस प्रभावित युवा, नारायणपुर बेरोजगारों ने किया चक्काजाम",
       "channel": "आदर्श वाणी समाचार नारायणपुर",
       "date": "2026-10-15",
+      "category": "public",
       "thumbnail": "https://i.ytimg.com/vi/-7OR0uAQ8NM/hqdefault.jpg",
       "url": "https://www.youtube.com/watch?v=-7OR0uAQ8NM"
     },
@@ -30,6 +33,7 @@
       "title": "NMDC से नौकरी मांग रहे युवा, जवाब में CSR बजट का हवाला! बचेली में बवाल",
       "channel": "आदर्श वाणी समाचार नारायणपुर",
       "date": "2026-10-13",
+      "category": "public",
       "thumbnail": "https://i.ytimg.com/vi/06kbGuZ6fSY/hqdefault.jpg",
       "url": "https://www.youtube.com/watch?v=06kbGuZ6fSY"
     },
@@ -38,6 +42,7 @@
       "title": "परंपराओं की जीवंत विरासत: करंगाल और दुग्गाल परगना द्वारा ‘गायता जोहारनी’ उत्सव का भव्य आयोजन",
       "channel": "आदर्श वाणी समाचार नारायणपुर",
       "date": "2026-10-11",
+      "category": "culture",
       "thumbnail": "https://i.ytimg.com/vi/azE8wNEXWT0/hqdefault.jpg",
       "url": "https://www.youtube.com/watch?v=azE8wNEXWT0"
     },
@@ -46,6 +51,7 @@
       "title": "रावघाट पहुंची ‘परख’ ट्रेन | दशकों का इंतजार खत्म होने की दहलीज पर | Narayanpur Bastar",
       "channel": "आदर्श वाणी समाचार नारायणपुर",
       "date": "2026-09-23",
+      "category": "culture",
       "thumbnail": "https://i.ytimg.com/vi/ZDRgAV0sTkc/hqdefault.jpg",
       "url": "https://www.youtube.com/watch?v=ZDRgAV0sTkc"
     },
@@ -54,6 +60,7 @@
       "title": "अबूझमाड़ में अवैध हथियार निर्माण पर पुलिस की दबिश में दो भाई कीहकाड़ से गिरफ्तार, हथियार बरामद",
       "channel": "आदर्श वाणी समाचार नारायणपुर",
       "date": "2026-09-22",
+      "category": "naxal",
       "thumbnail": "https://i.ytimg.com/vi/Dryn-2Ddw4Y/hqdefault.jpg",
       "url": "https://www.youtube.com/watch?v=Dryn-2Ddw4Y"
     },
@@ -62,6 +69,7 @@
       "title": "तेज बारिश से डूबा नारायणपुर का बाजार, वर्षों की बदहाली का वीडियो वायरल",
       "channel": "आदर्श वाणी समाचार नारायणपुर",
       "date": "2026-09-20",
+      "category": "public",
       "thumbnail": "https://i.ytimg.com/vi/TEEdel-DbeA/hqdefault.jpg",
       "url": "https://www.youtube.com/watch?v=TEEdel-DbeA"
     },
@@ -70,6 +78,7 @@
       "title": "पद्मश्री पंडिराम मांडवी की 17 कलाकृतियां चोरी! 12 बरामद, आरोपी गिरफ्तार | Narayanpur News",
       "channel": "आदर्श वाणी समाचार नारायणपुर",
       "date": "2026-09-15",
+      "category": "public",
       "thumbnail": "https://i.ytimg.com/vi/kSKv3cPCCBw/hqdefault.jpg",
       "url": "https://www.youtube.com/watch?v=kSKv3cPCCBw"
     },
@@ -78,6 +87,7 @@
       "title": "नन्हे बच्चों की गोंडी प्रार्थना ने सबको किया मंत्रमुग्ध | Narayanpur Video",
       "channel": "आदर्श वाणी समाचार नारायणपुर",
       "date": "2026-09-10",
+      "category": "culture",
       "thumbnail": "https://i.ytimg.com/vi/WJoXwXdj89A/hqdefault.jpg",
       "url": "https://www.youtube.com/watch?v=WJoXwXdj89A"
     }
@@ -181,24 +191,11 @@
       "outlet_key": "AVS",
       "category": "culture",
       "category_label": "लोक संस्कृति",
-      "title": "नए अन्न के स्वागत की खुशी और सगा जोहार से सराबोर महिमागवाड़ी मंडई",
-      "summary": "महिमागवाड़ी में नवा खाई सगा जोहार समारोह, मोहरी की गूंज और अंदकुरी गांडा समाज की सांस्कृतिक विरासत पर रिपोर्ट।",
+      "title": "नए अन्न के स्वागत की खुशी और सगा जोहार से सराबोर महिमागवाड़ी मंडई व ऐतिहासिक मावली मेला कवरेज",
+      "summary": "महिमागवाड़ी मंडई, नवा खाई सगा जोहार समारोह और बस्तर के ऐतिहासिक मावली मेला की सांस्कृतिक विरासत पर रिपोर्ट।",
       "impact": false,
       "image": "",
       "url": "https://aadarshvanisamachar.com/2026/10/29/narayanpur-andakuri-ganda-samaj-nawa-khai-saga-johar-ceremony/"
-    },
-    {
-      "id": "yt-rowghat-passenger-train",
-      "date": "2026-10-21",
-      "source": "आदर्श वाणी YouTube",
-      "outlet_key": "YT",
-      "category": "culture",
-      "category_label": "रेलवे व रोजगार",
-      "title": "रावघाट पैसेंजर ट्रेन शुरू: रेल से मिली राहत, रेल्वे पर रोजगार और BSP के CSR पर भड़के ग्रामीण",
-      "summary": "रावघाट पैसेंजर ट्रेन की शुरुआत और स्थानीय युवाओं के रोजगार व BSP CSR से जुड़ी ग्राउंड वीडियो रिपोर्ट।",
-      "impact": false,
-      "image": "https://i.ytimg.com/vi/XMNka5Mz4cg/hqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=XMNka5Mz4cg"
     },
     {
       "id": "etv-bhangaram-bidai",
@@ -266,17 +263,17 @@
       "url": "https://ndtv.in/chhattisgarh-news/narayanpur-police-naxal-cash-arms-seizure-maad-bachao-abhiyan-chhattisgarh-news-11484569"
     },
     {
-      "id": "etv-orchha-kakur-camps",
+      "id": "etv-kachhapal-waterfalls",
       "date": "2026",
       "source": "ETV Bharat",
       "outlet_key": "ETV",
-      "category": "naxal",
-      "category_label": "ओरछा व काकुर",
-      "title": "ओरछा व काकुर क्षेत्र में नक्सल ऑपरेशन और नए सुरक्षा कैंपों से बदलती अबूझमाड़ की तस्वीर",
-      "summary": "अंदरूनी अबूझमाड़ में सुरक्षा कैंप खुलने के बाद ग्रामीणों तक पहुँचती सड़क, बिजली और स्वास्थ्य सुविधाओं पर विशेष रिपोर्ट।",
+      "category": "culture",
+      "category_label": "पर्यटन विशेष",
+      "title": "कच्चापाल और फरसबेड़ा जलप्रपात: अबूझमाड़ की वादियों में छिपे खूबसूरत पर्यटन स्थल",
+      "summary": "नारायणपुर और अबूझमाड़ के अनछुए जलप्रपातों व प्राकृतिक सौंदर्य को पर्यटन मानचित्र पर लाने वाली विशेष रिपोर्ट।",
       "impact": false,
       "image": "",
-      "url": "https://www.etvbharat.com/en/state/naxal-free-bastar-completes-100-days-know-how-much-bloody-history-of-abujhmad-and-kohkameta-changed-enn26071103843"
+      "url": "https://www.etvbharat.com/"
     },
     {
       "id": "avs-bastar-olympics-cricket",
