@@ -1,17 +1,13 @@
 (function () {
+  const OFFICIAL_YT_URL = "https://youtube.com/@aadarshvanismacharnarayanp4382";
+  const OFFICIAL_YT_CHANNEL_ID = "UCHplyeGVrLsVLnoaLn8w0dg";
+  const AVS_FEED_URL = "https://aadarshvanisamachar.com/feed/";
+
   const FALLBACK_DATA = {
     videos: [
       {
-        id: "YXgMVZpseHE",
-        title: "79 साल का इंतजार खत्म! रावघाट पहुंची ट्रेन | Bastar Railway News",
-        channel: "Public Talkies",
-        date: "2026-10-23",
-        thumbnail: "https://i.ytimg.com/vi/YXgMVZpseHE/hqdefault.jpg",
-        url: "https://m.youtube.com/watch?v=YXgMVZpseHE"
-      },
-      {
         id: "1pBJ0x55yIA",
-        title: "बस्तर दशहरा के बाद नारायणपुर बिंजली दशहरा की धूम: कबाड़ के जुगाड़ की चर्चा",
+        title: "बस्तर दशहरा के बाद नारायणपुर बिंजली दशहरा की धूम: कबाड़ के जुगाड़ की क्यों हो रही चर्चा",
         channel: "आदर्श वाणी समाचार नारायणपुर",
         date: "2026-10-22",
         thumbnail: "https://i.ytimg.com/vi/1pBJ0x55yIA/hqdefault.jpg",
@@ -27,11 +23,19 @@
       },
       {
         id: "-7OR0uAQ8NM",
-        title: "BSP प्रबंधन के खिलाफ लामबंद हुए रावघाट माइंस प्रभावित युवा, नारायणपुर में चक्काजाम",
+        title: "BSP प्रबंधन के खिलाफ लामबंद हुए रावघाट माइंस प्रभावित युवा, नारायणपुर बेरोजगारों ने किया चक्काजाम",
         channel: "आदर्श वाणी समाचार नारायणपुर",
         date: "2026-10-15",
         thumbnail: "https://i.ytimg.com/vi/-7OR0uAQ8NM/hqdefault.jpg",
         url: "https://www.youtube.com/watch?v=-7OR0uAQ8NM"
+      },
+      {
+        id: "06kbGuZ6fSY",
+        title: "NMDC से नौकरी मांग रहे युवा, जवाब में CSR बजट का हवाला! बचेली में बवाल",
+        channel: "आदर्श वाणी समाचार नारायणपुर",
+        date: "2026-10-13",
+        thumbnail: "https://i.ytimg.com/vi/06kbGuZ6fSY/hqdefault.jpg",
+        url: "https://www.youtube.com/watch?v=06kbGuZ6fSY"
       },
       {
         id: "ZDRgAV0sTkc",
@@ -43,7 +47,7 @@
       },
       {
         id: "Dryn-2Ddw4Y",
-        title: "अबूझमाड़ में अवैध हथियार निर्माण पर पुलिस की दबिश, कीहकाड़ से दो आरोपी गिरफ्तार",
+        title: "अबूझमाड़ में अवैध हथियार निर्माण पर पुलिस की दबिश में दो भाई कीहकाड़ से गिरफ्तार, हथियार बरामद",
         channel: "आदर्श वाणी समाचार नारायणपुर",
         date: "2026-09-22",
         thumbnail: "https://i.ytimg.com/vi/Dryn-2Ddw4Y/hqdefault.jpg",
@@ -133,7 +137,7 @@
         id: "avs-amdai-mines-dispute",
         date: "2026-10-30",
         source: "आदर्श वाणी समाचार",
-        outlet_key: "AVS",
+        outlet_key": "AVS",
         category: "public",
         category_label: "माइनिंग व परिवहन",
         title: "लोडिंग पर्ची और गेट पास नहीं मिलने से नाराज नारायणपुर मालक परिवहन संघ के वाहन चालक (आमदाई लौह अयस्क माइंस)",
@@ -146,7 +150,7 @@
         id: "avs-mahimagawadi-mandai",
         date: "2026-10-29",
         source: "आदर्श वाणी समाचार",
-        outlet_key: "AVS",
+        outlet_key": "AVS",
         category: "culture",
         category_label: "लोक संस्कृति",
         title: "नए अन्न के स्वागत की खुशी और सगा जोहार से सराबोर महिमागवाड़ी मंडई",
@@ -154,19 +158,6 @@
         impact: false,
         image: "",
         url: "https://aadarshvanisamachar.com/2026/10/29/narayanpur-andakuri-ganda-samaj-nawa-khai-saga-johar-ceremony/"
-      },
-      {
-        id: "yt-rowghat-train",
-        date: "2026-10-23",
-        source: "YouTube (Public Talkies)",
-        outlet_key: "YT",
-        category: "culture",
-        category_label: "रेलवे व विकास",
-        title: "79 साल का इंतजार खत्म! रावघाट पहुंची ट्रेन | Bastar Railway News",
-        summary: "बस्तर और रावघाट क्षेत्र में रेलवे विस्तार के ऐतिहासिक पड़ाव पर Public Talkies के लिए विशेष वीडियो ग्राउंड रिपोर्ट।",
-        impact: false,
-        image: "https://i.ytimg.com/vi/YXgMVZpseHE/hqdefault.jpg",
-        url: "https://m.youtube.com/watch?v=YXgMVZpseHE"
       },
       {
         id: "etv-bhangaram-bidai",
@@ -232,80 +223,13 @@
         impact: false,
         image: "",
         url: "https://ndtv.in/chhattisgarh-news/narayanpur-police-naxal-cash-arms-seizure-maad-bachao-abhiyan-chhattisgarh-news-11484569"
-      },
-      {
-        id: "etv-orchha-kakur-camps",
-        date: "2026",
-        source: "ETV Bharat",
-        outlet_key: "ETV",
-        category: "naxal",
-        category_label: "ओरछा व काकुर",
-        title: "ओरछा व काकुर क्षेत्र में नक्सल ऑपरेशन और नए सुरक्षा कैंपों से बदलती अबूझमाड़ की तस्वीर",
-        summary: "अंदरूनी अबूझमाड़ में सुरक्षा कैंप खुलने के बाद ग्रामीणों तक पहुँचती सड़क, बिजली और स्वास्थ्य सुविधाओं पर विशेष रिपोर्ट।",
-        impact: false,
-        image: "",
-        url: "https://www.etvbharat.com/en/state/naxal-free-bastar-completes-100-days-know-how-much-bloody-history-of-abujhmad-and-kohkameta-changed-enn26071103843"
-      },
-      {
-        id: "etv-narayanpur-orchha-road",
-        date: "2026",
-        source: "ETV Bharat",
-        outlet_key: "ETV",
-        category: "public",
-        category_label: "सड़क व परिवहन",
-        title: "नारायणपुर-ओरछा जर्जर मार्ग और यात्री बस सेवा ठप होने से हजारों ग्रामीणों की परेशानी पर रिपोर्ट",
-        summary: "अबूझमाड़ को जिला मुख्यालय से जोड़ने वाली मुख्य सड़क की बदहाली व यात्री परिवहन संकट पर ग्राउंड जीरो रिपोर्ट।",
-        impact: false,
-        image: "",
-        url: "https://www.etvbharat.com/"
-      },
-      {
-        id: "etv-kachhapal-waterfalls",
-        date: "2026",
-        source: "ETV Bharat",
-        outlet_key: "ETV",
-        category: "culture",
-        category_label: "पर्यटन विशेष",
-        title: "कच्चापाल और फरसबेड़ा जलप्रपात को पर्यटन मानचित्र पर लाने वाली विशेष स्टोरी",
-        summary: "अबूझमाड़ की वादियों में छिपे खूबसूरत कच्चापाल व फरसबेड़ा झरनों के प्राकृतिक सौंदर्य पर विशेष डिजिटल व वीडियो स्टोरी।",
-        impact: false,
-        image: "",
-        url: "https://www.etvbharat.com/"
-      },
-      {
-        id: "avs-bastar-olympics-cricket",
-        date: "2026-10-05",
-        source: "आदर्श वाणी समाचार",
-        outlet_key: "AVS",
-        category: "culture",
-        category_label: "खेल व छात्र प्रतिभा",
-        title: "बस्तर ओलंपिक, अंडर-23 क्रिकेट चयन और अबूझमाड़ के होनहार छात्रों की उपलब्धियां",
-        summary: "बस्तर ओलंपिक में आदिवासी युवाओं का दमखम, अंडर-23 क्रिकेट चयन व अबूझमाड़ के मेधावी छात्रों की सफलता की कहानियाँ।",
-        impact: false,
-        image: "",
-        url: "https://aadarshvanisamachar.com/2026/10/05/bastar-olympic-2026-registration-timeline/"
       }
     ]
   };
 
-  const AVS_FEED_URL = "https://aadarshvanisamachar.com/feed/";
-  const YT_CHANNELS = [
-    {
-      id: "UCHplyeGVrLsVLnoaLn8w0dg",
-      label: "आदर्श वाणी समाचार नारायणपुर"
-    },
-    {
-      id: "UCYkP1d0G4bXD5zKvQbkOS5A",
-      label: "Aakash Singh Thakur (@thakuraakashsingh)"
-    },
-    {
-      id: "UC06EiWGo-1pmqFsX40WiTww",
-      label: "Aakash Singh (@akashSingh-tz7nk)"
-    }
-  ];
-
   let allStories = [...FALLBACK_DATA.stories];
   let allVideos = [...FALLBACK_DATA.videos];
+  let activeVideo = allVideos[0];
   let activeFilter = "all";
   let searchQuery = "";
 
@@ -333,8 +257,8 @@
 
   function inferCategory(text) {
     const t = String(text || "").toLowerCase();
-    if (/नक्सल|अबूझमाड़|कुतुल|कैंप|माड़|bounty|ied|naxal|abujhmad|आत्मसमर्पण/.test(t)) return "naxal";
-    if (/संस्कृति|मेला|मंडई|भंगाराम|ओलंपिक|क्रिकेट|जलप्रपात|रेलवे|ट्रेन|छत्तीसगढ़|bhangaram|railway/.test(t)) return "culture";
+    if (/नक्सल|अबूझमाड़|कुतुल|कैंप|माड़|हथियार|bounty|ied|naxal|abujhmad|आत्मसमर्पण/.test(t)) return "naxal";
+    if (/संस्कृति|मेला|मंडई|भंगाराम|दशहरा|जोहारनी|ओलंपिक|क्रिकेट|जलप्रपात|रेलवे|ट्रेन|छत्तीसगढ़|गोंडी|bhangaram/.test(t)) return "culture";
     return "public";
   }
 
@@ -405,7 +329,7 @@
     const allCountBtn = document.getElementById("filter-all-count");
 
     const impactCount = allStories.filter(s =>
-      s.impact || /निलंबित|सस्पेंड|₹2\.27|CSR|कलेक्टर|असर|चेम्बर सील/.test(s.title || "")
+      s.impact || /निलंबित|सस्पेंड|₹2\.27|CSR|कलेक्टर|असर|सीलबंद|सील/.test(s.title || "")
     ).length;
 
     if (totalEl) totalEl.textContent = `${allStories.length}+`;
@@ -447,7 +371,6 @@
 
       const top = document.createElement("div");
 
-      // Media visual header: Featured Image with graceful fallback banner
       const imgUrl = sanitizeHttpUrl(story.image);
       if (imgUrl) {
         const imgWrap = document.createElement("div");
@@ -459,8 +382,7 @@
         img.referrerPolicy = "no-referrer";
         img.className = "w-full h-full object-cover";
         img.addEventListener("error", () => {
-          const fallback = createFallbackBanner(story.outlet_key, story.source);
-          imgWrap.replaceWith(fallback);
+          imgWrap.replaceWith(createFallbackBanner(story.outlet_key, story.source));
         }, { once: true });
         imgWrap.append(img);
         top.append(imgWrap);
@@ -522,6 +444,7 @@
 
   function playVideo(video) {
     if (!video || !video.id) return;
+    activeVideo = video;
     const iframe = document.getElementById("yt-embed-player");
     const titleEl = document.getElementById("active-video-title");
     const metaEl = document.getElementById("active-video-meta");
@@ -532,10 +455,9 @@
       iframe.title = video.title || "YouTube Video Report";
     }
     if (titleEl) titleEl.textContent = video.title || "";
-    if (metaEl) metaEl.textContent = `${video.channel || "YouTube"} • ${formatDateLabel(video.date)}`;
+    if (metaEl) metaEl.textContent = `${video.channel || "आदर्श वाणी समाचार नारायणपुर"} • ${formatDateLabel(video.date)}`;
     if (linkEl) {
-      const safe = sanitizeHttpUrl(video.url) || `https://www.youtube.com/watch?v=${encodeURIComponent(video.id)}`;
-      linkEl.href = safe;
+      linkEl.href = sanitizeHttpUrl(video.url) || `https://www.youtube.com/watch?v=${encodeURIComponent(video.id)}`;
     }
 
     document.querySelectorAll(".yt-thumb-card").forEach(card => {
@@ -545,23 +467,52 @@
     });
   }
 
+  window.openVideoModal = function openVideoModal(videoOverride) {
+    const vid = videoOverride || activeVideo || allVideos[0];
+    if (!vid || !vid.id) return;
+    const modal = document.getElementById("videoModal");
+    const frame = document.getElementById("modal-yt-player");
+    const title = document.getElementById("modal-video-title");
+    const ytLink = document.getElementById("modal-yt-external");
+    if (!modal || !frame) return;
+
+    frame.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(vid.id)}?autoplay=1&rel=0`;
+    frame.title = vid.title || "YouTube Video";
+    if (title) title.textContent = vid.title || "";
+    if (ytLink) ytLink.href = sanitizeHttpUrl(vid.url) || `https://www.youtube.com/watch?v=${encodeURIComponent(vid.id)}`;
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+    document.body.style.overflow = "hidden";
+  };
+
+  window.closeVideoModal = function closeVideoModal() {
+    const modal = document.getElementById("videoModal");
+    const frame = document.getElementById("modal-yt-player");
+    if (frame) frame.src = "";
+    if (modal) {
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    }
+    document.body.style.overflow = "";
+  };
+
   function renderVideos() {
     const gallery = document.getElementById("video-gallery");
     if (!gallery) return;
 
     const fragment = document.createDocumentFragment();
     for (const vid of allVideos.slice(0, 12)) {
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "yt-thumb-card text-left bg-white dark:bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 hover:border-red-500/60 transition shadow-sm flex flex-col";
-      btn.setAttribute("data-video-id", vid.id);
-      btn.addEventListener("click", () => {
+      const card = document.createElement("article");
+      card.className = "yt-thumb-card bg-white dark:bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 hover:border-red-500/60 transition shadow-sm flex flex-col justify-between";
+      card.setAttribute("data-video-id", vid.id);
+
+      const thumbBtn = document.createElement("button");
+      thumbBtn.type = "button";
+      thumbBtn.className = "relative w-full aspect-video bg-slate-900 overflow-hidden text-left block";
+      thumbBtn.addEventListener("click", () => {
         playVideo(vid);
         document.getElementById("video-spotlight")?.scrollIntoView({ behavior: "smooth", block: "start" });
       });
-
-      const thumbWrap = document.createElement("div");
-      thumbWrap.className = "relative w-full aspect-video bg-slate-900 overflow-hidden";
 
       const img = document.createElement("img");
       img.src = sanitizeHttpUrl(vid.thumbnail) || `https://i.ytimg.com/vi/${encodeURIComponent(vid.id)}/hqdefault.jpg`;
@@ -576,24 +527,47 @@
       const playBadge = document.createElement("span");
       playBadge.className = "absolute inset-0 flex items-center justify-center bg-black/25 hover:bg-black/10 transition";
       playBadge.innerHTML = '<span class="w-11 h-11 rounded-full bg-red-600/95 text-white flex items-center justify-center shadow-lg"><i class="fa-solid fa-play ml-0.5"></i></span>';
-
-      thumbWrap.append(img, playBadge);
+      thumbBtn.append(img, playBadge);
 
       const info = document.createElement("div");
-      info.className = "p-3.5 flex-1 flex flex-col justify-between gap-2";
-      const t = document.createElement("h3");
-      t.className = "text-xs sm:text-sm font-bold text-slate-900 dark:text-white line-clamp-2 leading-snug";
-      t.textContent = vid.title;
-      const meta = document.createElement("div");
-      meta.className = "text-[11px] text-slate-500 dark:text-slate-400 flex items-center justify-between gap-2";
-      meta.textContent = `${vid.channel || "YouTube"} • ${formatDateLabel(vid.date)}`;
+      info.className = "p-3.5 flex-1 flex flex-col justify-between gap-2.5";
 
-      info.append(t, meta);
-      btn.append(thumbWrap, info);
-      fragment.append(btn);
+      const t = document.createElement("h3");
+      t.className = "text-xs sm:text-sm font-bold text-slate-900 dark:text-white leading-snug";
+      t.textContent = vid.title;
+
+      const actions = document.createElement("div");
+      actions.className = "flex items-center justify-between gap-2 pt-2 border-t border-slate-100 dark:border-slate-800 text-[11px]";
+
+      const dateSpan = document.createElement("span");
+      dateSpan.className = "text-slate-500 dark:text-slate-400";
+      dateSpan.textContent = formatDateLabel(vid.date);
+
+      const btnGroup = document.createElement("div");
+      btnGroup.className = "flex items-center gap-2 font-bold";
+
+      const modalBtn = document.createElement("button");
+      modalBtn.type = "button";
+      modalBtn.className = "text-red-600 dark:text-red-400 hover:underline";
+      modalBtn.textContent = "पॉप-अप प्लेयर";
+      modalBtn.addEventListener("click", () => window.openVideoModal(vid));
+
+      const ext = document.createElement("a");
+      ext.href = sanitizeHttpUrl(vid.url) || OFFICIAL_YT_URL;
+      ext.target = "_blank";
+      ext.rel = "noopener noreferrer";
+      ext.className = "text-slate-600 dark:text-slate-300 hover:underline";
+      ext.textContent = "YouTube ↗";
+
+      btnGroup.append(modalBtn, ext);
+      actions.append(dateSpan, btnGroup);
+      info.append(t, actions);
+      card.append(thumbBtn, info);
+      fragment.append(card);
     }
 
     gallery.replaceChildren(fragment);
+    playVideo(activeVideo || allVideos[0]);
   }
 
   function mergeStories(incoming) {
@@ -627,7 +601,7 @@
   function mergeVideos(incoming) {
     const seen = new Set();
     const merged = [];
-    for (const v of [...allVideos, ...incoming]) {
+    for (const v of [...incoming, ...allVideos]) {
       if (!v || !v.id || seen.has(v.id)) continue;
       seen.add(v.id);
       merged.push(v);
@@ -653,7 +627,7 @@
       return {
         id: `avs-live-${item.guid || item.link || title.slice(0, 20)}`,
         date: String(item.pubDate || "").slice(0, 10) || "2026",
-        source: "आदर्श वाणी समाचार (Live)",
+        source: "आदर्श वाणी समाचार",
         outlet_key: "AVS",
         category: inferCategory(title),
         category_label: (Array.isArray(item.categories) && item.categories[0]) ? String(item.categories[0]) : "ताज़ा समाचार",
@@ -696,8 +670,8 @@
     }
   }
 
-  async function fetchYouTubeChannelVideos(channel) {
-    const feedUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${encodeURIComponent(channel.id)}`;
+  async function fetchOfficialYouTubeVideos() {
+    const feedUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${OFFICIAL_YT_CHANNEL_ID}`;
     const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feedUrl)}`;
     const res = await fetch(apiUrl, { cache: "no-cache" });
     if (!res.ok) return [];
@@ -709,18 +683,19 @@
       return {
         id,
         title: stripHtml(item.title),
-        channel: channel.label,
+        channel: "आदर्श वाणी समाचार नारायणपुर",
         date: String(item.pubDate || "").slice(0, 10),
         thumbnail: id ? `https://i.ytimg.com/vi/${id}/hqdefault.jpg` : sanitizeHttpUrl(item.thumbnail),
-        url: sanitizeHttpUrl(item.link)
+        url: sanitizeHttpUrl(item.link) || OFFICIAL_YT_URL
       };
     }).filter(v => v.id);
   }
 
   window.syncLiveUpdates = async function syncLiveUpdates(manual = false) {
     const statusEl = document.getElementById("sync-status-text");
+    const topBadge = document.getElementById("top-sync-badge");
     if (statusEl) {
-      statusEl.textContent = manual ? "लाइव डेटा रिफ्रेश हो रहा है..." : "लाइव सिंक सक्रिय हो रहा है...";
+      statusEl.textContent = manual ? "लाइव डेटा रिफ्रेश हो रहा है..." : "aadarshvanisamachar.com से सिंक हो रहा है...";
     }
 
     try {
@@ -740,15 +715,20 @@
     const results = await Promise.allSettled([
       fetchWpFeaturedMediaMap(),
       fetchAvsRss(),
-      ...YT_CHANNELS.map(ch => fetchYouTubeChannelVideos(ch))
+      fetchOfficialYouTubeVideos()
     ]);
 
-    let liveSynced = false;
+    let avsSynced = false;
+    let ytSynced = false;
     results.forEach((res, idx) => {
       if (res.status !== "fulfilled" || !Array.isArray(res.value) || !res.value.length) return;
-      liveSynced = true;
-      if (idx <= 1) mergeStories(res.value);
-      else mergeVideos(res.value);
+      if (idx <= 1) {
+        mergeStories(res.value);
+        avsSynced = true;
+      } else {
+        mergeVideos(res.value);
+        ytSynced = true;
+      }
     });
 
     renderStats();
@@ -756,11 +736,16 @@
     renderVideos();
     renderTicker();
 
+    const timeLabel = new Date().toLocaleTimeString("hi-IN", { hour: "2-digit", minute: "2-digit" });
     if (statusEl) {
-      const timeLabel = new Date().toLocaleTimeString("hi-IN", { hour: "2-digit", minute: "2-digit" });
-      statusEl.textContent = liveSynced
-        ? `लाइव सिंक सफल (${timeLabel})`
-        : `बैकअप आर्काइव सक्रिय (${timeLabel})`;
+      statusEl.textContent = (avsSynced || ytSynced)
+        ? `🟢 Live Synced: aadarshvanisamachar.com (${timeLabel})`
+        : `🟡 Backup Archive Active (${timeLabel})`;
+    }
+    if (topBadge) {
+      topBadge.textContent = (avsSynced || ytSynced)
+        ? "🟢 Live Synced: aadarshvanisamachar.com"
+        : "🟢 Official Portal & YouTube Active";
     }
   };
 
@@ -784,11 +769,13 @@
       });
     }
 
-    // Initialize with fallback immediately, then run live RSS/YT sync
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") window.closeVideoModal();
+    });
+
     renderStats();
     renderStories();
     renderVideos();
-    playVideo(allVideos[0]);
     window.syncLiveUpdates(false);
   });
 })();
