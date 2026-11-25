@@ -1,8 +1,8 @@
-name: Auto Sync YouTube Analytics
+name: Auto Sync News & YouTube Analytics
 
 on:
   schedule:
-    - cron: '0 */2 * * *'
+    - cron: '*/30 * * * *'
   workflow_dispatch:
 
 permissions:
@@ -18,10 +18,10 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Run YouTube Stats Sync
+      - name: Run Auto Sync (Aadarsh Vani + YouTube)
         run: python3 .github/scripts/auto_sync.py
-      - name: Commit updated stats
+      - name: Commit updated stats & news
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Auto-sync YouTube views & likes [skip ci]"
+          commit_message: "Auto-sync Aadarsh Vani news & YouTube stats [skip ci]"
           branch: main

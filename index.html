@@ -291,14 +291,17 @@
                 <!-- Search & Sort Controls -->
                 <div class="flex flex-col sm:flex-row gap-2 w-full md:w-auto">
                     <select id="sortSelect" onchange="applyFilters()" aria-label="क्रम बदलें" class="bg-[#fffdf8] dark:bg-[#1c1917] border border-stone-800 dark:border-stone-600 px-3 py-2 text-xs font-bold text-stone-900 dark:text-[#faf6ed] focus:outline-none focus:border-[#b91c1c]">
+                        <option value="latest" selected>🕒 नवीनतम खबरें (सबसे पहले)</option>
                         <option value="top_views">🔥 टॉप व्यूज (सबसे ज़्यादा देखे गए)</option>
                         <option value="top_likes">👍 सबसे ज़्यादा लाइक्स</option>
-                        <option value="latest">🕒 नवीनतम खबरें (Latest)</option>
                     </select>
-                    <div class="relative w-full sm:w-64">
+                    <div class="relative w-full sm:w-60">
                         <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-stone-500 text-xs"></i>
                         <input type="search" id="searchInput" oninput="applyFilters()" placeholder="खबर खोजें (जैसे: परख ट्रेन, CSR)..." class="w-full bg-[#fffdf8] dark:bg-[#1c1917] border border-stone-800 dark:border-stone-600 pl-8 pr-3.5 py-2 text-xs sm:text-sm text-stone-900 dark:text-[#faf6ed] focus:outline-none focus:border-[#b91c1c]">
                     </div>
+                    <button type="button" id="refreshFeedBtn" onclick="syncLiveNews(true)" class="bg-[#f0e9d8] dark:bg-stone-800 hover:bg-[#b91c1c] hover:text-white text-stone-900 dark:text-[#faf6ed] border border-stone-800 dark:border-stone-600 px-3 py-2 text-xs font-bold transition flex items-center justify-center gap-1.5 shrink-0">
+                        <i class="fa-solid fa-rotate"></i> रिफ्रेश
+                    </button>
                 </div>
             </div>
 
@@ -844,7 +847,11 @@
         function sanitizeHttpsUrl(raw) {
             if (!raw || typeof raw !== "string") return "";
             try {
-                const u = new URL(raw);
+                let s = raw.trim();
+                if (/^http:\/\/(www\.)?aadarshvanisamachar\.com/i.test(s)) {
+                    s = "https://" + s.slice(7);
+                }
+                const u = new URL(s);
                 return u.protocol === "https:" ? u.href : "";
             } catch (_) {
                 return "";
@@ -854,12 +861,89 @@
         function stripHtml(raw) {
             if (!raw) return "";
             const doc = new DOMParser().parseFromString(String(raw), "text/html");
-            return (doc.body.textContent || "").replace(/\s+/g, " ").trim();
+            return (doc.body.textContent || "")
+                .replace(/\s*The post\b[\s\S]*?appeared first on[\s\S]*$/i, "")
+                .replace(/\s+/g, " ")
+                .trim();
         }
 
         function extractFirstImg(raw) {
-            const m = String(raw || "").match(/<img[^>]+src=["'](https:\/\/[^"']+)["']/i);
+            const m = String(raw || "").match(/<img[^>]+src=["'](https?:\/\/[^"']+)["']/i);
             return m ? sanitizeHttpsUrl(m[1]) : "";
+        }
+
+        function parseStoryTimestamp(raw) {
+            if (!raw) return 0;
+            const normalized = String(raw).trim().replace(" ", "T");
+            const t = Date.parse(normalized);
+            if (!Number.isNaN(t)) return t;
+            const t2 = Date.parse(String(raw));
+            return Number.isNaN(t2) ? 0 : t2;
+        }
+
+        function storyKeyFor(s) {
+            if (s.videoId) return `vid:${s.videoId}`;
+            const safeUrl = sanitizeHttpsUrl(s.url);
+            if (safeUrl && safeUrl.includes("aadarshvanisamachar.com/20")) {
+                try {
+                    const p = new URL(safeUrl).pathname.replace(/\/+$/, "");
+                    if (p && p.length > 1) return `path:${p}`;
+                } catch (_) {}
+            }
+            return `title:${String(s.title || "").trim().slice(0, 60)}`;
+        }
+
+        function mergeStoriesList(baseList, incomingList) {
+            const byKey = new Map();
+            for (const item of [...baseList, ...incomingList]) {
+                const key = storyKeyFor(item);
+                if (!byKey.has(key)) {
+                    byKey.set(key, { ...item });
+                } else {
+                    const prev = byKey.get(key);
+                    if (!prev.image && item.image) prev.image = item.image;
+                    if ((!prev.summary || prev.summary.length < 20) && item.summary) prev.summary = item.summary;
+                    if ((item.timestamp || 0) > (prev.timestamp || 0)) prev.timestamp = item.timestamp;
+                    if (item.dateLabel && (!prev.dateLabel || prev.dateLabel === "2026")) prev.dateLabel = item.dateLabel;
+                    if (item.url && item.url.length > (prev.url || "").length) prev.url = item.url;
+                    if (prev.views === null && typeof item.views === "number") prev.views = item.views;
+                    if (prev.likes === null && typeof item.likes === "number") {
+                        prev.likes = item.likes;
+                        prev.likesDisplay = item.likesDisplay || formatNum(item.likes);
+                    }
+                    if (typeof item.views === "number" && (prev.views === null || item.views > prev.views)) {
+                        prev.views = item.views;
+                    }
+                    if (typeof item.likes === "number" && (prev.likes === null || item.likes >= prev.likes)) {
+                        prev.likes = item.likes;
+                        prev.likesDisplay = item.likesDisplay || formatNum(item.likes);
+                    }
+                }
+            }
+            return Array.from(byKey.values());
+        }
+
+        function updateLiveTicker() {
+            const el = document.getElementById("tickerText");
+            if (!el) return;
+            const latestArticles = [...allStories]
+                .filter(s => s.sourceKey === "avs" && !s.videoId)
+                .sort((a, b) => (b.timestamp || parseStoryTimestamp(b.date)) - (a.timestamp || parseStoryTimestamp(a.date)))
+                .slice(0, 3);
+            const topVid = [...allStories]
+                .filter(s => typeof s.views === "number")
+                .sort((a, b) => (b.views || 0) - (a.views || 0))[0];
+
+            const parts = [];
+            if (topVid) {
+                parts.push(`🏆 #1 टॉप खबर: ${topVid.title} (${formatNum(topVid.views)} व्यूज • ${topVid.likesDisplay || formatNum(topVid.likes)} लाइक्स)`);
+            }
+            for (const art of latestArticles) {
+                parts.push(`📰 ताज़ा खबर (${art.dateLabel || formatPubDate(art.date)}): ${art.title}`);
+            }
+            if (parts.length > 0) {
+                el.textContent = parts.map(p => `• ${p}`).join("   |   ");
+            }
         }
 
         function extractYtId(rawUrl) {
@@ -957,123 +1041,152 @@
             });
         }
 
-        // Load data/stories.json (auto-updated every 2h) + Live RSS from aadarshvanisamachar.com & YouTube
-        async function syncLiveNews() {
+        // Load data/stories.json (auto-updated every 30m) + Live RSS from aadarshvanisamachar.com & YouTube
+        async function syncLiveNews(forceRefresh = false) {
             const badge = document.getElementById("syncBadge");
+            const refreshBtn = document.getElementById("refreshFeedBtn");
+            const refreshIcon = refreshBtn ? refreshBtn.querySelector("i") : null;
+            if (refreshIcon) refreshIcon.classList.add("fa-spin");
 
-            // 1. Pull fresh YouTube views/likes from local data/stories.json
             try {
-                const localRes = await fetch("./data/stories.json", { cache: "no-cache" });
-                if (localRes.ok) {
-                    const localJson = await localRes.json();
-                    if (Array.isArray(localJson.videos)) {
-                        const vidMap = new Map(localJson.videos.map(v => [v.id, v]));
-                        allStories = allStories.map(s => {
-                            if (s.videoId && vidMap.has(s.videoId)) {
-                                const fresh = vidMap.get(s.videoId);
-                                return {
-                                    ...s,
-                                    views: typeof fresh.views === "number" ? fresh.views : s.views,
-                                    likes: fresh.likes !== undefined ? fresh.likes : s.likes,
-                                    likesDisplay: fresh.likes_display || s.likesDisplay
-                                };
+                // 1. Pull auto-synced articles & YouTube views/likes from local data/stories.json
+                try {
+                    const localRes = await fetch(`./data/stories.json?t=${Date.now()}`, { cache: "no-store" });
+                    if (localRes.ok) {
+                        const localJson = await localRes.json();
+                        const localIncoming = [];
+
+                        if (Array.isArray(localJson.articles)) {
+                            for (const art of localJson.articles) {
+                                if (!art || !art.title) continue;
+                                localIncoming.push({
+                                    title: art.title,
+                                    source: art.source || "आदर्श वाणी समाचार",
+                                    sourceKey: art.sourceKey || "avs",
+                                    tags: Array.isArray(art.tags) ? art.tags : ["avs"],
+                                    date: art.date || "",
+                                    timestamp: parseStoryTimestamp(art.pub_datetime || art.date),
+                                    dateLabel: formatPubDate(art.pub_datetime || art.date),
+                                    views: null,
+                                    likes: null,
+                                    likesDisplay: "—",
+                                    summary: art.summary || "",
+                                    url: sanitizeHttpsUrl(art.url) || "https://aadarshvanisamachar.com/",
+                                    image: sanitizeHttpsUrl(art.image || "")
+                                });
                             }
-                            return s;
-                        });
-                    }
-                }
-            } catch (_) {}
+                        }
 
-            renderTopLeaderboard();
-            applyFilters();
+                        if (Array.isArray(localJson.videos)) {
+                            for (const v of localJson.videos) {
+                                if (!v || !v.id) continue;
+                                localIncoming.push({
+                                    title: v.title || "",
+                                    source: "YouTube • आदर्श वाणी",
+                                    sourceKey: "video",
+                                    tags: v.category === "naxal" ? ["video", "avs", "naxal"] : ["video", "avs"],
+                                    date: v.date || "",
+                                    timestamp: parseStoryTimestamp(v.date),
+                                    dateLabel: formatPubDate(v.date),
+                                    views: typeof v.views === "number" ? v.views : null,
+                                    likes: v.likes !== undefined ? v.likes : null,
+                                    likesDisplay: v.likes_display || (typeof v.likes === "number" ? formatNum(v.likes) : "—"),
+                                    summary: "आदर्श वाणी समाचार नारायणपुर YouTube चैनल की ग्राउंड वीडियो रिपोर्ट।",
+                                    url: sanitizeHttpsUrl(v.url) || `https://www.youtube.com/watch?v=${encodeURIComponent(v.id)}`,
+                                    videoId: v.id,
+                                    image: sanitizeHttpsUrl(v.thumbnail) || `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`
+                                });
+                            }
+                        }
 
-            // 2. Pull live AVS RSS + YouTube Channel RSS via rss2json
-            const avsFeed = encodeURIComponent("https://aadarshvanisamachar.com/feed/");
-            const ytFeed = encodeURIComponent(`https://www.youtube.com/feeds/videos.xml?channel_id=${OFFICIAL_YT_CHANNEL_ID}`);
-
-            const [avsRes, ytRes] = await Promise.allSettled([
-                fetch(`https://api.rss2json.com/v1/api.json?rss_url=${avsFeed}`, { cache: "no-cache" }).then(r => r.json()),
-                fetch(`https://api.rss2json.com/v1/api.json?rss_url=${ytFeed}`, { cache: "no-cache" }).then(r => r.json())
-            ]);
-
-            let syncedItems = [];
-
-            if (avsRes.status === "fulfilled" && avsRes.value?.status === "ok" && Array.isArray(avsRes.value.items)) {
-                const liveAvs = avsRes.value.items.map(item => {
-                    const title = stripHtml(item.title);
-                    const cleanSummary = stripHtml(item.description || item.content).slice(0, 140);
-                    const img = sanitizeHttpsUrl(item.thumbnail) || sanitizeHttpsUrl(item.enclosure?.link) || extractFirstImg(item.content || item.description);
-                    return {
-                        title,
-                        source: "आदर्श वाणी समाचार (Live)",
-                        sourceKey: "avs",
-                        tags: /नक्सल|अबूझमाड़|कुतुल/.test(title) ? ["avs", "naxal"] : ["avs"],
-                        date: String(item.pubDate || "").slice(0, 10) || "2026-11-25",
-                        dateLabel: formatPubDate(item.pubDate),
-                        views: null,
-                        likes: null,
-                        likesDisplay: "—",
-                        summary: cleanSummary ? `${cleanSummary}...` : "",
-                        url: sanitizeHttpsUrl(item.link) || "https://aadarshvanisamachar.com/",
-                        image: img
-                    };
-                });
-                syncedItems.push(...liveAvs);
-            }
-
-            if (ytRes.status === "fulfilled" && ytRes.value?.status === "ok" && Array.isArray(ytRes.value.items)) {
-                const liveYt = ytRes.value.items.map(item => {
-                    const id = extractYtId(item.link);
-                    const title = stripHtml(item.title);
-                    return {
-                        title,
-                        source: "YouTube • आदर्श वाणी",
-                        sourceKey: "video",
-                        tags: /नक्सल|अबूझमाड़|हथियार/.test(title) ? ["video", "avs", "naxal"] : ["video", "avs"],
-                        date: String(item.pubDate || "").slice(0, 10) || "2026",
-                        dateLabel: formatPubDate(item.pubDate),
-                        views: null,
-                        likes: null,
-                        likesDisplay: "—",
-                        summary: "आदर्श वाणी समाचार नारायणपुर YouTube चैनल की ग्राउंड वीडियो रिपोर्ट।",
-                        url: sanitizeHttpsUrl(item.link) || OFFICIAL_YT_URL,
-                        videoId: id,
-                        image: id ? `https://i.ytimg.com/vi/${id}/hqdefault.jpg` : ""
-                    };
-                }).filter(v => v.videoId);
-                syncedItems.push(...liveYt);
-            }
-
-            if (syncedItems.length > 0) {
-                const byKey = new Map();
-                const keyFor = s => s.videoId ? `vid:${s.videoId}` : s.title.trim().slice(0, 50);
-
-                for (const item of [...allStories, ...syncedItems]) {
-                    const key = keyFor(item);
-                    if (!byKey.has(key)) {
-                        byKey.set(key, item);
-                    } else {
-                        const prev = byKey.get(key);
-                        if (!prev.image && item.image) prev.image = item.image;
-                        if (prev.views === null && typeof item.views === "number") prev.views = item.views;
-                        if (prev.likes === null && typeof item.likes === "number") {
-                            prev.likes = item.likes;
-                            prev.likesDisplay = item.likesDisplay;
+                        if (localIncoming.length > 0) {
+                            allStories = mergeStoriesList(allStories, localIncoming);
                         }
                     }
-                }
-                allStories = Array.from(byKey.values());
+                } catch (_) {}
 
-                if (badge) {
-                    badge.replaceChildren();
-                    const dot = document.createElement("span");
-                    dot.className = "w-1.5 h-1.5 rounded-full bg-emerald-600 dark:bg-emerald-400";
-                    badge.append(dot, document.createTextNode(` लाइव सिंक (${syncedItems.length} अपडेट्स)`));
+                updateLiveTicker();
+                renderTopLeaderboard();
+                applyFilters();
+
+                // 2. Pull real-time AVS RSS + YouTube Channel RSS via rss2json
+                const avsFeed = encodeURIComponent("https://aadarshvanisamachar.com/feed/");
+                const ytFeed = encodeURIComponent(`https://www.youtube.com/feeds/videos.xml?channel_id=${OFFICIAL_YT_CHANNEL_ID}`);
+                const bust = forceRefresh ? `&_t=${Date.now()}` : "";
+
+                const [avsRes, ytRes] = await Promise.allSettled([
+                    fetch(`https://api.rss2json.com/v1/api.json?rss_url=${avsFeed}${bust}`, { cache: "no-store" }).then(r => r.json()),
+                    fetch(`https://api.rss2json.com/v1/api.json?rss_url=${ytFeed}${bust}`, { cache: "no-store" }).then(r => r.json())
+                ]);
+
+                let syncedItems = [];
+
+                if (avsRes.status === "fulfilled" && avsRes.value?.status === "ok" && Array.isArray(avsRes.value.items)) {
+                    const liveAvs = avsRes.value.items.map(item => {
+                        const title = stripHtml(item.title);
+                        const rawSummary = stripHtml(item.description || item.content);
+                        const cleanSummary = rawSummary.length > 155 ? `${rawSummary.slice(0, 152)}...` : rawSummary;
+                        const img = sanitizeHttpsUrl(item.thumbnail) || sanitizeHttpsUrl(item.enclosure?.link) || extractFirstImg(item.content || item.description);
+                        return {
+                            title,
+                            source: "आदर्श वाणी समाचार (Live)",
+                            sourceKey: "avs",
+                            tags: /नक्सल|अबूझमाड़|कुतुल|हथियार/.test(title) ? ["avs", "naxal"] : ["avs"],
+                            date: String(item.pubDate || "").slice(0, 10) || "2026-11-25",
+                            timestamp: parseStoryTimestamp(item.pubDate),
+                            dateLabel: formatPubDate(item.pubDate),
+                            views: null,
+                            likes: null,
+                            likesDisplay: "—",
+                            summary: cleanSummary,
+                            url: sanitizeHttpsUrl(item.link) || "https://aadarshvanisamachar.com/",
+                            image: img
+                        };
+                    });
+                    syncedItems.push(...liveAvs);
                 }
+
+                if (ytRes.status === "fulfilled" && ytRes.value?.status === "ok" && Array.isArray(ytRes.value.items)) {
+                    const liveYt = ytRes.value.items.map(item => {
+                        const id = extractYtId(item.link);
+                        const title = stripHtml(item.title);
+                        return {
+                            title,
+                            source: "YouTube • आदर्श वाणी",
+                            sourceKey: "video",
+                            tags: /नक्सल|अबूझमाड़|हथियार/.test(title) ? ["video", "avs", "naxal"] : ["video", "avs"],
+                            date: String(item.pubDate || "").slice(0, 10) || "2026",
+                            timestamp: parseStoryTimestamp(item.pubDate),
+                            dateLabel: formatPubDate(item.pubDate),
+                            views: null,
+                            likes: null,
+                            likesDisplay: "—",
+                            summary: "आदर्श वाणी समाचार नारायणपुर YouTube चैनल की ग्राउंड वीडियो रिपोर्ट।",
+                            url: sanitizeHttpsUrl(item.link) || OFFICIAL_YT_URL,
+                            videoId: id,
+                            image: id ? `https://i.ytimg.com/vi/${id}/hqdefault.jpg` : ""
+                        };
+                    }).filter(v => v.videoId);
+                    syncedItems.push(...liveYt);
+                }
+
+                if (syncedItems.length > 0) {
+                    allStories = mergeStoriesList(allStories, syncedItems);
+
+                    if (badge) {
+                        badge.replaceChildren();
+                        const dot = document.createElement("span");
+                        dot.className = "w-1.5 h-1.5 rounded-full bg-emerald-600 dark:bg-emerald-400";
+                        badge.append(dot, document.createTextNode(` लाइव सिंक (${syncedItems.length} ताज़ा अपडेट्स)`));
+                    }
+                }
+
+                updateLiveTicker();
+                renderTopLeaderboard();
+                applyFilters();
+            } finally {
+                if (refreshIcon) refreshIcon.classList.remove("fa-spin");
             }
-
-            renderTopLeaderboard();
-            applyFilters();
         }
 
         function getBadgeClass(key) {
@@ -1222,7 +1335,7 @@
 
         function applyFilters() {
             const q = (document.getElementById("searchInput").value || "").toLowerCase().trim();
-            const sortBy = document.getElementById("sortSelect")?.value || "top_views";
+            const sortBy = document.getElementById("sortSelect")?.value || "latest";
 
             const filtered = allStories.filter(s => {
                 const matchCat = currentCategory === "all" || (s.tags && s.tags.includes(currentCategory));
@@ -1240,7 +1353,9 @@
                     const lb = typeof b.likes === "number" ? b.likes : -1;
                     if (lb !== la) return lb - la;
                 }
-                return (Date.parse(b.date) || 0) - (Date.parse(a.date) || 0);
+                const tb = b.timestamp || parseStoryTimestamp(b.date);
+                const ta = a.timestamp || parseStoryTimestamp(a.date);
+                return tb - ta;
             });
 
             renderCards(filtered);
